@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Loggingin = () => {
-  return (
-    <div>Loggingin</div>
-  )
-}
+    return <div>Loggingin</div>;
+};
 
-export default Loggingin
+export default Loggingin;
