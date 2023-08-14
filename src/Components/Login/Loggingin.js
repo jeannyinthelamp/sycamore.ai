@@ -1,11 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Loggingin = () => {
-    return (
-        <div className="border-2 border-black p-4 text-red-400">
-            <div className="text-red-800 text">hello there</div>
-        </div>
-    );
-};
+  return (
+    <div>Loggingin</div>
+  )
+}
 
-export default Loggingin;
+export default Loggingin
