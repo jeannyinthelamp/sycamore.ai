@@ -1,7 +1,7 @@
 import React from "react";
 
 const Loggingin = () => {
-    return <div>Loggingin</div>;
+    return <div className="font-bold">Loggingin</div>;
 };
 
 export default Loggingin;
