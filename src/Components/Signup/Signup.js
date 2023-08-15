@@ -4,15 +4,15 @@ import google from "../../Assets/Icons/google-logo.svg";
 
 export default function Signup() {
   return (
-    // delete temporary margin 'm-8' for outermost div
-    <div className='m-8 flex flex-col justify-center items-center p-[40px] w-[363px] h-[500px]   border-solid border border-black '>
+    //^ delete temporary margin 'm-8' for outermost div
+    <div className=' m-8 flex flex-col justify-center items-center p-[40px] w-[363px] h-auto   border-solid border border-black '>
       <img
         //
-        className='mb-4'
+        className='mb-5'
         src={google}
         alt='Google Logo'
       />
-      <h1 className=' mb-4 font-Rubik text-black font-normal text-[34px]'>
+      <h1 className=' mb-5 h-[40px] font-Rubik text-black font-normal text-[34px] leading-normal'>
         Sign Up
       </h1>
       <form>
@@ -24,7 +24,7 @@ export default function Signup() {
             type='text'
             name='name'
             placeholder='Name'
-            className='w-[283px] h-[44px] mb-4 px-4 border-solid border-2 placeholder-base-black font-Rubik border-base-black'
+            className='w-[283px] h-[44px] mb-5 px-4 border-solid border-2 placeholder-base-black font-Rubik border-base-black'
           />
         </label>
         <label
@@ -34,7 +34,7 @@ export default function Signup() {
           <input
             type='text'
             placeholder='Email Address'
-            className='w-[283px] h-[44px]  px-4 border-solid border-2 font-Rubik placeholder-base-black border-base-black'
+            className='w-[283px] h-[44px] mb-5  px-4 border-solid border-2 font-Rubik placeholder-base-black border-base-black'
           />
         </label>
       </form>
@@ -46,7 +46,7 @@ export default function Signup() {
         }}
       />
       {/* Horizontal Line between buttons */}
-      <div className='w-[283px]  border-[1px] border-black rounded-full'></div>
+      <div className='w-[283px] mb-5  border-[1px] border-black rounded-full'></div>
       <ButtonSmall
         className=''
         btnText='Continue with Google'
