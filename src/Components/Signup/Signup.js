@@ -27,11 +27,16 @@ export default function Signup() {
             className='w-[283px] h-[44px] mb-4 px-4 border-solid border-2 placeholder-base-black font-Rubik border-base-black'
           />
         </label>
-        <input
-          type='text'
-          placeholder='Email Address'
-          className='w-[283px] h-[44px]  px-4 border-solid border-2 font-Rubik placeholder-base-black border-base-black'
-        />
+        <label
+          //
+          className=''
+        >
+          <input
+            type='text'
+            placeholder='Email Address'
+            className='w-[283px] h-[44px]  px-4 border-solid border-2 font-Rubik placeholder-base-black border-base-black'
+          />
+        </label>
       </form>
       <ButtonSmall
         className=''
