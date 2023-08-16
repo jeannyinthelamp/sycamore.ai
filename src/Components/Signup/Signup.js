@@ -1,6 +1,5 @@
 import React from "react";
 import ButtonSmall from "../ButtonSmall/ButtonSmall";
-import google from "../../Assets/Icons/google-logo.svg";
 
 export default function Signup() {
   return (
@@ -9,8 +8,8 @@ export default function Signup() {
         <img
           //
           className='mb-5'
-          src={google}
-          alt='Google Logo'
+          src=''
+          alt=''
         />
         <h1 className=' mb-5 h-[40px] font-Rubik text-black font-normal text-[34px] leading-normal'>
           Sign Up
