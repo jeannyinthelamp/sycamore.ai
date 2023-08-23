@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Rubik: ["Rubik"],
+        Gloria: ["Gloria Hallelujah"],
       },
       colors: {
         "base-black": "#424242",
