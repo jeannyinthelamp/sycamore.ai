@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall";
+import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall/ButtonSmall";
 
 export default function Signup() {
   return (
