@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall";
+import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall/ButtonSmall";
 import checkbox from "../../Assets/Icons/checkbox.svg";
 import check_icon from "../../Assets/Icons/check-icon.svg";
 
