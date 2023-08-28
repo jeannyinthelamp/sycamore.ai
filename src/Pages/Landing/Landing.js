@@ -1,9 +1,9 @@
 import React from "react";
 
-import Navbar from "../../Components/Navbar/Navbar";
-import Hero from "../../Components/Hero/Hero";
-import Features from "../../Components/Features/Features";
-import FAQ from "../../Components/FAQ/FAQ";
+import Navbar from "../../Components/Landing/Navbar/Navbar";
+import Hero from "../../Components/Landing/Hero/Hero";
+import Features from "../../Components/Landing/Features/Features";
+import FAQ from "../../Components/Landing/FAQ/FAQ";
 
 export default function Landing() {
     return (
