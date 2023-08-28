@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         Rubik: ["Rubik"],
         Gloria: ["Gloria Hallelujah"],
+        Poppins: ["Poppins"],
       },
       colors: {
         "base-black": "#424242",
