@@ -4,5 +4,9 @@ import Hero from "../../Components/Landing/Hero/Hero";
 import FAQ from "../../Components/Landing/FAQ/FAQ";
 
 export default function Landing() {
-    return <div>Landing</div>;
+    return (
+        <div>
+            <Navbar />
+        </div>
+    );
 }
