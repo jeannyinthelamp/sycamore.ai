@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className='w-screen h-[369px] flex flex-col  items-center  bg-[#212529] '>
       {/* //& Footer top section */}
-      <div className='footer-top-section w-[100%] max-w-[1440px] flex flex-col justify-center items-center gap-[10px] pt-[100px] px-[165px] pb-[42px]'>
+      <div className='footer-top-section w-[100%] max-w-[1440px] flex flex-col justify-center items-center gap-[10px] pt-[100px] px-[165px]'>
         {/* Wrapper for logo and links */}
-        <div className='logo-links-wrapper w-[100%] flex flex-1 justify-between items-center self-stretch'>
+        <div className='logo-links-wrapper w-[100%] pb-[42px] flex flex-1 justify-between items-center self-stretch border-b border-solid border-[#495057]'>
           {/* wrapper for logo */}
           <div className='flex items-center gap-[14px] w-[110px] h-[46.7px]'>
             <img
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
 
       {/* //& Middle divider */}
-      <div className='w-[1110px] max-w-[1110px]  border border-solid border-[#495057]'></div>
+      {/* <div className='w-[1110px] max-w-[1110px]  border border-solid border-[#495057]'></div> */}
 
       {/* //& Footer bottom section */}
       <div className='footer-bottom-section w-[100%] max-w-[1440px] flex flex-col justify-center items-start pt-[42px] px-[165px] pb-[114px] '>
