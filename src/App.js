@@ -10,14 +10,14 @@ import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import "./index.css";
 
 export default function App() {
-  return (
-    <Routes>
-      <Route path='/' element={<Landing />} />
-      <Route path='/login' element={<Loggingin />} />
-      <Route path='/sign-up' element={<Signup />} />
-      <Route path='/sign-up-2' element={<Signup2 />} />
-      <Route path='/onboarding_1' element={<Onboarding_1 />} />
-      <Route path='*' element={<ErrorPage />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Loggingin />} />
+            <Route path="/sign-up" element={<Signup />} />
+            <Route path="/sign-up-2" element={<Signup2 />} />
+            <Route path="/onboarding_1" element={<Onboarding_1 />} />
+            <Route path="*" element={<ErrorPage />} />
+        </Routes>
+    );
 }

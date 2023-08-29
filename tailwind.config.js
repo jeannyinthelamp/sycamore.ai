@@ -7,6 +7,7 @@ module.exports = {
                 Rubik: ["Rubik"],
                 Gloria: ["Gloria Hallelujah"],
                 Poppins: ["Poppins", "sans-serif"],
+                Inter: ["Inter", "sans-serif"],
             },
             colors: {
                 "base-black": "#424242",
