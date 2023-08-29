@@ -7,9 +7,9 @@ export default function Landing() {
   return (
     <div>
       Landing
-      {/* <Navbar /> */}
+      <Navbar />
       <About />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
