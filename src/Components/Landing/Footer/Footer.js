@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import syne_logo from "../../Assets/Icons/syne-logo.svg";
+import syne_logo from "../../../Assets/Icons/syne-logo.svg";
 
 export default function Footer() {
   return (
