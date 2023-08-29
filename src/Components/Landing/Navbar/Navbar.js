@@ -4,7 +4,7 @@ import Divider from "./Divider";
 
 const Navbar = () => {
     return (
-        <div className="font-Poppins gap-[10px] border-b border-rgba(255, 255, 255, 0.50) shadow-sm">
+        <nav className="font-Poppins gap-[10px] border-b border-rgba(255, 255, 255, 0.50) shadow-sm">
             <div className="flex px-[106px] py-4 justify-between items-center self-stretch">
                 <div className="flex items-center gap-[14px]">
                     <Svglogo />
@@ -26,7 +26,7 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };
 
