@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Rubik&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Poppins&family=Rubik&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
