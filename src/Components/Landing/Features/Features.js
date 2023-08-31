@@ -29,7 +29,7 @@ const Features = () => {
     },
   ];
   return (
-    <div className='mt-[109px] flex flex-row'>
+    <div className='card-components-wrapper w-[1084px] mt-[109px] mx-auto flex flex-row justify-center items-center '>
       <FeaturesCard
         number={data[0].number}
         title={data[0].title}
