@@ -5,7 +5,7 @@ import smart_people_right from "../../../Assets/Images/landing-waitlist-img-2.sv
 
 export default function Waitlist() {
   return (
-    <section className='waitlist-outer-wrapper w-screen h-auto flex justify-center items-center bg-[#FFF]'>
+    <section className='waitlist-outer-wrapper h-auto flex justify-center items-center bg-[#FFF]'>
       <div className='waitlist-inner-wrapper relative w-[1440px] h-[800px] flex justify-center items-center'>
         <div className='image-wrapper relative w-auto h-auto z-0'>
           {/* //* images here */}
