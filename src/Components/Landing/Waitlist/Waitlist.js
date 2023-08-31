@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch } from "@material-tailwind/react";
 import smart_people_left from "../../../Assets/Images/landing-waitlist-img-1.svg";
 import smart_people_right from "../../../Assets/Images/landing-waitlist-img-2.svg";
 
@@ -12,7 +13,7 @@ export default function Waitlist() {
             //
             src={smart_people_left}
             alt='floating business man'
-            className='absolute z-[-1] top-[4%] left-[-56.3%] '
+            className='absolute z-[-1] top-[4%] left-[-56%] '
           />
           <img
             //
@@ -20,7 +21,7 @@ export default function Waitlist() {
             alt='artist painting'
             className='absolute z-[-1] bottom-[5%] right-[-43%]'
           />
-          <div className='waitlist-card-wrapper z-10 w-[500px] h-auto flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[8px]'>
+          <div className='waitlist-card-wrapper z-10 w-[500px] h-[552px] flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[8px]'>
             <div className='waitlist-card-text-wrapper w-[298px] h-auto flex flex-col gap-[16px] items-center'>
               <h1 className='font-[Poppins] text-[28px] font-semibold leading-[42px]'>
                 Join our Waitlist
@@ -65,8 +66,23 @@ export default function Waitlist() {
                   />
                 </label>
 
-                <div className='toggle-wrapper mt-[33.5px] w-[100%] flex flex-row justify-start items-start '>
+                <div className='toggle-wrapper mt-[33.5px] w-[100%] flex flex-row justify-start items-center '>
                   {/* //* Build Toggle Switch here */}
+                  <Switch
+                    id='custom-switch-component'
+                    ripple={false}
+                    defaultChecked
+                    className='h-full w-full checked:bg-[#556AEB]'
+                    containerProps={{
+                      className: "w-11 h-6",
+                    }}
+                    circleProps={{
+                      className: "before:hidden left-0.5 border-none",
+                    }}
+                  />
+                  <p className='ml-[16px] font-[Inter] text-[#495057] text-[14px] font-normal leading-[21px]'>
+                    Receive latest news and updates
+                  </p>
                 </div>
 
                 <input
