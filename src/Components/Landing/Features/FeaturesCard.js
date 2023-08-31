@@ -12,7 +12,7 @@ export default function FeaturesCard(props) {
         <h1 className='mb-[18px] font-[Poppins] text-[24px] font-semibold leading-[36px] text-[#212529]'>
           {props.title}
         </h1>
-        <p className='mb-[19px] font-[Inter] text-[16px] font-normal leading-[24px] text-[#212529]'>
+        <p className='mb-[19px] font-[Inter] text-[16px] font-normal leading-[24px] text-[#495057]'>
           {props.text}
         </p>
         <div className='image-wrapper w-[100%] flex justify-end items-center'>

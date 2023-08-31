@@ -29,6 +29,7 @@ const Features = () => {
     },
   ];
   return (
+    // Wrapper for the FeaturesCard component
     <div className='card-components-wrapper w-[1084px] mt-[109px] mx-auto flex flex-row justify-center items-center '>
       <FeaturesCard
         number={data[0].number}
