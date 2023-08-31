@@ -3,21 +3,21 @@ import Graphic from "./Graphic";
 
 const Hero = () => {
     return (
-        <div className="bg-[#FAFAFF] ">
+        <div className="bg-[#FAFAFF] font-Poppins">
             <div className="px-[168px] py-[126px] grid grid-cols-1 lg:grid-cols-2  gap-[142px] h-screen">
                 <div className="mt-24">
                     <div className="flex flex-col ">
-                        <h1 className="text-[40px] leading-[60px] font-semibold mb-6 font-Poppins">
+                        <h1 className="text-[40px] leading-[60px] font-semibold mb-6">
                             Project Management, Simplified.
                         </h1>
-                        <p className="mb-8 leading-[27px] font-[18px] font-Inter">
+                        <p className="mb-8 leading-[27px] font-[18px] ">
                             Empowering workflows for students, freelancers,
                             <br /> and small businesses.
                         </p>
                         <label class="bg-white w-[440px] rounded-lg border border-solid border-neutral-400 shadow-md">
                             <div class="flex items-center justify-between py-2 px-4">
                                 <input
-                                    class="font-Inter leading-6 text-[16px]"
+                                    class=" leading-6 text-[16px]"
                                     type="email"
                                     required
                                     placeholder="Email Address"

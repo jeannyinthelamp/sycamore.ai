@@ -1,6 +1,12 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+// Importing the required package
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+// The shared content array for both configurations
+const contentArray = ["./src/**/*.{js,jsx,ts,tsx}"];
+
+// Merging the configurations
+module.exports = withMT({
+    content: contentArray,
     theme: {
         extend: {
             fontFamily: {
@@ -12,7 +18,8 @@ module.exports = {
             colors: {
                 "base-black": "#424242",
             },
+            // Other theme extensions can be added here
         },
     },
     plugins: [],
-};
+});
