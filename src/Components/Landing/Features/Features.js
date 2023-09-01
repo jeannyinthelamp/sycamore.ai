@@ -6,7 +6,7 @@ import graph from "../../../Assets/Images/features-graph.svg";
 
 const Features = () => {
   const displayCard = () => {
-    return cardData.map((item) => <FeaturesCard {...item} key={item.name} />);
+    return cardData.map((item) => <FeaturesCard {...item} key={item.number} />);
   };
 
   const cardData = [
