@@ -5,7 +5,11 @@ import hub from "../../../Assets/Images/features-hub-isometric.svg";
 import graph from "../../../Assets/Images/features-graph.svg";
 
 const Features = () => {
-  const data = [
+  const displayCard = () => {
+    return cardData.map((item) => <FeaturesCard {...item} key={item.name} />);
+  };
+
+  const cardData = [
     {
       number: "1",
       title: "Push Pins",
@@ -29,30 +33,10 @@ const Features = () => {
     },
   ];
   return (
-    // Wrapper for the FeaturesCard component
-    <div className='card-components-wrapper w-[1084px] mt-[109px] mx-auto flex flex-row justify-center items-center '>
-      <FeaturesCard
-        number={data[0].number}
-        title={data[0].title}
-        text={data[0].text}
-        image={data[0].image}
-        alt={data[0].alt}
-      />
-      <FeaturesCard
-        margin='mx-[35px]'
-        number={data[1].number}
-        title={data[1].title}
-        text={data[1].text}
-        image={data[1].image}
-        alt={data[1].alt}
-      />
-      <FeaturesCard
-        number={data[2].number}
-        title={data[2].title}
-        text={data[2].text}
-        image={data[2].image}
-        alt={data[2].alt}
-      />
+    // Wrapper for the FeaturesCard components
+    <div className='card-components-wrapper w-[1084px] mt-[109px] mx-auto flex flex-row justify-center items-center gap-[35px] '>
+      {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
+      {displayCard()}
     </div>
   );
 };

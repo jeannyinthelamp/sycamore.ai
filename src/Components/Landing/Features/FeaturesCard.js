@@ -2,9 +2,7 @@ import React from "react";
 
 export default function FeaturesCard(props) {
   return (
-    <div
-      className={`${props.margin} card-wrapper w-[338px] h-[500px] p-[32px] border border-solid border-[#556AEB] rounded-[20px]`}
-    >
+    <div className='card-wrapper w-[338px] h-[500px] p-[32px] border border-solid border-[#556AEB] rounded-[20px]'>
       <div className='card-inner-wrapper flex flex-col justify-center items-start'>
         <div className='w-[48px] h-[48px] mb-[18px] py-[12px] px-[24px flex justify-center items-center bg-[#212529] rounded-[8px] font-[Inter] text-white text-base font-semibold leading-[24px]'>
           {props.number}
