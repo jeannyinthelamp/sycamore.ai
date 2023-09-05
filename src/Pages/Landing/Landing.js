@@ -8,15 +8,15 @@ import About from "../../Components/Landing/About/About";
 import Footer from "../../Components/Landing/Footer/Footer";
 
 export default function Landing() {
-  return (
-    <div>
-      <Navbar />
-      <Hero />
-      <Features />
-      <FAQ />
-      <Waitlist />
-      <About />
-      <Footer />
-    </div>
-  );
+    return (
+        <div>
+            <Navbar />
+            <Hero />
+            <Features />
+            <FAQ />
+            <Waitlist />
+            <About />
+            <Footer />
+        </div>
+    );
 }
