@@ -36,10 +36,18 @@ const Features = () => {
         },
     ];
     return (
-        // Wrapper for the FeaturesCard components
-        <div className="font-Poppins">
-            {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
-            <div className="card-components-wrapper w-[1084px] mt-[109px] mx-auto flex flex-row justify-center items-center gap-[35px] ">
+        <div className="features-outer-wrapper w-[1440px] h-auto mx-auto flex flex-col justify-center items-center bg-[#FFF]">
+            <div className="features-text-wrapper w-[1084px] mt-[126px] flex flex-col">
+                <h2 className="mb-[24px] font-[Poppins] font-semibold text-[24px] text-[#556AEB] leading-[36px]">
+                    Features
+                </h2>
+                <h1 className="w-[571px] font-[Poppins] font-semibold text-[40px] text-[#212529] leading-[60px]">
+                    Syne empowers your workflow and productivity.
+                </h1>
+            </div>
+            {/* // Wrapper for the FeaturesCard components */}
+            <div className="card-components-wrapper w-[1084px] mt-[96px] mb-[126px] mx-auto flex flex-row justify-center items-center gap-[35px] ">
+                {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
                 {displayCard()}
             </div>
             <div className="py-[126px] px-[168px] flex justify-center items-center">
