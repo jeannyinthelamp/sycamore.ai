@@ -50,7 +50,7 @@ const Features = () => {
                 {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
                 {displayCard()}
             </div>
-            <div className="py-[126px] px-[168px] flex justify-center items-center">
+            <div className="py-[126px] px-[168px] flex justify-center items-center font-[Poppins]">
                 <div className="p-16">
                     <div className="border-[64px] border-black rounded-lg relative">
                         <iframe
