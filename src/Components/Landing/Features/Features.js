@@ -50,7 +50,7 @@ const Features = () => {
                 {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
                 {displayCard()}
             </div>
-            <div className="py-[126px] px-[168px] flex justify-center items-center font-[Poppins]">
+            <div className="py-[126px] px-[168px] flex justify-center items-center">
                 <div className="p-16">
                     <div className="border-[64px] border-black rounded-lg relative">
                         <iframe
@@ -58,7 +58,7 @@ const Features = () => {
                             allow="autoplay; encrypted-media"
                             allowFullScreen
                             title="video"
-                            className="w-[1104px] h-[618px]"
+                            className="w-[900px] h-[618px]"
                         ></iframe>
                         <div className="absolute bottom-[60px] left-0 right-0 flex flex-col z-10 px-3">
                             <div className="flex justify-start">
@@ -75,7 +75,7 @@ const Features = () => {
                                 <img
                                     src={playcircle}
                                     alt="play circle"
-                                    className="w-[130px h-[130px]"
+                                    className="w-[130px] h-[130px]"
                                 />
                             </div>
                         </div>
