@@ -42,6 +42,7 @@ export default function Onboarding_1() {
               //
               type='text'
               name='company-name'
+              placeholder='Optional'
               className=' w-[424px] h-auto mt-[8px] mb-[16px] py-[12px] px-[17px] bg-[#222] text-[#858585] font-[Inter] text-sm font-medium leading-[21px] tracking-[-0.266px] border-none outline-none'
             />
           </label>
