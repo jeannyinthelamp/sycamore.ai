@@ -3,7 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Onboarding_nav() {
   const backBtnText = "< Back";
-  const location = useLocation();
+
+  const currentLocation = useLocation();
 
   //Back button functionality
   const traverseBack = (currentPath) => {
@@ -60,43 +61,45 @@ export default function Onboarding_nav() {
   return (
     <div className='flex justify-center max-w-[1440px] mx-auto'>
       <div className='w-[100%] h-[92px]  flex justify-between items-center '>
-        {/* Build a  */}
         <Link
-          to={traverseBack(location.pathname)}
+          className='font-[inter] text-[16px] font-semibold leading-6 tracking-[-0.304px] ml-[59px]'
+          to={traverseBack(currentLocation.pathname)}
           //OnClick can be safely removed without breaking functionality, it only serves for debugging purposes
           onClick={() => {
             //calculate new path
-            traverseBack(location.pathname);
-            console.log("traverseBack - current path: " + location.pathname);
+            traverseBack(currentLocation.pathname);
             console.log(
-              "traverseBack - new path: " + traverseBack(location.pathname)
+              "traverseBack - current path: " + currentLocation.pathname
+            );
+            console.log(
+              "traverseBack - new path: " +
+                traverseBack(currentLocation.pathname)
             );
           }}
-          className='font-[inter] text-[16px] font-semibold leading-6 tracking-[-0.304px] ml-[59px]'
         >
           {backBtnText}
-          {/* {console.log(location.pathname)} */}
         </Link>
-        <div className='mr-[47px]'>
-          {/* //! add link 'to' attribute once Ask later page is created */}
-          <Link to=''>
-            <button
-              //
-              className='w-[127px] h-[58px] mr-[6px] font-[inter] font-medium  text-base leading-[20.8px] tracking-[-0.304px]'
-            >
-              Ask Later
-            </button>
+        <div className='right-btn-wrapper mr-[47px]'>
+          {/* //TODO: add link 'to' attribute once Ask later page is created */}
+          <Link
+            to=''
+            className='w-[127px] h-[58px] py-[18.5px] px-[28.5px]  mr-[6px] font-[inter] font-medium  text-base leading-[20.8px] tracking-[-0.304px]'
+          >
+            Ask Later
           </Link>
 
           <Link
-            to={traverseNext(location.pathname)}
+            to={traverseNext(currentLocation.pathname)}
             //OnClick can be safely removed without breaking functionality, it only serves for debugging purposes
             onClick={() => {
               //calculate new path
-              traverseNext(location.pathname);
-              console.log("traverseNext - current path: " + location.pathname);
+              traverseNext(currentLocation.pathname);
               console.log(
-                "traverseNext - new path: " + traverseNext(location.pathname)
+                "traverseNext - current path: " + currentLocation.pathname
+              );
+              console.log(
+                "traverseNext - new path: " +
+                  traverseNext(currentLocation.pathname)
               );
             }}
           >
