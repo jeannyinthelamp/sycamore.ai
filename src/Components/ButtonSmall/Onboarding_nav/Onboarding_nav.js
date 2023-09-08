@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 export default function Onboarding_nav() {
   const backBtnText = "< Back";
   return (
-    <div className='flex justify-center'>
-      <div className='w-screen h-[92px] max-w-[1440px] flex justify-between items-center '>
+    <div className='flex justify-center max-w-[1440px] mx-auto'>
+      <div className='w-[100%] h-[92px]  flex justify-between items-center '>
         {/* Build a  */}
         <Link
           //   ! add link 'to' attribute  once other onboarding pages are created
