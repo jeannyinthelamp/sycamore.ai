@@ -9,7 +9,7 @@ export default function Onboarding_1() {
       {/* //^ The 'Next' button in header may need to operate as both a submit button for the form and a transition to the next page */}
       <Onboarding_header />
       <Onboarding_nav />
-      <div className='title-and-form-wrapper w-[424px] h-auto mt-[75px] mx-auto flex flex-col justify-center items-center'>
+      <div className='relative title-and-form-wrapper w-[424px] h-auto mt-[75px] mx-auto flex flex-col justify-center items-center'>
         <h1 className='mb-[25px] font-[Inter] text-[44px] font-semibold text-black text-center leading-[140%] tracking-[-0.836px]'>
           Let's set up your account
         </h1>

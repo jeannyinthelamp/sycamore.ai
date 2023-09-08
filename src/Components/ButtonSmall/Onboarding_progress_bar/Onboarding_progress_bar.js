@@ -6,7 +6,7 @@ export default function Onboarding_progress_bar(props) {
     "w-[127px] h-[8px] mx-[7px] rounded-[100px] bg-[#D9D9D9]";
 
   return (
-    <div className='w-[100%] h-auto mt-[140px] flex flex-row justify-center items-center '>
+    <div className='absolute top-[950px] w-[100%] h-auto  flex flex-row justify-center items-center '>
       <Link to='/onboarding_1'>
         <div
           className={`ml-0 ${

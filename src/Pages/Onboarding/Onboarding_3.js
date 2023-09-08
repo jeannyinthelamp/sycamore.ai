@@ -10,7 +10,7 @@ export default function Onboarding_3() {
     <div>
       <Onboarding_header />
       <Onboarding_nav />
-      <div className='title-and-button-wrapper max-w-[505px] h-auto mt-[75px] mx-auto flex flex-col justify-center items-center'>
+      <div className='relative title-and-button-wrapper max-w-[505px] h-auto mt-[75px]  mx-auto flex flex-col justify-center items-center'>
         <h1 className='w-[100%] h-[124px] mb-[12px] font-[Inter] text-[44px] font-semibold text-black text-center leading-[61.6px] tracking-[-1.9%]'>
           Help us customize your workspace
         </h1>
@@ -49,7 +49,7 @@ export default function Onboarding_3() {
             />
           </div>
         </div>
-        <div className='second-selection-wrapper w-[100%] mb-[24px]  px-[14px] flex flex-col justify-start items-start'>
+        <div className='second-selection-wrapper w-[100%] px-[14px] flex flex-col justify-start items-start'>
           <h2 className='mb-[16px] font-[Inter] font-semibold text-[18px] text-center text-black leading-[27px] tracking-[-1.9%]'>
             Whats's your role
           </h2>

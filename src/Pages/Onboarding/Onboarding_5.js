@@ -10,6 +10,7 @@ export default function Onboarding_5() {
       <Onboarding_header />
       <Onboarding_nav />
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
+      {/* set container div to position relative so progress bar can be positioned correctly */}
       <Onboarding_progress_bar active='page5' />
     </div>
   );
