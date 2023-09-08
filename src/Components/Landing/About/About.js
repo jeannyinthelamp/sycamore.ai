@@ -4,7 +4,6 @@ import people from "../../../Assets/Images/about-people.svg";
 
 export default function About() {
   return (
-    //^ component height is wrong
     <section className='about-outer-wrapper w-screen h-auto flex flex-col items-center gap-[10px] py-[80px] px-[168px] bg-[#FAFAFF]'>
       <div className='w-[100%] max-w-[1110px] about-inner-wrapper flex flex-row justify-between items-center '>
         <div className='about-text-wrapper w-[571px] my-[25.02px] flex flex-col items-start self-stretch'>
