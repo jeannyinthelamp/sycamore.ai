@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/ButtonSmall/Onboarding_header/Onboarding_header";
-import Onboarding_nav from "../../Components/ButtonSmall/Onboarding_nav/Onboarding_nav";
-import Onboarding_progress_bar from "../../Components/ButtonSmall/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
+import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
+import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_Checkbox from "./Onboarding_Checkbox/Onboarding_Checkbox";
 
 export default function Onboarding_3() {
