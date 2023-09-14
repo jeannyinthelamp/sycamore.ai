@@ -5,7 +5,7 @@ import syne_logo from "../../../Assets/Icons/syne-logo.svg";
 export default function Footer() {
   return (
     <footer className=' h-[369px] flex flex-col  items-center  bg-[#212529]'>
-      {/* //& Footer top section */}
+      {/* //& Footer top section  */}
       <div className='footer-top-section w-[100%] max-w-[1440px] flex flex-col justify-center items-center gap-[10px] pt-[100px] px-[165px]'>
         {/* Wrapper for logo and links */}
         <div className='logo-links-wrapper w-[100%] pb-[42px] flex flex-1 justify-between items-center self-stretch border-b border-solid border-[#495057]'>
