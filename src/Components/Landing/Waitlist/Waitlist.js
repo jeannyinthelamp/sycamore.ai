@@ -3,8 +3,16 @@ import { Switch } from "@material-tailwind/react";
 import smart_people_left from "../../../Assets/Images/landing-waitlist-img-1.svg";
 import smart_people_right from "../../../Assets/Images/landing-waitlist-img-2.svg";
 import { btn_styles } from "../../Styles/Button_Styles";
+import { safari_input_styling } from "../../Styles/Safari_Input_Styling";
 
 export default function Waitlist() {
+  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
+  function detectBrowser() {
+    if (navigator.userAgent.includes("Safari")) {
+      return safari_input_styling;
+    }
+  }
+
   return (
     <section className='waitlist-outer-wrapper  h-auto flex justify-center items-center bg-[#FFF]'>
       <div className='waitlist-inner-wrapper relative w-[1440px] h-[800px] flex justify-center items-center'>
@@ -22,7 +30,7 @@ export default function Waitlist() {
             alt='artist painting'
             className='absolute z-[-1] bottom-[5%] right-[-43%]'
           />
-          <div className='waitlist-card-wrapper z-10 w-[500px] h-[552px] flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[8px]'>
+          <div className='waitlist-card-wrapper z-10 w-[500px] h-[552px] flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-lg'>
             <div className='waitlist-card-text-wrapper w-[298px] h-auto flex flex-col gap-[16px] items-center'>
               <h1 className='font-Poppins text-[28px] font-semibold leading-[42px]'>
                 Join our Waitlist
@@ -41,7 +49,7 @@ export default function Waitlist() {
                     //
                     type='text'
                     name='first-name'
-                    className=' w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-[8px]'
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg`}
                   />
                 </label>
                 <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
@@ -50,7 +58,7 @@ export default function Waitlist() {
                     //
                     type='text'
                     name='last-name'
-                    className='w-[191px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-[8px]'
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg`}
                   />
                 </label>
               </div>
@@ -63,7 +71,7 @@ export default function Waitlist() {
                     type='email'
                     name='email'
                     required
-                    className=' w-[400px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-[8px]'
+                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg`}
                   />
                 </label>
 
