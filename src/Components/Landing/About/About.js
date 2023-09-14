@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import people from "../../../Assets/Images/about-people.svg";
+import { btn_styles } from "../../Styles/Button_Styles";
 
 export default function About() {
   return (
@@ -20,13 +21,17 @@ export default function About() {
           <div className='button-wrapper flex flex-row'>
             {/* //^ add destination to the 'to' attribute */}
             <Link to='' className='mr-[24px]'>
-              <button className=' py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-[Poppins] text-[#FFF] text-center text-[16px] font-medium leading-[24px] outline-none border-none'>
+              <button
+                className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-[Poppins] text-white text-center text-[16px] font-medium leading-[24px] outline-none border-none ${btn_styles.focus}`}
+              >
                 Learn More
               </button>
             </Link>
             {/* //^ add destination to the 'to' attribute */}
             <Link to='' className='mr-[24px]'>
-              <button className=' py-[12px] px-[24px] flex justify-center items-center bg-[#FAFAFF] rounded-lg font-[Poppins] text-[#556AEB] text-center text-[16px] font-medium leading-[24px] outline-none border border-solid border-[#556AEB]'>
+              <button
+                className={`${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} py-[12px] px-[24px] flex justify-center items-center bg-[#FAFAFF] rounded-lg font-[Poppins] text-[#556AEB] text-center text-[16px] font-medium leading-[24px] outline-none border border-solid border-[#556AEB] ${btn_styles.focus}`}
+              >
                 See Updates
               </button>
             </Link>
