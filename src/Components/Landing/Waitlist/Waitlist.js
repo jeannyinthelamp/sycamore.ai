@@ -24,10 +24,10 @@ export default function Waitlist() {
           />
           <div className='waitlist-card-wrapper z-10 w-[500px] h-[552px] flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[8px]'>
             <div className='waitlist-card-text-wrapper w-[298px] h-auto flex flex-col gap-[16px] items-center'>
-              <h1 className='font-[Poppins] text-[28px] font-semibold leading-[42px]'>
+              <h1 className='font-Poppins text-[28px] font-semibold leading-[42px]'>
                 Join our Waitlist
               </h1>
-              <p className='font-[Inter] text-[14px] text-[#212529] font-normal leading-[21px] text-center'>
+              <p className='font-Inter text-[14px] text-[#212529] font-normal leading-[21px] text-center'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod
               </p>
@@ -35,7 +35,7 @@ export default function Waitlist() {
             {/* //* form */}
             <form className='waitlist-form-wrapper mt-[32px] flex flex-col justify-start items-center'>
               <div className='first-last-names-wrapper flex flex-row'>
-                <label className='flex flex-col font-[Inter] text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
                   First Name
                   <input
                     //
@@ -44,7 +44,7 @@ export default function Waitlist() {
                     className=' w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-[8px]'
                   />
                 </label>
-                <label className='flex flex-col font-[Inter] text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
                   Last Name
                   <input
                     //
@@ -56,7 +56,7 @@ export default function Waitlist() {
               </div>
               {/* //* email & submit button wrapper */}
               <div className='form-email-button-wrapper w-auto h-auto mt-[32px] flex flex-col justify-center items-center'>
-                <label className='flex flex-col font-[Inter] text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
                   Email
                   <input
                     //
@@ -81,7 +81,7 @@ export default function Waitlist() {
                       className: "before:hidden left-0.5 border-none",
                     }}
                   />
-                  <p className='ml-[16px] font-[Inter] text-[#495057] text-[14px] font-normal leading-[21px]'>
+                  <p className='ml-[16px] font-Inter text-[#495057] text-[14px] font-normal leading-[21px]'>
                     Receive latest news and updates
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export default function Waitlist() {
                 <input
                   type='submit'
                   value='Join Waitlist'
-                  className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} w-[400px] mt-[32px] py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-[Poppins] text-[#FFF] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer ${btn_styles.focus}`}
+                  className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} w-[400px] mt-[32px] py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-Poppins text-[#FFF] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer ${btn_styles.focus}`}
                 />
               </div>
             </form>
