@@ -1,5 +1,6 @@
 import React from "react";
 import Graphic from "./Graphic";
+import { btn_styles } from "../../Styles/Button_Styles";
 
 const Hero = () => {
   return (
@@ -29,7 +30,7 @@ const Hero = () => {
                 <input
                   type='submit'
                   value='Join Waitlist'
-                  class='w-[146px] h-[48px] px-6 py-3 border-[1px] rounded-lg bg-[#556AEB] text-white cursor-pointer'
+                  class={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} w-[146px] h-[48px] px-6 py-3 border-[1px] rounded-lg bg-[#556AEB] text-white cursor-pointer ${btn_styles.focus}`}
                 />
               </div>
               {/* </label> */}

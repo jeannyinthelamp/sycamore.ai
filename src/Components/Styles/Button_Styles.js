@@ -1,9 +1,3 @@
-// export const btn_blue_hover = "hover:bg-[#1D2F99]";
-// export const btn_blue_active = "";
-
-// export const btn_white_hover = "";
-// export const btn_white_active = "";
-
 export const btn_styles = {
   btn_blue_hover:
     "ease-in-out duration-[200ms] hover:bg-[#1D2F99] hover:border-[#1D2F99]",
