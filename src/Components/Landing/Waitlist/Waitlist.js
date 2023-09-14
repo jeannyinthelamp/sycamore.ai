@@ -2,6 +2,7 @@ import React from "react";
 import { Switch } from "@material-tailwind/react";
 import smart_people_left from "../../../Assets/Images/landing-waitlist-img-1.svg";
 import smart_people_right from "../../../Assets/Images/landing-waitlist-img-2.svg";
+import { btn_styles } from "../../Styles/Button_Styles";
 
 export default function Waitlist() {
   return (
@@ -88,7 +89,7 @@ export default function Waitlist() {
                 <input
                   type='submit'
                   value='Join Waitlist'
-                  className='w-[400px] mt-[32px] py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-[Poppins] text-[#FFF] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'
+                  className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} w-[400px] mt-[32px] py-[12px] px-[24px] flex justify-center items-center bg-[#556AEB] rounded-lg font-[Poppins] text-[#FFF] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer ${btn_styles.focus}`}
                 />
               </div>
             </form>

@@ -1,6 +1,7 @@
 import React from "react";
 import Svglogo from "./Svglogo";
 import Divider from "./Divider";
+import { btn_styles } from "../../Styles/Button_Styles";
 
 const Navbar = () => {
   return (
@@ -14,10 +15,14 @@ const Navbar = () => {
           <button className='leading-6 font-semibold'>Features</button>
           <button className='leading-6 font-semibold'>About Us</button>
           <Divider />
-          <button className='px-5 py-2 border-[1px] text-[#556AEB] rounded-lg h-10 border-[#556AEB]'>
+          <button
+            className={` ${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} px-5 py-2 border-[1px] text-[#556AEB] rounded-lg h-10 border-[#556AEB] ${btn_styles.focus}`}
+          >
             Contact Us
           </button>
-          <button className='px-5 py-2 border-[1px] rounded-lg bg-[#556AEB] text-white h-10  border-[#556AEB]'>
+          <button
+            className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} px-5 py-2 border-[1px] rounded-lg bg-[#556AEB] text-white h-10  border-[#556AEB]  ${btn_styles.focus}`}
+          >
             Join Waitlist
           </button>
         </div>
