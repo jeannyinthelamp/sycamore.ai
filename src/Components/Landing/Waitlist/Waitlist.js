@@ -49,7 +49,7 @@ export default function Waitlist() {
                     //
                     type='text'
                     name='first-name'
-                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg`}
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
                 <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
@@ -58,7 +58,7 @@ export default function Waitlist() {
                     //
                     type='text'
                     name='last-name'
-                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg`}
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
               </div>
@@ -71,7 +71,7 @@ export default function Waitlist() {
                     type='email'
                     name='email'
                     required
-                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg`}
+                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
 
