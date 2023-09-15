@@ -8,10 +8,13 @@ export default function About() {
     <section className='about-outer-wrapper  h-auto flex flex-col items-center gap-[10px] py-[80px] px-[168px] bg-[#FAFAFF]'>
       <div className='w-[100%] max-w-[1110px] about-inner-wrapper flex flex-row justify-between items-center '>
         <div className='about-text-wrapper w-[571px] my-[25.02px] flex flex-col items-start self-stretch'>
-          <h1 className=' mb-[24px] font-Poppins text-[#212529] text-[40px] font-semibold leading-[60px]'>
+          <h2 className=' mb-[24px] font-Poppins font-semibold text-[24px] text-[#556AEB] leading-[36px] tracking-[0.4px]'>
             About Us
+          </h2>
+          <h1 className='mb-[24px] font-Poppins font-semibold text-[40px] text-[#212529] leading-[54px]'>
+            Who We Are
           </h1>
-          <p className='mb-[32px] font-Inter text-sm font-normal leading-[21px] text-[#212529]'>
+          <p className='w-[571px] mb-[32px] font-Poppins text-[16px] font-normal leading-[24px] text-[#212529]'>
             Syne is a project management tool created by CR8T Studio. Started
             with passion for wanting to centralize multiple projects and tools
             in one platform but not finding any other platform satisfying to
