@@ -32,46 +32,46 @@ export default function Waitlist() {
           />
           <div className='waitlist-card-wrapper z-10 w-[500px] h-[552px] flex flex-col justify-start items-center p-[50px] bg-white border border-solid border-[#CED4DA] rounded-lg'>
             <div className='waitlist-card-text-wrapper w-[298px] h-auto flex flex-col gap-[16px] items-center'>
-              <h1 className='font-Poppins text-[28px] font-semibold leading-[42px]'>
+              <h1 className='font-Poppins text-[28px] font-semibold leading-[40px] font-black'>
                 Join our Waitlist
               </h1>
-              <p className='font-Inter text-[14px] text-[#212529] font-normal leading-[21px] text-center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod
+              <p className='font-Poppins text-[14px] text-[#212529] font-normal leading-[21px] text-center'>
+                Join the waitlist for exclusive access to Syne. Don't miss out
+                on this free tool that will make your workflow easier!
               </p>
             </div>
             {/* //* form */}
             <form className='waitlist-form-wrapper mt-[32px] flex flex-col justify-start items-center'>
               <div className='first-last-names-wrapper flex flex-row'>
-                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Poppins text-[#6C757D] text-[14px] font-normal leading-[21px]'>
                   First Name
                   <input
                     //
                     type='text'
                     name='first-name'
-                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] mr-[17px] py-[10px] px-[16px] font-Inter text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
-                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Poppins text-[#6C757D] text-[14px] font-normal leading-[21px]'>
                   Last Name
                   <input
                     //
                     type='text'
                     name='last-name'
-                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
+                    className={`${detectBrowser()} w-[191px] h-auto mt-[8px] py-[10px] px-[16px] font-Inter text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
               </div>
               {/* //* email & submit button wrapper */}
               <div className='form-email-button-wrapper w-auto h-auto mt-[32px] flex flex-col justify-center items-center'>
-                <label className='flex flex-col font-Inter text-[#6C757D] text-[14px] font-normal leading-[24px]'>
+                <label className='flex flex-col font-Poppins text-[#6C757D] text-[14px] font-normal leading-[21px]'>
                   Email
                   <input
                     //
                     type='email'
                     name='email'
                     required
-                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
+                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] font-Inter text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]`}
                   />
                 </label>
 
@@ -89,7 +89,7 @@ export default function Waitlist() {
                       className: "before:hidden left-0.5 border-none",
                     }}
                   />
-                  <p className='ml-[16px] font-Inter text-[#495057] text-[14px] font-normal leading-[21px]'>
+                  <p className='ml-[16px] font-Poppins text-[#495057] text-[14px] font-normal leading-[21px]'>
                     Receive latest news and updates
                   </p>
                 </div>
