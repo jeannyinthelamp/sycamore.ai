@@ -62,7 +62,7 @@ const Features = () => {
             <div className='absolute bottom-[60px] left-0 right-0 flex flex-col z-10 px-3'>
               <div className='flex justify-start'>
                 {" "}
-                <button className='flex justify-center items-center px-3 py-[6px] rounded-3xl w-[98px] h-9 bg-[#556AEB] text-[#F8F9FA] font-Poppins text-[24px] font-semibold mb-4 tracking-[0.4px] leading-[36px]'>
+                <button className='flex justify-center items-center px-3 py-[6px] rounded-3xl w-[98px] h-9 bg-[#556AEB] text-[#F8F9FA] font-Poppins text-[24px] font-semibold mb-6 tracking-[0.4px] leading-[36px]'>
                   Demo
                 </button>
               </div>

@@ -120,11 +120,11 @@ const FAQ = () => {
           >
             <AccordionHeader
               onClick={() => handleOpen(data.id)}
-              className=' font-[Poppins] leading-6 font-semibold gap-[10px] text-base text-[#212529]'
+              className=' font-Poppins leading-6 font-semibold gap-[10px] text-base text-[#212529]'
             >
               {data.title}
             </AccordionHeader>
-            <AccordionBody className=' font-[Poppins] gap-[10px] leading-6 text-base text-[#212529]'>
+            <AccordionBody className=' font-Poppins gap-[10px] leading-6 text-base '>
               {data.description}
             </AccordionBody>
           </Accordion>
