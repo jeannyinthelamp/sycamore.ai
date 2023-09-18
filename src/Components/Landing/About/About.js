@@ -5,7 +5,7 @@ import { btn_styles } from "../../Styles/Button_Styles";
 
 export default function About() {
   return (
-    <section className='about-outer-wrapper  h-auto flex flex-col items-center gap-[10px] py-[80px] px-[168px] bg-[#FAFAFF]'>
+    <section className='about-outer-wrapper h-auto flex flex-col items-center gap-[10px] py-[80px] px-[168px] bg-[#FAFAFF]'>
       <div className='w-[100%] max-w-[1110px] about-inner-wrapper flex flex-row justify-between items-center '>
         <div className='about-text-wrapper w-[571px] my-[25.02px] flex flex-col items-start self-stretch'>
           <h2 className=' mb-[24px] font-Poppins font-semibold text-[24px] text-[#556AEB] leading-[36px] tracking-[0.4px]'>
