@@ -7,9 +7,9 @@ export default function Footer() {
     <footer
       className=' desktop:h-[369px] flex flex-col  items-center  bg-[#212529]
     
-     tablet:w-[100%] tablet:h-[348.67px]
+     tablet:w-[100%] tablet:h-auto
 
-     mobile:w-[100%] mobile:h-[588.67px]
+     mobile:w-[100%] mobile:h-auto
     '
     >
       {/* //& Footer top section  */}
@@ -83,9 +83,9 @@ export default function Footer() {
 
       {/* //& Footer bottom section */}
       <div
-        className='footer-bottom-section w-[100%] max-w-[1440px] flex flex-col justify-center items-start pt-[42px] px-[165px] pb-[114px] 
+        className='footer-bottom-section w-[100%] max-w-[1440px] h-auto flex flex-col justify-center items-start pt-[42px] px-[165px] pb-[114px] 
       
-      tablet:max-w-[100%] tablet:flex-row tablet:justify-center tablet:items-center tablet:pt-[40.34px] tablet:px-[28px]
+      tablet:max-w-[100%] tablet:h-[120px]  tablet:flex-row tablet:justify-center tablet:items-center tablet:pt-[40.34px] tablet:px-[28px] tablet:pb-[64px]
 
       mobile:max-w-[100%] mobile:flex-col mobile:justify-start mobile:items-start mobile:pt-[32px] mobile:pl-[28px] mobile:pr-[32px] mobile:pb-[64px]
       '
