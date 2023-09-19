@@ -87,7 +87,7 @@ export default function About() {
             {/* //^ add destination to the 'to' attribute */}
             <Link to='' className='desktop:mr-[24px]'>
               <button
-                className={`${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} min-w-[150.833px] max-h-[48px] py-[12px] px-[24px] flex justify-center items-center flex-nowrap  bg-[#FAFAFF] rounded-lg font-Poppins text-[#556AEB] text-center text-[16px] font-medium leading-[24px] outline-none border border-solid border-[#556AEB] ${btn_styles.focus}
+                className={`${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} min-w-[151px] max-h-[48px] py-[12px] px-[24px] flex justify-center items-center flex-nowrap  bg-[#FAFAFF] rounded-lg font-Poppins text-[#556AEB] text-center text-[16px] font-medium leading-[24px] outline-none border border-solid border-[#556AEB] ${btn_styles.focus}
                 
                 tablet:w-[100%]
 
