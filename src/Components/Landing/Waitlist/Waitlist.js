@@ -15,36 +15,52 @@ export default function Waitlist() {
 
   return (
     <section
-      className='waitlist-outer-wrapper  h-auto flex justify-center items-center bg-[#FFF]
+      className='waitlist-outer-wrapper desktop:max-w-[100%] h-auto flex justify-center items-center bg-[#FFF]
     
-    tablet:max-w-[834px] tablet:max-h-[786px] 
+    tablet:max-w-[834px] tablet:max-h-[786px]
     '
     >
-      <div className='waitlist-inner-wrapper relative w-[1440px] h-[800px] flex justify-center items-center'>
-        <div className='image-wrapper relative w-auto h-auto z-0'>
+      <div
+        className='waitlist-inner-wrapper relative desktop:w-[1440px] h-[800px] flex justify-center items-center
+      
+        tablet:max-w-[100%]
+      '
+      >
+        <div
+          className='image-wrapper relative w-[100%] desktop:max-w-[500px] desktop:h-[552px] z-0
+        
+        tablet:max-w-[519px] 
+        '
+        >
           {/* //* images here */}
           <img
             //
             src={smart_people_left}
             alt='floating business man'
-            className='absolute z-[-1] top-[4%] left-[-56%] '
+            className='absolute z-[-1] desktop:top-[4%] desktop:left-[-56%] 
+            
+            tablet:w-[70%] tablet:top-[-15%] tablet:left-[-40%]
+            '
           />
           <img
             //
             src={smart_people_right}
             alt='artist painting'
-            className='absolute z-[-1] bottom-[5%] right-[-43%]'
+            className='absolute z-[-1] desktop:bottom-[5%] desktop:right-[-43%]
+            
+            tablet:w-[32%] tablet:bottom-[-3%] tablet:right-[-24.5%]
+            '
           />
           <div
-            className='waitlist-card-wrapper z-10 desktop:w-[500px] desktop:h-[552px] flex flex-col desktop:justify-start items-center desktop:p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[20px]
+            className='waitlist-card-wrapper z-10 w-[100%] desktop:max-w-[500px] desktop:h-[552px] flex flex-col desktop:justify-start items-center desktop:p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[20px]
           
-          tablet:w-[519px] tablet:h-[699px] tablet:justify-start tablet:py-[50px] tablet:px-[16px]
+           tablet:max-w-[519px] tablet:h-[699px] tablet:justify-start tablet:py-[50px] tablet:px-[16px]
           '
           >
             <div
-              className='waitlist-card-text-wrapper desktop:w-[298px] h-auto flex flex-col gap-[16px] items-center
+              className='waitlist-card-text-wrapper desktop:max-w-[298px] h-auto flex flex-col gap-[16px] items-center
             
-            tablet:w-[317px]
+            tablet:max-w-[317px]
             '
             >
               <h1
@@ -58,7 +74,7 @@ export default function Waitlist() {
               <p
                 className='font-Poppins desktop:text-[14px] text-[#212529] font-normal desktop:leading-[21px] text-center
               
-                tablet:text-[18px] tablet:leading-[27px]
+                tablet:w-[95%] tablet:text-[18px] tablet:leading-[27px]
               '
               >
                 Join the waitlist for exclusive access to Syne. Don't miss out
@@ -67,15 +83,15 @@ export default function Waitlist() {
             </div>
             {/* //* form */}
             <form
-              className='waitlist-form-wrapper mt-[32px] flex flex-col justify-start items-center
+              className='waitlist-form-wrapper desktop:w-auto mt-[32px] flex flex-col justify-start items-center
             
-            tablet:w-[487px] tablet:border tablet:border-red-500
+            tablet:max-w-[100%] tablet:w-[487px]
             '
             >
               <div
                 className='first-last-names-wrapper w-[100%] flex desktop:flex-row
               
-              tablet:flex-col tablet:gap-[14px]
+              tablet:flex-col tablet:gap-[14px] 
               '
               >
                 <label
@@ -108,19 +124,25 @@ export default function Waitlist() {
               </div>
               {/* //* email & submit button wrapper */}
               <div
-                className='form-email-button-wrapper desktop:w-auto h-auto desktop:mt-[32px] flex flex-col desktop:justify-center desktop:items-center
+                className='form-email-button-wrapper desktop:w-[100%] h-auto desktop:mt-[32px] flex flex-col desktop:justify-center desktop:items-center
               
-              tablet:w-[487px] tablet:justify-center tablet:mt-[14px]
+              tablet:w-[100%] tablet:justify-center tablet:items-start tablet:mt-[14px]
               '
               >
-                <label className='flex flex-col font-Poppins text-[#6C757D] text-[14px] font-normal leading-[21px]'>
+                <label
+                  className='flex flex-col font-Poppins text-[#6C757D] text-[14px] font-normal leading-[21px]
+                
+                tablet:w-[100%]
+                '
+                >
                   Email
                   <input
                     //
                     type='email'
                     name='email'
                     required
-                    className={`${detectBrowser()} w-[400px] h-auto mt-[8px] py-[10px] px-[16px] font-Inter text-[#212529]  outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]
+                    className={`${detectBrowser()} desktop:w-[400px] h-auto mt-[8px] py-[10px] px-[16px] font-Inter text-[#212529] outline outline-1 outline-[#CED4DA] rounded-lg shadow-[0_2px_2px_0_rgba(33,37,41,0.08)]
+                    
                     
                     tablet:w-[100%]
                     `}
