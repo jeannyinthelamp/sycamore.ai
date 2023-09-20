@@ -44,6 +44,7 @@ export default function Footer() {
               </p>
             </div>
             <p
+              // TODO: add message text to desktop version as well
               className='desktop:hidden
             
             tablet:max-w-[301px] tablet:font-Poppins tablet:font-normal tablet:text-[16px] text-[#F8F9FA] tablet:leading-[24px]
