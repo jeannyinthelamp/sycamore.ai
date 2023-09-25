@@ -43,7 +43,8 @@ export default function FeaturesCard(props) {
             {props.title}
           </h1>
           <p
-            className='desktop:w-[104.5%] desktop:h-[72px] font-Poppins desktop:text-[16px] font-normal desktop:leading-[24px] text-[#495057]
+            //TODO:  Needs tablet and mobile heights
+            className='desktop:w-[104.5%] desktop:min-h-[72px] font-Poppins desktop:text-[16px] font-normal desktop:leading-[24px] text-[#495057] border border-pink-400
         
            tablet:text-[18px] tablet:w-[100%] tablet:leading-[27px]
 
@@ -54,9 +55,9 @@ export default function FeaturesCard(props) {
           </p>
         </div>
         <div
-          className='image-wrapper w-[100%] h-[100%] flex justify-end items-center border border-orange-600
+          className='image-wrapper w-[100%] h-[100%] inline-flex justify-end items-end border border-orange-600
         
-        tablet:w-[26%]
+        tablet:w-[26%] 
         '
         >
           <img
