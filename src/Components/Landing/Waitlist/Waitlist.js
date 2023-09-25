@@ -188,7 +188,7 @@ export default function Waitlist() {
                   <Switch
                     id='custom-switch-component'
                     ripple={false}
-                    defaultChecked
+                    // defaultChecked='false'
                     className='h-full w-full checked:bg-[#556AEB]'
                     containerProps={{
                       className: "w-11 h-6",
