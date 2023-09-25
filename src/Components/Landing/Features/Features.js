@@ -38,28 +38,35 @@ const Features = () => {
   ];
   return (
     <div
-      className='features-outer-wrapper desktop:max-w-[1440px] h-auto mx-auto flex flex-col justify-center items-center bg-[#FFF] border border-red-600 
+      className='features-outer-wrapper desktop:max-w-[1440px] h-auto mx-auto flex flex-col justify-center items-center bg-[#FFF] 
     
     tablet:max-w-[834px]
+
+    mobile:max-w-[375px] 
     '
     >
       <div
-        className='features-inner-wrapper desktop:max-w-[90.6%] border-2 border-blue-700
+        className='features-inner-wrapper desktop:max-w-[90.6%]
       
-
       tablet:max-w-[94.5%]
+
+      mobile:max-w-[94.5%] 
       '
       >
         <div
           className='features-text-wrapper desktop:w-[100%] mt-[126px] flex flex-col
         
-         tablet:w-[100%] tablet:my-[64px]
+         tablet:w-[100%] tablet:mt-[64px] tablet:mb-[48px]
+
+         mobile:w-[100%] mobile:mt-[64px] mobile:mb-[24px]
         '
         >
           <h2
             className='mb-[24px] font-Poppins font-semibold text-[24px] text-[#556AEB] leading-[36px] tracking-[0.4px] 
           
-          tablet:max-w-[100%]
+          tablet:max-w-[100%] tablet:leading-[30px]
+
+          mobile:max-w-[100%] mobile:text-[20px] mobile:leading-[30px]
 
           '
           >
@@ -68,23 +75,27 @@ const Features = () => {
           <h1
             className='desktop:w-[571px] font-Poppins font-semibold text-[40px] text-[#212529] leading-[54px]
           
-          tablet:w-[100%]
+          tablet:w-[100%] tablet:text-[38px] tablet:leading-[51px]
+
+          mobile:w-[100%] mobile:text-[28px] mobile:leading-[40px]
           '
           >
             Syne Empowers Your Workflow and Productivity
           </h1>
         </div>
-        {/* // Wrapper for the FeaturesCard components */}
+        {/* //* Wrapper for the FeaturesCard components */}
         <div
-          className='card-components-wrapper desktop:max-w-[1104px] desktop:h-auto mt-[96px] mb-[126px] flex flex-row justify-start items-center desktop:gap-[35px] border-2 border-light-blue-400
+          className='card-components-wrapper desktop:max-w-[1104px] desktop:h-auto mt-[96px] mb-[126px] flex flex-row justify-start items-center desktop:gap-[35px] 
         
-        tablet:max-w-[786px] tablet:gap-[24px] tablet:flex-col
+        tablet:max-w-[786px] tablet:gap-[24px] tablet:flex-col tablet:mt-[0px]
+
+        mobile:max-w-[338px] mobile:gap-[24px] mobile:flex-col mobile:mt-[0px]
         '
         >
           {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
           {displayCard()}
         </div>
-        <div className='py-[126px] px-[168px] flex justify-center items-center'>
+        <div className='py-[126px] px-[168px] flex justify-center items-center border border-red-800'>
           <div className='p-16'>
             <div className='border-[64px] border-black rounded-lg relative'>
               <iframe
