@@ -85,7 +85,7 @@ const Features = () => {
         </div>
         {/* //* Wrapper for the FeaturesCard components */}
         <div
-          className='card-components-wrapper desktop:max-w-[1104px] desktop:h-auto mt-[96px] mb-[126px] flex flex-row justify-start items-center desktop:gap-[35px] 
+          className='card-components-wrapper desktop:max-w-[1104px] desktop:h-auto mt-[109px] mb-[138px] flex flex-row justify-start items-center desktop:gap-[35px] 
         
         tablet:max-w-[786px] tablet:gap-[24px] tablet:flex-col tablet:mt-[0px]
 
@@ -95,6 +95,8 @@ const Features = () => {
           {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
           {displayCard()}
         </div>
+        {/* //& Wrapper for the Video section */}
+
         <div className='py-[126px] px-[168px] flex justify-center items-center border border-red-800'>
           <div className='p-16'>
             <div className='border-[64px] border-black rounded-lg relative'>

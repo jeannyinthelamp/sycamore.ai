@@ -6,16 +6,15 @@ export default function FeaturesCard(props) {
   return (
     <div
       //! Removed max width from card wrapper and used regular width. Now all cards are the same width when resizing
-      className='card-wrapper flex desktop:w-[334.67px] desktop:h-fit desktop:py-[32px] desktop:pl-[32px] desktop:pr-[36.67px] border border-solid border-[#556AEB] rounded-[20px]
+      className='card-wrapper flex desktop:w-[334.67px] desktop:h-auto desktop:py-[32px] desktop:pl-[32px] desktop:pr-[36.67px] border border-solid border-[#556AEB] rounded-[20px]
       
     tablet:max-w-[786px] tablet:h-[301.3px] tablet:py-[32px] tablet:px-[32px] 
 
     mobile:max-w-[338px] mobile:h-[500px] mobile:py-[32px] mobile:px-[32px]
     '
     >
-      {/* TODO: added a height to inner wrapper, that made the images behave correctly */}
       <div
-        className='card-inner-wrapper desktop:h-[436px] flex flex-col justify-start items-start
+        className='card-inner-wrapper h-[436px]  flex flex-col justify-between items-start
       
       tablet:h-[237.3px] tablet:flex-row tablet:justify-between tablet:items-center
 
@@ -33,7 +32,7 @@ export default function FeaturesCard(props) {
             {props.number}
           </div>
           <h1
-            className='mb-[16px] font-Poppins text-[24px] font-semibold leading-[36px] text-[#212529]
+            className='mb-[16px] font-Poppins text-[24px] font-semibold leading-[36px] text-[#212529] tracking-[-0.4px]
         
         tablet:w-[70%] tablet:leading-[30px]
 
@@ -43,8 +42,7 @@ export default function FeaturesCard(props) {
             {props.title}
           </h1>
           <p
-            //TODO:  Needs tablet and mobile heights
-            className='desktop:w-[104.5%] desktop:min-h-[72px] font-Poppins desktop:text-[16px] font-normal desktop:leading-[24px] text-[#495057] border border-pink-400
+            className='desktop:w-[104.5%] desktop:min-h-[72px] font-Poppins desktop:text-[16px] font-normal desktop:leading-[24px] text-[#495057]
         
            tablet:text-[18px] tablet:w-[100%] tablet:leading-[27px]
 
@@ -55,14 +53,14 @@ export default function FeaturesCard(props) {
           </p>
         </div>
         <div
-          className='image-wrapper w-[100%] h-[100%] inline-flex justify-end items-end border border-orange-600
+          className='image-wrapper w-[100%] max-h-[99%] m-0 p-0 flex justify-end items-end border border-orange-600
         
         tablet:w-[26%] 
         '
         >
           <img
             //! display block on image?
-            className={`${props.className} border border-red-600`}
+            className={`${props.className}`}
             src={props.image}
             alt={props.alt}
           />
