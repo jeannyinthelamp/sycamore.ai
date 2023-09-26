@@ -6,10 +6,11 @@ import graph from "../../../Assets/Images/features-graph.svg";
 import playcircle from "../../../Assets/Images/play_circle.svg";
 
 const Features = () => {
-  const displayCard = () => {
-    return cardData.map((item) => <FeaturesCard {...item} key={item.number} />);
-  };
-
+    const displayCard = () => {
+        return cardData.map((item) => (
+            <FeaturesCard {...item} key={item.number} />
+        ));
+    };
   const cardData = [
     {
       number: "1",
@@ -128,11 +129,8 @@ const Features = () => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Features;
