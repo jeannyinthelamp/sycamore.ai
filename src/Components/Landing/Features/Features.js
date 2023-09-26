@@ -97,7 +97,7 @@ const Features = () => {
         </div>
         {/* //& Wrapper for the Video section */}
 
-        <div className='py-[126px] px-[168px] flex justify-center items-center border border-red-800'>
+        <div className='py-[126px] px-[168px] flex justify-center items-center'>
           <div className='p-16'>
             <div className='border-[64px] border-black rounded-lg relative'>
               <iframe

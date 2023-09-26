@@ -61,7 +61,6 @@ export default function FeaturesCard(props) {
         '
         >
           <img
-            //! display block on image?
             className={`${props.className} desktop:max-w-[80%]`}
             src={props.image}
             alt={props.alt}

@@ -11,9 +11,9 @@ export default function Landing() {
   return (
     <div>
       <Navbar />
-      {/* <Hero /> */}
+      <Hero />
       <Features />
-      {/* <FAQ /> */}
+      <FAQ />
       <Waitlist />
       <About />
       <Footer />

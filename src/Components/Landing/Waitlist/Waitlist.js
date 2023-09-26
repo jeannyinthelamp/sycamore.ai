@@ -59,7 +59,7 @@ export default function Waitlist() {
             '
           />
           <div
-            className='waitlist-card-wrapper z-10 w-[100%] desktop:max-w-[500px] desktop:h-[552px] flex flex-col desktop:justify-start items-center desktop:p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[20px]
+            className='waitlist-card-wrapper z-10 max-w-[519px] mx-[8px] desktop:max-w-[500px] desktop:h-[552px] flex flex-col desktop:justify-start items-center desktop:p-[50px] bg-white border border-solid border-[#CED4DA] rounded-[20px]
           
            tablet:max-w-[519px] tablet:h-[699px] tablet:justify-start tablet:py-[50px] tablet:px-[16px]
 

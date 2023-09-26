@@ -6,7 +6,7 @@ import { btn_styles } from "../../Styles/Button_Styles";
 export default function About() {
   return (
     <section
-      className='about-outer-wrapper max-w-[100%] desktop:min-h-[474px] flex flex-col items-center gap-[10px] desktop:py-[80px] desktop:px-[168px] bg-[#FAFAFF] 
+      className='about-outer-wrapper max-w-[100%] desktop:min-h-[474px] flex flex-col items-center gap-[10px] desktop:py-[80px] desktop:px-[168px] bg-[#FAFAFF]
 
       tablet:max-w-[834px] tablet:min-h-[837px] tablet:py-[64px] tablet:px-[24px]
 
