@@ -14,7 +14,7 @@ export default function FeaturesCard(props) {
     '
     >
       <div
-        className='card-inner-wrapper h-[436px]  flex flex-col justify-between items-start
+        className='card-inner-wrapper h-[436px] flex flex-col justify-between items-start
       
       tablet:h-[237.3px] tablet:flex-row tablet:justify-between tablet:items-center
 
@@ -53,14 +53,16 @@ export default function FeaturesCard(props) {
           </p>
         </div>
         <div
-          className='image-wrapper w-[100%] max-h-[99%] m-0 p-0 flex justify-end items-end border border-orange-600
+          className='image-wrapper desktop:w-[100%] desktop:max-h-[60%] m-0 p-0 flex justify-end items-end 
         
         tablet:w-[26%] 
+
+        mobile:w-[100%] mobile:max-h-[50%]
         '
         >
           <img
             //! display block on image?
-            className={`${props.className}`}
+            className={`${props.className} desktop:max-w-[80%]`}
             src={props.image}
             alt={props.alt}
           />
