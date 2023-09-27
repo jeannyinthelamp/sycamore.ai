@@ -1,18 +1,25 @@
 import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 export default function Onboarding_1() {
+  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
+  function detectBrowser() {
+    if (navigator.userAgent.includes("Safari")) {
+      return safari_input_styling;
+    }
+  }
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center'>
       <Onboarding_header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page1' />
 
-      <div className='title-and-form-wrapper max-w-[541px] h-auto mx-auto flex flex-col justify-center items-center border border-red-500'>
-        <div className='text-wrapper h-[106px] mb-[72px] flex flex-col justify-start items-center border border-blue-500'>
-          <h1 className='mb-[24px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
+      <div className='title-and-form-wrapper max-w-[541px] mx-[20px] h-auto flex flex-col justify-center items-center'>
+        <div className='text-wrapper max-w-[541px] h-auto mb-[72px] flex flex-col justify-start items-center'>
+          <h1 className='mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
             Let's set up your account
           </h1>
           <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
@@ -21,48 +28,55 @@ export default function Onboarding_1() {
         </div>
         <form
           action=''
-          className='w-[424px] h-auto flex flex-col justify-center items-start'
+          className='w-[79.8%] h-auto flex flex-col gap-[24px] justify-center items-start'
         >
-          <label className='mb-[10px] flex flex-col font-[Inter] text-[#C8C8C8] text-sm font-medium leading-[21px] tracking-[-0.266px]'>
-            Your Name
+          <label
+            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] tracking-[0.6px]
+                '
+          >
+            Your Full Name *
             <input
               //
               type='text'
-              name='name'
-              className=' w-[424px] h-auto mt-[8px] mb-[16px] py-[12px] px-[17px] bg-[#F6F6F6] text-[#A7A7A7] font-[Inter] text-sm font-medium leading-[21px] tracking-[-0.266px] border-none outline-none'
-            />
-          </label>
-          <label className='mb-[10px] flex flex-col font-[Inter] text-[#C8C8C8] text-sm font-medium leading-[21px] tracking-[-0.266px]'>
-            Email
-            <input
-              //
-              type='email'
+              name='full-name'
               required
-              name='email'
-              className=' w-[424px] h-auto mt-[8px] mb-[16px] py-[12px] px-[17px] bg-[#F6F6F6] text-[#A7A7A7] font-[Inter] text-sm font-medium leading-[21px] tracking-[-0.266px] border-none outline-none'
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px] tracking-[1px] outline outline-1 outline-[#CED4DA] rounded-lg`}
             />
           </label>
-          <label className='mb-[10px] flex flex-col font-[Inter] text-black text-sm font-medium leading-[21px] tracking-[-0.266px]'>
-            Company Name
+
+          <label
+            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] tracking-[0.6px]
+                '
+          >
+            Company Name (Optional)
             <input
               //
               type='text'
               name='company-name'
-              placeholder='Optional'
-              className=' w-[424px] h-auto mt-[8px] mb-[16px] py-[12px] px-[17px] bg-[#222] text-[#858585] font-[Inter] text-sm font-medium leading-[21px] tracking-[-0.266px] border-none outline-none'
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px] tracking-[1px] outline outline-1 outline-[#CED4DA] rounded-lg`}
             />
           </label>
-          <label className='mb-[10px] flex flex-col font-[Inter] text-black text-sm font-medium leading-[21px] tracking-[-0.266px]'>
-            Your Company / Portfolio Link
+
+          <label
+            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] tracking-[0.6px]
+                '
+          >
+            Your Company / Portfolio Link (Optional)
             <input
               //
               type='text'
-              name='portfolio'
-              //^ Update placeholder to be permanent
-              placeholder='https://'
-              className=' w-[424px] h-auto mt-[8px] mb-[16px] py-[12px] px-[17px] bg-[#222] text-[#FFF] font-[Inter] text-sm font-medium leading-[21px] tracking-[-0.266px] border-none outline-none'
+              name='company-name'
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px] tracking-[1px] outline outline-1 outline-[#CED4DA] rounded-lg`}
             />
           </label>
+
+          {/* TODO: You can use the traverseNext function from onboarding_nav.js for the continue button navigation functionality */}
+
+          <input
+            type='submit'
+            value='Continue'
+            className=' w-[100%] mt-[24px] py-[12px] px-[24px] flex justify-center items-center bg-[#212529] rounded-lg font-Poppins text-[#F8F9FA] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer $'
+          />
         </form>
       </div>
     </div>

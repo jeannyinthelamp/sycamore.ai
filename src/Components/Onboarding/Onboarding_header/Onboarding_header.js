@@ -1,13 +1,13 @@
 import React from "react";
-import syne_logo from "../../../Assets/Icons/syne-logo.svg";
+import syne_logo_blue from "../../../Assets/Icons/syne-logo-blue.svg";
 
 export default function Onboarding_header() {
   return (
-    <div className='header-outer-wrapper h-[72px] flex justify-center items-center'>
-      <div className='header-inner-wrapper w-[100%] max-w-[1110px] h-[40px] flex justify-start items-center'>
+    <div className='header-outer-wrapper w-[100%] h-[72px] flex justify-center items-center'>
+      <div className='header-inner-wrapper w-[100%] max-w-[1110px] h-[40px] mx-[20px] flex justify-start items-center'>
         <img
           className='w-[30px] h-[30px] mr-[14px]'
-          src={syne_logo}
+          src={syne_logo_blue}
           alt='Syne Logo'
         />
         <p className='font-Poppins text-[20px] font-normal leading-[30px] tracking-[-0.266px]'>
