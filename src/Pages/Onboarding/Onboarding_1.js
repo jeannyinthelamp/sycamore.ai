@@ -1,18 +1,24 @@
 import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
-import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 
 export default function Onboarding_1() {
   return (
     <div>
-      {/* //^ The 'Next' button in header may need to operate as both a submit button for the form and a transition to the next page */}
       <Onboarding_header />
-      <Onboarding_nav />
-      <div className='relative title-and-form-wrapper w-[424px] h-auto mt-[75px] mx-auto flex flex-col justify-center items-center'>
-        <h1 className='mb-[25px] font-[Inter] text-[44px] font-semibold text-black text-center leading-[140%] tracking-[-0.836px]'>
-          Let's set up your account
-        </h1>
+
+      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
+      <Onboarding_progress_bar active='page1' />
+
+      <div className='title-and-form-wrapper max-w-[541px] h-auto mx-auto flex flex-col justify-center items-center border border-red-500'>
+        <div className='text-wrapper h-[106px] mb-[72px] flex flex-col justify-start items-center border border-blue-500'>
+          <h1 className='mb-[24px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
+            Let's set up your account
+          </h1>
+          <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
+            You can always change them later
+          </p>
+        </div>
         <form
           action=''
           className='w-[424px] h-auto flex flex-col justify-center items-start'
@@ -59,8 +65,6 @@ export default function Onboarding_1() {
           </label>
         </form>
       </div>
-      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page1' />
     </div>
   );
 }

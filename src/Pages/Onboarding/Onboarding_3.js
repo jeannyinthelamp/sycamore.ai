@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
-import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 
@@ -9,8 +8,11 @@ export default function Onboarding_3() {
   return (
     <div>
       <Onboarding_header />
-      <Onboarding_nav />
-      <div className='relative title-and-button-wrapper max-w-[505px] h-auto mt-[75px]  mx-auto flex flex-col justify-center items-center'>
+
+      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
+      <Onboarding_progress_bar active='page3' />
+
+      <div className='title-and-button-wrapper max-w-[505px] h-auto mt-[75px]  mx-auto flex flex-col justify-center items-center'>
         <h1 className='w-[100%] h-[124px] mb-[12px] font-[Inter] text-[44px] font-semibold text-black text-center leading-[61.6px] tracking-[-1.9%]'>
           Help us customize your workspace
         </h1>
@@ -79,8 +81,6 @@ export default function Onboarding_3() {
           </div>
         </div>
       </div>
-      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page3' />
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React from "react";
 export default function Onboarding_progress_bar(props) {
-  const active_style = "w-[127px] h-[8px] mx-[7px] rounded-[100px] bg-black";
-  const non_active_style =
-    "w-[127px] h-[8px] mx-[7px] rounded-[100px] bg-[#D9D9D9]";
+  const active_style = "w-[32px] h-[16px] rounded-[100px] bg-[#556AEB]";
+  const non_active_style = "w-[16px] h-[16px] rounded-[100px] bg-[#CED4DA]";
 
   return (
-    <div className='absolute top-[950px] w-[100%] h-auto  flex flex-row justify-center items-center '>
+    <div className='max-w-[192px] h-[16px] my-[48px] mx-auto  flex flex-row justify-center items-center gap-[16px] '>
       <div
         className={`ml-0 ${
           props.active === "page1" ? active_style : non_active_style

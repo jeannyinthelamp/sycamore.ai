@@ -3,15 +3,15 @@ import syne_logo from "../../../Assets/Icons/syne-logo.svg";
 
 export default function Onboarding_header() {
   return (
-    <div className='flex justify-center'>
-      <div className='w-screen h-[85px] max-w-[1440px] flex justify-start items-center border-b-[0.5px] border-solid border-black '>
+    <div className='header-outer-wrapper h-[72px] flex justify-center items-center'>
+      <div className='header-inner-wrapper w-[100%] max-w-[1110px] h-[40px] flex justify-start items-center'>
         <img
-          className='ml-[39px] mr-[57.66px]'
+          className='w-[30px] h-[30px] mr-[14px]'
           src={syne_logo}
           alt='Syne Logo'
         />
-        <p className='w-[455px] h-[20px] font-[inter] text-sm font-medium leading-[21px] tracking-[-0.266px] uppercase color'>
-          About you / <span className='text-[#999]'>About your work</span>
+        <p className='font-Poppins text-[20px] font-normal leading-[30px] tracking-[-0.266px]'>
+          Syne
         </p>
       </div>
     </div>
