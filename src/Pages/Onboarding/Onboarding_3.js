@@ -62,8 +62,8 @@ export default function Onboarding_3() {
                 />
                 <Onboarding_Checkbox
                   title='Others'
-                  id='Others'
-                  for='Others'
+                  id='Others-type'
+                  for='Others-type'
                   className='bg-[#F8F9FA] text-[#6C757D]'
                 />
               </div>
@@ -107,8 +107,8 @@ export default function Onboarding_3() {
               />
               <Onboarding_Checkbox
                 title='Others'
-                id='Others'
-                for='Others'
+                id='Others-role'
+                for='Others-role'
                 className='bg-[#F8F9FA] text-[#6C757D]'
               />
             </div>
