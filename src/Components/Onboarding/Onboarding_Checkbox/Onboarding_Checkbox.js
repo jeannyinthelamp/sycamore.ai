@@ -5,11 +5,19 @@ import React from "react";
 export default function Onboarding_Checkbox(props) {
   return (
     <div class='flex'>
-      <input type='checkbox' id={props.id} class='peer hidden' />
+      <input
+        type='checkbox'
+        id={props.id}
+        class='peer hidden'
+        onClick={(e) => {
+          console.log(e.target.id + " checkbox pressed");
+        }}
+      />
       <label
         for={props.for}
-        class={`${props.className} w-fit min-w-[86px] max-h-[47px] py-[10px] px-[20px] font-[Inter] font-medium text-[18px] text-center leading-[27px] tracking-[-1.9%] text-black select-none cursor-pointer rounded-[10px] border border-black
- transition-colors duration-200 ease-in-out peer-checked:bg-black peer-checked:text-white peer-checked:border-black`}
+        class={`${props.className} flex justify-center items-center w-fit min-w-[84px] max-h-[40px] py-[8px] px-[20px] font-Poppins font-medium text-[16px] text-center leading-[24px] text-[#212529] select-none cursor-pointer rounded-[8px] bg-white border border-[#6C757D]
+
+        transition-colors duration-200 ease-in-out peer-checked:bg-[#EBEFFF] peer-checked:text-[#556AEB] peer-checked:border-[#556AEB]`}
       >
         {props.title}
       </label>
