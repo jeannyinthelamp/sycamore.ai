@@ -1,12 +1,7 @@
-//! This file is depreciated
-//! This file is depreciated
-//! This file is depreciated
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Onboarding_nav() {
-  const backBtnText = "< Back";
-
+export default function Onboarding_Nav() {
   const currentLocation = useLocation();
 
   //Back button functionality
@@ -35,7 +30,7 @@ export default function Onboarding_nav() {
     }
   };
 
-  //Next button functionality
+  //Continue button functionality
   const traverseNext = (currentPath) => {
     switch (currentPath) {
       case "/onboarding_1":
@@ -62,59 +57,30 @@ export default function Onboarding_nav() {
     }
   };
   return (
-    <div className='flex justify-center max-w-[1440px] mx-auto'>
-      <div className='w-[100%] h-[92px]  flex justify-between items-center '>
-        <Link
-          className='font-[inter] text-[16px] font-semibold leading-6 tracking-[-0.304px] ml-[59px]'
-          to={traverseBack(currentLocation.pathname)}
-          //OnClick can be safely removed without breaking functionality, it only serves for debugging purposes
-          onClick={() => {
-            //calculate new path
-            traverseBack(currentLocation.pathname);
-            console.log(
-              "traverseBack - current path: " + currentLocation.pathname
-            );
-            console.log(
-              "traverseBack - new path: " +
-                traverseBack(currentLocation.pathname)
-            );
-          }}
-        >
-          {backBtnText}
-        </Link>
-        <div className='right-btn-wrapper mr-[47px]'>
-          {/* //TODO: add link 'to' attribute once Ask later page is created */}
-          <Link
-            to=''
-            className='w-[127px] h-[58px] py-[18.5px] px-[28.5px]  mr-[6px] font-[inter] font-medium  text-base leading-[20.8px] tracking-[-0.304px]'
-          >
-            Ask Later
-          </Link>
-
-          <Link
-            to={traverseNext(currentLocation.pathname)}
-            //OnClick can be safely removed without breaking functionality, it only serves for debugging purposes
-            onClick={() => {
-              //calculate new path
-              traverseNext(currentLocation.pathname);
-              console.log(
-                "traverseNext - current path: " + currentLocation.pathname
-              );
-              console.log(
-                "traverseNext - new path: " +
-                  traverseNext(currentLocation.pathname)
-              );
-            }}
-          >
-            <button
-              //
-              className='w-[127px] h-[58px] font-[inter] font-medium  text-base leading-[20.8px] tracking-[-0.304px] bg-[#D9D9D9]'
-            >
-              Next
-            </button>
-          </Link>
-        </div>
-      </div>
+    //* Navigation Button and form Submit Input
+    <div className='navigation-wrapper w-[100%] h-auto flex flex-row gap-[12px]'>
+      <Link
+        //^  Fonts wont update
+        className='w-[50%] max-h-48px py-[12px] px-[24px] flex justify-center items-center bg-[#E9ECEF] rounded-lg font-Poppins text-black text-center text-[16px] font-medium leading-[24px]  outline-none border-none cursor-pointer'
+        to={traverseBack(currentLocation.pathname)}
+        onClick={() => {
+          //calculate new path
+          traverseBack(currentLocation.pathname);
+          console.log(
+            "traverseBack - current path: " + currentLocation.pathname
+          );
+          console.log(
+            "traverseBack - new path: " + traverseBack(currentLocation.pathname)
+          );
+        }}
+      >
+        Go Back
+      </Link>
+      <input
+        type='submit'
+        value='Continue'
+        className=' w-[50%] py-[12px] px-[24px] flex justify-center items-center bg-[#212529] rounded-lg font-Poppins text-[#F8F9FA] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'
+      />
     </div>
   );
 }
