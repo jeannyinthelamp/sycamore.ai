@@ -4,7 +4,7 @@ export default function Onboarding_progress_bar(props) {
   const non_active_style = "w-[16px] h-[16px] rounded-[100px] bg-[#CED4DA]";
 
   return (
-    <div className='max-w-[192px] h-[16px] my-[48px] flex flex-row justify-center items-center gap-[16px] '>
+    <div className='max-w-[192px] h-[16px] my-[48px] flex flex-row justify-between items-center gap-[16px]'>
       <div
         className={`ml-0 ${
           props.active === "page1" ? active_style : non_active_style
