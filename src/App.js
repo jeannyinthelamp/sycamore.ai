@@ -18,7 +18,7 @@ import "./index.css";
 export default function App() {
   return (
     <Routes>
-      <Route path='/' element={<Loggingin />} />
+      <Route path='/' element={<Landing />} />
       <Route path='/sign-up' element={<Signup />} />
       <Route path='/sign-up-2' element={<Signup2 />} />
       <Route path='/onboarding_1' element={<Onboarding_1 />} />

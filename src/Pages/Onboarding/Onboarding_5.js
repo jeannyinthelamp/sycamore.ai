@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
-import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
@@ -18,7 +18,7 @@ export default function Onboarding_5() {
       <Onboarding_Header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page5' />
+      <Onboarding_Progress_Bar active='page5' />
 
       <div className='title-and-form-wrapper max-w-[541px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[541px] h-auto mb-[72px] flex flex-col justify-start items-center'>

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
-import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ export default function Onboarding_3() {
       <Onboarding_Header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page3' />
+      <Onboarding_Progress_Bar active='page3' />
 
       <div className='title-and-button-wrapper max-w-[714px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
