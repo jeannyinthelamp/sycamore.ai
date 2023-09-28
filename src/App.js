@@ -1,8 +1,9 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Loggingin from "./Pages/Login/Loggingin";
+import Landing from "./Pages/Landing/Landing";
 import Signup from "./Pages/Signup/Signup";
+import Login from "./Pages/Login/Login";
 import Signup2 from "./Pages/Signup2/Signup2";
 import Onboarding_1 from "./Pages/Onboarding/Onboarding_1";
 import Onboarding_2 from "./Pages/Onboarding/Onboarding_2";
