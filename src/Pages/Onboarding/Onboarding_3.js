@@ -1,15 +1,15 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
-import Onboarding_BackButton from "../../Components/Onboarding/Onboarding_BackButton/Onboarding_BackButton";
+import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import { Link } from "react-router-dom";
 
 export default function Onboarding_3() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
+      <Onboarding_Header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page3' />
@@ -113,15 +113,8 @@ export default function Onboarding_3() {
               />
             </div>
           </div>
-          {/* //* Navigation Button and form Submit Input */}
-          <div className='navigation-wrapper max-w-[420px] h-auto flex flex-row gap-[12px]'>
-            <Onboarding_BackButton />
-            <input
-              type='submit'
-              value='Continue'
-              className=' w-[50%] py-[12px] px-[24px] flex justify-center items-center bg-[#212529] rounded-lg font-Poppins text-[#F8F9FA] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'
-            />
-          </div>
+          {/* Go Back and Continue Buttons */}
+          <Onboarding_Nav />
         </form>
         <Link
           to=''
