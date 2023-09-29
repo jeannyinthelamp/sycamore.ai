@@ -93,7 +93,7 @@ export default function Onboarding_5() {
             </label>
           </div>
           <label
-            className='w-[100%] mb-[48px] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
+            className='w-[100%] mb-[24px] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
                 '
           >
             Category (Optional)
