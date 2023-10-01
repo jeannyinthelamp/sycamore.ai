@@ -8,21 +8,27 @@ const Hero = () => {
             <div
                 className="desktop:px-[168px] desktop:py-[126px] grid grid-cols-1 lg:grid-cols-2  gap-[142px] h-auto min-h-[880px]
             
-            tablet:px-6 tablet:py-16 tablet:w-[786px] "
+            tablet:px-6 tablet:py-16 tablet:w-[786px] 
+            
+            mobile:px-6 mobile:py-16 mobile:w-[343px]"
             >
                 <div className="mt-24">
                     <div className="flex flex-col">
                         <h1
                             className="text-[40px] leading-[60px] font-semibold mb-6 
                         
-                        tablet:w-[495px] tablet:h-[102px] tablet:gap-[10px] tablet:justify-between"
+                        tablet:w-[495px] tablet:h-[102px] tablet:gap-[10px] tablet:justify-between
+                        
+                        mobile:w-[343px] mobile:h-[80px] mobile:text-[28px] mobile:leading-10"
                         >
                             Project Management, Simplified.
                         </h1>
                         <p
                             className="mb-8 leading-[27px] font-[18px] 
                         
-                        tablet:w-[495px] tablet:h-[54px]"
+                        tablet:w-[495px] tablet:h-[54px]
+                        
+                        mobile:w-[343px] mobile:h-[48px] mobile:text-base"
                         >
                             Empowering workflows for students, freelancers, and
                             small businesses.
@@ -31,7 +37,9 @@ const Hero = () => {
                             action=""
                             className="flex flex-col desktop:w-[440px] bg-white rounded-lg  border border-solid border-neutral-400 shadow-md
                             
-                            tablet:w-[786px]"
+                            tablet:w-[786px]
+                            
+                            mobile:w-[311px]"
                         >
                             {/* <label className='border border-solid'> */}
                             <div class="flex items-center justify-between py-2 px-4">
@@ -52,8 +60,12 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="tablet:w-400 tablet:h-380 tablet:flex tablet:items-center tablet:justify-center">
-                    <Graphic className="w-full h-full" />
+                <div
+                    className="tablet:w-400 tablet:h-380 flex items-center justify-center
+                
+                mobile:w-303 mobile:h-253"
+                >
+                    <Graphic />
                 </div>
             </div>
         </div>

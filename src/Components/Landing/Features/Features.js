@@ -101,7 +101,11 @@ const Features = () => {
                 <div
                     className="desktop:py-[126px] desktop:px-[168px] flex justify-center items-center
         
-        tablet:py-16 tablet:px-6  tablet:h-[682px]"
+        tablet:py-16 tablet:px-6  tablet:h-[682px]
+
+           mobile:py-16 mobile:px-6  mobile:h-[682px]
+        
+       "
                 >
                     <div
                         className="p-16
@@ -111,7 +115,11 @@ const Features = () => {
                         <div
                             className="border-[64px] border-black rounded-lg relative
                         
-                        tablet:border-[20px] tablet:"
+                        tablet:border-[20px] 
+
+                        
+                        
+                        "
                         >
                             <iframe
                                 src="https://www.youtube.com/embed/1BxhpPpotdA"
@@ -120,13 +128,29 @@ const Features = () => {
                                 title="video"
                                 className="w-[900px] h-[618px]
                                 
-                                tablet:w-[722px] tablet:h-[490px]"
+                                tablet:w-[722px] tablet:h-[490px]
+
+                                mobile:w-[279px] mobile:h-[490px]
+                                
+                              "
                             ></iframe>
 
-                            <div className="absolute bottom-[60px] left-0 right-0 flex flex-col z-10 px-3">
+                            <div
+                                className="absolute bottom-[60px] left-0 right-0 flex flex-col z-10 px-3
+                            
+
+                                
+                             "
+                            >
                                 <div className="flex justify-start">
                                     {" "}
-                                    <button className="flex justify-center items-center px-3 py-[6px] rounded-3xl w-[98px] h-9 bg-[#556AEB] text-[#F8F9FA] font-Poppins text-[24px] font-semibold mb-6 tracking-[0.4px] leading-[36px]">
+                                    <button
+                                        className="flex justify-center items-center px-3 py-[6px] rounded-3xl w-[98px] h-9 bg-[#556AEB] text-[#F8F9FA] font-Poppins text-[24px] font-semibold mb-6 tracking-[0.4px] leading-[36px]
+
+                                        mobile:gap-6
+                                    
+                                    "
+                                    >
                                         Demo
                                     </button>
                                 </div>
@@ -135,7 +159,11 @@ const Features = () => {
                                     <h1
                                         className="font-Poppins text-white text-[40px] leading-[54px] font-semibold desktop:w-[440px] desktop:h-[130px]
                                     
-                                    tablet:w-[722px] tablet:h-[154px] tablet:gap-4"
+                                    tablet:w-[722px] tablet:h-[154px] tablet:gap-4
+
+                                    mobile:w-[279px] mobile:h-[120px] mobile:text-[28px] mobile:leading-10
+
+                                    "
                                     >
                                         All You Need to Know About Syne
                                     </h1>

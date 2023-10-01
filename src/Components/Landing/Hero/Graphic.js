@@ -9,6 +9,7 @@ const Graphic = () => {
                 viewBox="0 0 525 484"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="mobile:w-[303px] mobile:h-[253px]"
             >
                 <path
                     opacity="0.3"

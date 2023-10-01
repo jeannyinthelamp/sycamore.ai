@@ -106,7 +106,13 @@ const FAQ = () => {
     };
     return (
         <div className="bg-[#FAFAFF]">
-            <div className="desktop:px-[165px] desktop:py-[137px] tablet:py-16 tablet:px-6">
+            <div
+                className="desktop:px-[165px] desktop:py-[137px] 
+            
+            tablet:py-16 tablet:px-6
+            
+            mobile:py-16 mobile:px-6"
+            >
                 <div className="FAQ-title-text-wrapper max-w-[571px] mb-[48px] font-Poppins">
                     <h2 className="mb-[24px] font-semibold text-[24px] text-[#556AEB] leading-[36px] tracking-[0.4px]">
                         FAQs
@@ -115,6 +121,8 @@ const FAQ = () => {
                         className=" font-semibold text-[40px] desktop:text-[#292421] leading-[54px] 
                     
                         tablet:w-[786px]
+
+                        mobile:w-[343px] mobile:text-[28px]
                     "
                     >
                         Have Questions? We Have Answers!
@@ -130,7 +138,11 @@ const FAQ = () => {
                                 open={openItems.includes(data.id)}
                             />
                         }
-                        className="gap-[10px] py-4 pl-4 pr-[9px] tablet:w-[786px]"
+                        className="gap-[10px] py-4 pl-4 pr-[9px] 
+                        
+                        tablet:w-[786px]
+                        
+                        mobile:w-[343px]"
                     >
                         <AccordionHeader
                             onClick={() => handleOpen(data.id)}
