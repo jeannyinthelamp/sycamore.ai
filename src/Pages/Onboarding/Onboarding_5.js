@@ -3,6 +3,11 @@ import React from "react";
 import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
+import dot_blue from "../../Assets/Icons/Onboarding/dot-blue.svg";
+import dot_orange from "../../Assets/Icons/Onboarding/dot-orange.svg";
+import dot_red from "../../Assets/Icons/Onboarding/dot-red.svg";
+import dot_green from "../../Assets/Icons/Onboarding/dot-green.svg";
+import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
@@ -13,6 +18,7 @@ export default function Onboarding_5() {
       return safari_input_styling;
     }
   }
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_Header />
@@ -63,18 +69,34 @@ export default function Onboarding_5() {
 
           <div className='status-priority-wrapper flex flex-row gap-[20px]'>
             <label
+              for='status'
               className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
                 '
             >
               Status *
-              <input
-                //
-                type='text'
+              <select
                 name='status'
-                placeholder='Not Selected'
+                id='status'
                 required
-                className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 outline-[#CED4DA] rounded-lg`}
-              />
+                className={`select-selected ${detectBrowser()} w-[100%] h-auto py-[10px] px-[12px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg`}
+              >
+                {/* The not selected options value attribute must be an empty string */}
+                <option selected value=''>
+                  Not Selected
+                </option>
+                <option value='To Do'>To Do</option>
+                <option value='In Progress'>In Progress</option>
+                <option value='Paused'>Paused</option>
+                <option value='Done'>Done</option>
+                <option
+                  value='add'
+                  onClick={() => {
+                    console.log("Add option clicked");
+                  }}
+                >
+                  + Add
+                </option>
+              </select>
             </label>
 
             <label
