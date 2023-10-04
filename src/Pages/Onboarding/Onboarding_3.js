@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";

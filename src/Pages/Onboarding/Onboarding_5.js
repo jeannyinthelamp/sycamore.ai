@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import dot_blue from "../../Assets/Icons/Onboarding/dot-blue.svg";
@@ -80,12 +80,26 @@ export default function Onboarding_5() {
                 required
                 className={`select-selected ${detectBrowser()} w-[100%] h-auto py-[10px] px-[12px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg`}
               >
-                {/* The not selected options value attribute must be an empty string */}
+                {/*value attribute must be an empty string if trying to create a 'Not Selected' default option */}
                 <option selected value=''>
                   Not Selected
                 </option>
-                <option value='To Do'>To Do</option>
-                <option value='In Progress'>In Progress</option>
+                <option
+                  value='To Do'
+                  onClick={(e) => {
+                    console.log(e.target.value);
+                  }}
+                >
+                  To Do
+                </option>
+                <option
+                  value='In Progress'
+                  onClick={(e) => {
+                    console.log(e.target.value);
+                  }}
+                >
+                  In Progress
+                </option>
                 <option value='Paused'>Paused</option>
                 <option value='Done'>Done</option>
                 <option
