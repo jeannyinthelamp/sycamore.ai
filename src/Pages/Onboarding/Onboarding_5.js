@@ -1,17 +1,22 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
+import { useState } from "react";
 import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
-import dot_blue from "../../Assets/Icons/Onboarding/dot-blue.svg";
-import dot_orange from "../../Assets/Icons/Onboarding/dot-orange.svg";
-import dot_red from "../../Assets/Icons/Onboarding/dot-red.svg";
-import dot_green from "../../Assets/Icons/Onboarding/dot-green.svg";
+import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_Dropdown";
+import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/DropdownButton";
+import dotBlue from "../../Assets/Icons/Onboarding/dot-blue.svg";
+import dotOrange from "../../Assets/Icons/Onboarding/dot-orange.svg";
+import dotRed from "../../Assets/Icons/Onboarding/dot-red.svg";
+import dotGreen from "../../Assets/Icons/Onboarding/dot-green.svg";
 import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 export default function Onboarding_5() {
+  const [visible, setVisible] = useState(false);
+
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
@@ -37,7 +42,7 @@ export default function Onboarding_5() {
         </div>
         <form
           action=''
-          className='w-[79.8%] h-auto flex flex-col gap-[24px] justify-center items-start'
+          className='w-[88.38%] h-auto flex flex-col gap-[24px] justify-center items-start'
         >
           <label
             className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px]
@@ -67,66 +72,65 @@ export default function Onboarding_5() {
             />
           </label>
 
-          <div className='status-priority-wrapper flex flex-row gap-[20px]'>
-            <label
-              for='status'
-              className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
+          <div className='status-priority-wrapper relative w-[100%] flex flex-row justify-between gap-[20px]'>
+            <div className='status-wrapper w-[50%] flex flex-col gap-[8px]'>
+              <p
+                className='label w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
                 '
-            >
-              Status *
-              <select
-                name='status'
-                id='status'
-                required
-                className={`select-selected ${detectBrowser()} w-[100%] h-auto py-[10px] px-[12px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg`}
               >
-                {/*value attribute must be an empty string if trying to create a 'Not Selected' default option */}
-                <option selected value=''>
-                  Not Selected
-                </option>
-                <option
-                  value='To Do'
-                  onClick={(e) => {
-                    console.log(e.target.value);
-                  }}
-                >
-                  To Do
-                </option>
-                <option
-                  value='In Progress'
-                  onClick={(e) => {
-                    console.log(e.target.value);
-                  }}
-                >
-                  In Progress
-                </option>
-                <option value='Paused'>Paused</option>
-                <option value='Done'>Done</option>
-                <option
-                  value='add'
-                  onClick={() => {
-                    console.log("Add option clicked");
-                  }}
-                >
-                  + Add
-                </option>
-              </select>
-            </label>
-
-            <label
-              className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
-                '
-            >
-              Priority *
-              <input
-                //
-                type='text'
-                name='priority'
-                placeholder='Not Selected'
-                required
-                className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 outline-[#CED4DA] rounded-lg`}
+                Status *
+              </p>
+              {/* //& New dropdown components here */}
+              <DropdownButton
+                title='Not Selected'
+                onClick={(e) => {
+                  setVisible(!visible);
+                  e.preventDefault();
+                  console.log("Status Selector");
+                }}
               />
-            </label>
+              {/* //TODO: hide / show dropdown with state changes via classNames */}
+              <Onboarding_Dropdown
+                dropdownClassName={`${visible ? "" : "hidden"}`}
+                itemOneImg={dotBlue}
+                itemOneName='To Do'
+                handleItemOne={() => {
+                  console.log("list item one");
+                }}
+                //
+                itemTwoImg={dotOrange}
+                itemTwoName='In Progress'
+                handleItemTwo={() => {
+                  console.log("list item two");
+                }}
+                //
+                itemThreeImg={dotRed}
+                itemThreeName='Paused'
+                //
+                itemFourImg={dotGreen}
+                itemFourName='Done'
+                //
+                itemFiveImg={add_icon}
+                itemFiveName='Add'
+              />
+            </div>
+            <div className='priority-wrapper relative w-[50%] flex flex-col gap-[8px]'>
+              <p
+                className='label w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
+                '
+              >
+                Priority *
+              </p>
+
+              <DropdownButton
+                title='Not Selected'
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log("Priority Selector");
+                }}
+              />
+              <Onboarding_Dropdown />
+            </div>
           </div>
           <label
             className='w-[100%] mb-[24px] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
