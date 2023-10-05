@@ -11,17 +11,45 @@ import dotOrange from "../../Assets/Icons/Onboarding/dot-orange.svg";
 import dotRed from "../../Assets/Icons/Onboarding/dot-red.svg";
 import dotGreen from "../../Assets/Icons/Onboarding/dot-green.svg";
 import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
+import ASAP from "../../Assets/Icons/Onboarding/ASAP.svg";
+import flagRed from "../../Assets/Icons/Onboarding/flag-red.svg";
+import flagYellow from "../../Assets/Icons/Onboarding/flag-yellow.svg";
+import flagGrey from "../../Assets/Icons/Onboarding/flag-grey.svg";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
+//TODO: Refactor this to use OOP
 
 export default function Onboarding_5() {
-  const [visible, setVisible] = useState(false);
+  const [statusVisible, setStatusVisible] = useState(false);
+  const [priorityVisible, setPriorityVisible] = useState(false);
+  const [statusTitle, setStatusTitle] = useState("Not Selected");
+  const [priorityTitle, setPriorityTitle] = useState("Not Selected");
+  const listStyles =
+    "w-[100%] h-auto px-[8px] justify-start items-center gap-[8px] bg-white font-Poppins text-[14px] text-[#838587] font-normal leading-[21px] rounded-lg flex flex-row select-none";
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
       return safari_input_styling;
     }
+  }
+
+  function generateStatusTitle(item) {
+    if (item === "To Do") {
+      return (
+        <li className={listStyles}>
+          <img src={dotBlue} className='w-[10px]' alt='' />
+          To Do
+        </li>
+      );
+    }
+  }
+
+  function getInput() {
+    let userInput = prompt("Enter Status: ");
+    // setStatusTitle(userInput);
+    // return <li>{userInput}</li>;
+    console.log(userInput);
   }
 
   return (
@@ -82,36 +110,52 @@ export default function Onboarding_5() {
               </p>
               {/* //& New dropdown components here */}
               <DropdownButton
-                title='Not Selected'
+                title={statusTitle}
                 onClick={(e) => {
-                  setVisible(!visible);
+                  setStatusVisible(!statusVisible);
                   e.preventDefault();
                   console.log("Status Selector");
                 }}
               />
-              {/* //TODO: hide / show dropdown with state changes via classNames */}
+
               <Onboarding_Dropdown
-                dropdownClassName={`${visible ? "" : "hidden"}`}
+                dropdownClassName={`${statusVisible ? "" : "hidden"}`}
                 itemOneImg={dotBlue}
                 itemOneName='To Do'
                 handleItemOne={() => {
-                  console.log("list item one");
+                  setStatusTitle(generateStatusTitle("To Do"));
+                  setStatusVisible(!statusVisible);
+                  console.log("To Do");
                 }}
                 //
                 itemTwoImg={dotOrange}
                 itemTwoName='In Progress'
                 handleItemTwo={() => {
-                  console.log("list item two");
+                  setStatusTitle("In Progress");
+                  setStatusVisible(!statusVisible);
                 }}
                 //
                 itemThreeImg={dotRed}
                 itemThreeName='Paused'
+                handleItemThree={() => {
+                  setStatusTitle("Paused");
+                  setStatusVisible(!statusVisible);
+                }}
                 //
                 itemFourImg={dotGreen}
                 itemFourName='Done'
+                handleItemFour={() => {
+                  setStatusTitle("Done");
+                  setStatusVisible(!statusVisible);
+                }}
                 //
                 itemFiveImg={add_icon}
                 itemFiveName='Add'
+                handleAdd={() => {
+                  getInput();
+                  setStatusTitle("");
+                  setStatusVisible(!statusVisible);
+                }}
               />
             </div>
             <div className='priority-wrapper relative w-[50%] flex flex-col gap-[8px]'>
@@ -123,13 +167,45 @@ export default function Onboarding_5() {
               </p>
 
               <DropdownButton
-                title='Not Selected'
+                title={priorityTitle}
                 onClick={(e) => {
+                  setPriorityVisible(!priorityVisible);
                   e.preventDefault();
                   console.log("Priority Selector");
                 }}
               />
-              <Onboarding_Dropdown />
+              <Onboarding_Dropdown
+                dropdownClassName={`${priorityVisible ? "" : "hidden"}`}
+                itemOneImg={ASAP}
+                itemOneName='ASAP'
+                handleItemOne={() => {
+                  setPriorityTitle("ASAP");
+                  setPriorityVisible(!priorityVisible);
+                }}
+                //
+                itemTwoImg={flagRed}
+                itemTwoName='High'
+                handleItemTwo={() => {
+                  setPriorityTitle("High");
+                  setPriorityVisible(!priorityVisible);
+                }}
+                //
+                itemThreeImg={flagYellow}
+                itemThreeName='Medium'
+                handleItemThree={() => {
+                  setPriorityTitle("Medium");
+                  setPriorityVisible(!priorityVisible);
+                }}
+                //
+                itemFourImg={flagGrey}
+                itemFourName='Low'
+                handleItemFour={() => {
+                  setPriorityTitle("Low");
+                  setPriorityVisible(!priorityVisible);
+                }}
+                //
+                //TODO: implement a none option
+              />
             </div>
           </div>
           <label
