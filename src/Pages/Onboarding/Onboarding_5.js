@@ -6,11 +6,11 @@ import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Prog
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_Dropdown";
 import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/DropdownButton";
-import dotBlue from "../../Assets/Icons/Onboarding/dot-blue.svg";
-import dotOrange from "../../Assets/Icons/Onboarding/dot-orange.svg";
-import dotRed from "../../Assets/Icons/Onboarding/dot-red.svg";
-import dotGreen from "../../Assets/Icons/Onboarding/dot-green.svg";
-import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
+// import dotBlue from "../../Assets/Icons/Onboarding/dot-blue.svg";
+// import dotOrange from "../../Assets/Icons/Onboarding/dot-orange.svg";
+// import dotRed from "../../Assets/Icons/Onboarding/dot-red.svg";
+// import dotGreen from "../../Assets/Icons/Onboarding/dot-green.svg";
+// import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
 import ASAP from "../../Assets/Icons/Onboarding/ASAP.svg";
 import flagRed from "../../Assets/Icons/Onboarding/flag-red.svg";
 import flagYellow from "../../Assets/Icons/Onboarding/flag-yellow.svg";
@@ -24,8 +24,6 @@ export default function Onboarding_5() {
   const [priorityVisible, setPriorityVisible] = useState(false);
   const [statusTitle, setStatusTitle] = useState("Not Selected");
   const [priorityTitle, setPriorityTitle] = useState("Not Selected");
-  const listStyles =
-    "w-[100%] h-auto px-[8px] justify-start items-center gap-[8px] bg-white font-Poppins text-[14px] text-[#838587] font-normal leading-[21px] rounded-lg flex flex-row select-none";
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -34,23 +32,22 @@ export default function Onboarding_5() {
     }
   }
 
-  function generateStatusTitle(item) {
-    if (item === "To Do") {
-      return (
-        <li className={listStyles}>
-          <img src={dotBlue} className='w-[10px]' alt='' />
-          To Do
-        </li>
-      );
-    }
-  }
+  // function generateStatusTitle(item) {
+  //   if (item === "To Do") {
+  //     return (
+  //       <li className={listStyles}>
+  //         <img src={dotBlue} className='w-[10px]' alt='' />
+  //         To Do
+  //       </li>
+  //     );
+  //   }
+  // }
 
-  function getInput() {
-    let userInput = prompt("Enter Status: ");
-    // setStatusTitle(userInput);
-    // return <li>{userInput}</li>;
-    console.log(userInput);
-  }
+  // function getInput() {
+  //   let userInput = prompt("Enter Status: ");
+  //   console.log(userInput);
+  //   return userInput;
+  // }
 
   return (
     <div className='flex flex-col justify-center items-center'>
@@ -108,7 +105,8 @@ export default function Onboarding_5() {
               >
                 Status *
               </p>
-              {/* //& New dropdown components here */}
+              {/* //& dropdown components here */}
+              {/* //TODO: update button title via state changes */}
               <DropdownButton
                 title={statusTitle}
                 onClick={(e) => {
@@ -119,43 +117,9 @@ export default function Onboarding_5() {
               />
 
               <Onboarding_Dropdown
+                type='status'
                 dropdownClassName={`${statusVisible ? "" : "hidden"}`}
-                itemOneImg={dotBlue}
-                itemOneName='To Do'
-                handleItemOne={() => {
-                  setStatusTitle(generateStatusTitle("To Do"));
-                  setStatusVisible(!statusVisible);
-                  console.log("To Do");
-                }}
-                //
-                itemTwoImg={dotOrange}
-                itemTwoName='In Progress'
-                handleItemTwo={() => {
-                  setStatusTitle("In Progress");
-                  setStatusVisible(!statusVisible);
-                }}
-                //
-                itemThreeImg={dotRed}
-                itemThreeName='Paused'
-                handleItemThree={() => {
-                  setStatusTitle("Paused");
-                  setStatusVisible(!statusVisible);
-                }}
-                //
-                itemFourImg={dotGreen}
-                itemFourName='Done'
-                handleItemFour={() => {
-                  setStatusTitle("Done");
-                  setStatusVisible(!statusVisible);
-                }}
-                //
-                itemFiveImg={add_icon}
-                itemFiveName='Add'
-                handleAdd={() => {
-                  getInput();
-                  setStatusTitle("");
-                  setStatusVisible(!statusVisible);
-                }}
+                //  <li> elements rendered here via map function in onboardingDropdown.js
               />
             </div>
             <div className='priority-wrapper relative w-[50%] flex flex-col gap-[8px]'>
@@ -175,36 +139,9 @@ export default function Onboarding_5() {
                 }}
               />
               <Onboarding_Dropdown
+                type='priority'
                 dropdownClassName={`${priorityVisible ? "" : "hidden"}`}
-                itemOneImg={ASAP}
-                itemOneName='ASAP'
-                handleItemOne={() => {
-                  setPriorityTitle("ASAP");
-                  setPriorityVisible(!priorityVisible);
-                }}
-                //
-                itemTwoImg={flagRed}
-                itemTwoName='High'
-                handleItemTwo={() => {
-                  setPriorityTitle("High");
-                  setPriorityVisible(!priorityVisible);
-                }}
-                //
-                itemThreeImg={flagYellow}
-                itemThreeName='Medium'
-                handleItemThree={() => {
-                  setPriorityTitle("Medium");
-                  setPriorityVisible(!priorityVisible);
-                }}
-                //
-                itemFourImg={flagGrey}
-                itemFourName='Low'
-                handleItemFour={() => {
-                  setPriorityTitle("Low");
-                  setPriorityVisible(!priorityVisible);
-                }}
-                //
-                //TODO: implement a none option
+                //  <li> elements rendered here via map function in onboardingDropdown.js
               />
             </div>
           </div>
