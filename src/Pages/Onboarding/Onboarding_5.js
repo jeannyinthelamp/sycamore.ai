@@ -6,15 +6,6 @@ import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Prog
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_Dropdown";
 import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/DropdownButton";
-// import dotBlue from "../../Assets/Icons/Onboarding/dot-blue.svg";
-// import dotOrange from "../../Assets/Icons/Onboarding/dot-orange.svg";
-// import dotRed from "../../Assets/Icons/Onboarding/dot-red.svg";
-// import dotGreen from "../../Assets/Icons/Onboarding/dot-green.svg";
-// import add_icon from "../../Assets/Icons/Onboarding/plus.svg";
-import ASAP from "../../Assets/Icons/Onboarding/ASAP.svg";
-import flagRed from "../../Assets/Icons/Onboarding/flag-red.svg";
-import flagYellow from "../../Assets/Icons/Onboarding/flag-yellow.svg";
-import flagGrey from "../../Assets/Icons/Onboarding/flag-grey.svg";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 //TODO: Refactor this to use OOP
@@ -107,6 +98,10 @@ export default function Onboarding_5() {
               </p>
               {/* //& dropdown components here */}
               {/* //TODO: update button title via state changes */}
+              {/* //!!! */}
+              {/* //TODO: how to update DropdownButton from DropdownItem -->
+              https://www.youtube.com/watch?v=zW-uSq9Gha8
+              */}
               <DropdownButton
                 title={statusTitle}
                 onClick={(e) => {
