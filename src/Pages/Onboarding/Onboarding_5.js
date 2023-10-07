@@ -112,7 +112,7 @@ export default function Onboarding_5() {
               />
 
               <Onboarding_Dropdown
-                type='status'
+                category='status'
                 dropdownClassName={`${statusVisible ? "" : "hidden"}`}
                 //  <li> elements rendered here via map function in onboardingDropdown.js
               />
@@ -134,7 +134,7 @@ export default function Onboarding_5() {
                 }}
               />
               <Onboarding_Dropdown
-                type='priority'
+                category='priority'
                 dropdownClassName={`${priorityVisible ? "" : "hidden"}`}
                 //  <li> elements rendered here via map function in onboardingDropdown.js
               />

@@ -13,30 +13,27 @@ import flagGrey from "../../../Assets/Icons/Onboarding/flag-grey.svg";
 export default function Onboarding_Dropdown(props) {
   //TODO: function to get user input and create new DropdownItem
 
-  function generateData(type) {
-    if (type === "status") {
-      return statusData.map((data) => (
-        <DropdownItem
-          //
-          name={data.name}
-          itemImg={data.img}
-          key={data.id}
-          handleItem={data.handleItem}
-        />
-      ));
-    } else if (type === "priority") {
-      return priorityData.map((data) => (
-        <DropdownItem
-          //
-          name={data.name}
-          itemImg={data.img}
-          key={data.id}
-          handleItem={data.handleItem}
-        />
-      ));
-    } else {
+  function generateData(category) {
+    let dataToMap;
+
+    if (category === "status") {
+      dataToMap = statusData;
+    } else if (category === "priority") {
+      dataToMap = priorityData;
+    }
+
+    if (dataToMap === null || dataToMap === undefined) {
       return null;
     }
+
+    return dataToMap.map((data) => (
+      <DropdownItem
+        name={data.name}
+        itemImg={data.img}
+        key={data.id}
+        handleItem={data.handleItem}
+      />
+    ));
   }
 
   const statusData = [
@@ -83,7 +80,7 @@ export default function Onboarding_Dropdown(props) {
       img: asap,
       id: 1,
       handleItem: () => {
-        console.log(statusData[0].name);
+        console.log(priorityData[0].name);
       },
     },
     {
@@ -91,7 +88,7 @@ export default function Onboarding_Dropdown(props) {
       img: flagRed,
       id: 2,
       handleItem: () => {
-        console.log(statusData[1].name);
+        console.log(priorityData[1].name);
       },
     },
     {
@@ -120,7 +117,7 @@ export default function Onboarding_Dropdown(props) {
       {/* Dropdown item components rendered here */}
       <ul className='w-[100%] h-auto'>
         {/* / */}
-        {generateData(props.type)}
+        {generateData(props.category)}
       </ul>
     </div>
   );
