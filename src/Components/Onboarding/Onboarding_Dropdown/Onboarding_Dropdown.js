@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownItem from "./DropdownItem";
 import dotBlue from "../../../Assets/Icons/Onboarding/dot-blue.svg";
 import dotOrange from "../../../Assets/Icons/Onboarding/dot-orange.svg";
@@ -27,7 +27,7 @@ export default function Onboarding_Dropdown(props) {
         name={data.name}
         itemImg={data.img}
         key={data.id}
-        handleItem={data.handleItem}
+        onClick={data.onClick}
       />
     ));
   }
@@ -37,35 +37,43 @@ export default function Onboarding_Dropdown(props) {
       name: "To Do",
       img: dotBlue,
       id: 1,
-      handleItem: () => {
-        //! setStatusTitle function
-        console.log(statusData[0].name);
+
+      onClick: () => {
+        // console.log(statusData[0].name);
+        props.updateTitle("status", statusData[0].img, statusData[0].name);
       },
     },
     {
       name: "In Progress",
       img: dotOrange,
       id: 2,
-      handleItem: () => {
-        console.log(statusData[1].name);
+      onClick: () => {
+        props.updateTitle("status", statusData[1].img, statusData[1].name);
       },
     },
     {
       name: "Paused",
       img: dotRed,
       id: 3,
+      onClick: () => {
+        props.updateTitle("status", statusData[2].img, statusData[2].name);
+      },
     },
     {
       name: "Done",
       img: dotGreen,
       id: 4,
+      onClick: () => {
+        props.updateTitle("status", statusData[3].img, statusData[3].name);
+      },
     },
     {
       name: "Add",
       img: plus,
       id: 5,
-      handleItem: () => {
-        // createItem();
+      // userInput: props.userInput,
+      onClick: () => {
+        props.updateTitle("status", statusData[0].img, statusData[4].name);
       },
     },
   ];
@@ -75,32 +83,61 @@ export default function Onboarding_Dropdown(props) {
       name: "ASAP",
       img: asap,
       id: 1,
-      handleItem: () => {
-        console.log(priorityData[0].name);
+      onClick: () => {
+        props.updateTitle(
+          "priority",
+          priorityData[0].img,
+          priorityData[0].name
+        );
       },
     },
     {
       name: "High",
       img: flagRed,
       id: 2,
-      handleItem: () => {
-        console.log(priorityData[1].name);
+      onClick: () => {
+        props.updateTitle(
+          "priority",
+          priorityData[1].img,
+          priorityData[1].name
+        );
       },
     },
     {
       name: "Medium",
       img: flagYellow,
       id: 3,
+      onClick: () => {
+        props.updateTitle(
+          "priority",
+          priorityData[2].img,
+          priorityData[2].name
+        );
+      },
     },
     {
       name: "Low",
       img: flagGrey,
       id: 4,
+      onClick: () => {
+        props.updateTitle(
+          "priority",
+          priorityData[3].img,
+          priorityData[3].name
+        );
+      },
     },
     {
       name: "None",
       // img: plus,
       id: 5,
+      onClick: () => {
+        props.updateTitle(
+          "priority",
+          priorityData[4].img,
+          priorityData[4].name
+        );
+      },
     },
   ];
 

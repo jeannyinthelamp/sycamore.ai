@@ -6,14 +6,16 @@ import arrow from "../../../Assets/Icons/Onboarding/down-arrow.svg";
 
 export default function DropdownButton(props) {
   const [visible, setVisible] = useState(false);
-  const [title, setTitle] = useState("Not Selected");
   const btnCategory = props.btnCategory;
+  const btnStyles =
+    "select-none relative  w-[100%] h-[44px] flex flex-row justify-between items-center py-[0px] px-[12px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer";
 
   return (
-    //TODO: update button title prop based on what option you select
+    //TODO: Prevent the form from submitting if status and priority aren't selected
     <div
-      className={`${props.className} select-none relative  w-[100%] h-auto flex flex-row justify-between py-[10px] px-[12px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer`}
+      className={`${props.className} ${btnStyles}`}
       btnCategory={props.btnCategory}
+      updateTitle={props.updateTitle}
       onClick={(e) => {
         setVisible(!visible);
         e.preventDefault();
@@ -22,9 +24,10 @@ export default function DropdownButton(props) {
     >
       {props.title} <img src={arrow} alt='down arrow' className='w-[10.68px]' />
       <Onboarding_Dropdown
+        updateTitle={props.updateTitle}
         category={btnCategory}
         dropdownClassName={`${visible ? "" : "hidden"}`}
-        //^  <li> elements rendered here via map function in onboardingDropdown.js
+        //^  DropdownItem components rendered here via map function in onboardingDropdown.js
       />
     </div>
   );

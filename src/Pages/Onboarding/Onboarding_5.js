@@ -5,36 +5,44 @@ import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onb
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/DropdownButton";
+import DropdownItem from "../../Components/Onboarding/Onboarding_Dropdown/DropdownItem";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
-//TODO: Refactor this to use OOP
 
 export default function Onboarding_5() {
-  const [title, setTitle] = useState("Not Selected");
+  const [statusTitle, setStatusTitle] = useState("Not Selected");
+  const [priorityTitle, setPriorityTitle] = useState("Not Selected");
 
-  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
+  function updateTitle(category, img, name) {
+    if (category === "status") {
+      if (name === "Add") {
+        //call function to create new entry
+        return createNewEntry(img);
+      }
+      setStatusTitle(
+        // alternatively you can return a li element with the appropriate data
+        <DropdownItem name={name} itemImg={img} className='' />
+      );
+    } else if (category === "priority") {
+      setPriorityTitle(<DropdownItem name={name} itemImg={img} className='' />);
+    }
+  }
+
+  //TODO: createNewEntry should add the newly created DropdownItems to the Onboarding_Dropdown <ul> element
+
+  function createNewEntry(img) {
+    let userInput = prompt("Enter new status: ");
+    return setStatusTitle(
+      <DropdownItem name={userInput} itemImg={img} className='' />
+    );
+  }
+
+  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into it to create a rounded outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
       return safari_input_styling;
     }
   }
-
-  // function generateStatusTitle(item) {
-  //   if (item === "To Do") {
-  //     return (
-  //       <li className={listStyles}>
-  //         <img src={dotBlue} className='w-[10px]' alt='' />
-  //         To Do
-  //       </li>
-  //     );
-  //   }
-  // }
-
-  // function getInput() {
-  //   let userInput = prompt("Enter Status: ");
-  //   console.log(userInput);
-  //   return userInput;
-  // }
 
   return (
     <div className='flex flex-col justify-center items-center'>
@@ -93,11 +101,11 @@ export default function Onboarding_5() {
                 Status *
               </p>
               {/* //& dropdown components here */}
-              {/* //TODO: update button title via state changes */}
-              {/* //TODO: how to update DropdownButton from DropdownItem -->
-              https://www.youtube.com/watch?v=zW-uSq9Gha8
-              */}
-              <DropdownButton title={title} btnCategory='status' />
+              <DropdownButton
+                updateTitle={updateTitle}
+                title={statusTitle}
+                btnCategory='status'
+              />
             </div>
             <div className='priority-wrapper relative w-[50%] flex flex-col gap-[8px]'>
               <p
@@ -106,7 +114,11 @@ export default function Onboarding_5() {
               >
                 Priority *
               </p>
-              <DropdownButton title={title} btnCategory='priority' />
+              <DropdownButton
+                updateTitle={updateTitle}
+                title={priorityTitle}
+                btnCategory='priority'
+              />
             </div>
           </div>
           <label
