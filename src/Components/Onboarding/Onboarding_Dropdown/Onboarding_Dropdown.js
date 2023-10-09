@@ -22,10 +22,6 @@ export default function Onboarding_Dropdown(props) {
       dataToMap = priorityData;
     }
 
-    if (dataToMap === null || dataToMap === undefined) {
-      return null;
-    }
-
     return dataToMap.map((data) => (
       <DropdownItem
         name={data.name}
@@ -109,7 +105,7 @@ export default function Onboarding_Dropdown(props) {
   ];
 
   const dropdownStyles =
-    "dropdown-modal-wrapper absolute bottom-[-208px] w-[200px] h-auto flex flex-col gap-[4px] justify-center items-center py-[8px] px-[8px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer overflow-y-scroll";
+    "dropdown-modal-wrapper absolute bottom-[-208px] left-[0px] w-[200px] h-auto flex flex-col gap-[4px] justify-center items-center py-[8px] px-[8px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer overflow-y-scroll";
 
   return (
     //TODO: add a shadow to UI

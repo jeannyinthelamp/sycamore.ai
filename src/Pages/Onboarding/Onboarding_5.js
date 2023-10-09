@@ -4,17 +4,13 @@ import { useState } from "react";
 import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
 import Onboarding_Progress_Bar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
-import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_Dropdown";
 import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/DropdownButton";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 //TODO: Refactor this to use OOP
 
 export default function Onboarding_5() {
-  const [statusVisible, setStatusVisible] = useState(false);
-  const [priorityVisible, setPriorityVisible] = useState(false);
-  const [statusTitle, setStatusTitle] = useState("Not Selected");
-  const [priorityTitle, setPriorityTitle] = useState("Not Selected");
+  const [title, setTitle] = useState("Not Selected");
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -88,7 +84,7 @@ export default function Onboarding_5() {
             />
           </label>
 
-          <div className='status-priority-wrapper relative w-[100%] flex flex-row justify-between gap-[20px]'>
+          <div className='status-priority-wrapper w-[100%] flex flex-row justify-between gap-[20px]'>
             <div className='status-wrapper w-[50%] flex flex-col gap-[8px]'>
               <p
                 className='label w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
@@ -98,24 +94,10 @@ export default function Onboarding_5() {
               </p>
               {/* //& dropdown components here */}
               {/* //TODO: update button title via state changes */}
-              {/* //!!! */}
               {/* //TODO: how to update DropdownButton from DropdownItem -->
               https://www.youtube.com/watch?v=zW-uSq9Gha8
               */}
-              <DropdownButton
-                title={statusTitle}
-                onClick={(e) => {
-                  setStatusVisible(!statusVisible);
-                  e.preventDefault();
-                  console.log("Status Selector");
-                }}
-              />
-
-              <Onboarding_Dropdown
-                category='status'
-                dropdownClassName={`${statusVisible ? "" : "hidden"}`}
-                //  <li> elements rendered here via map function in onboardingDropdown.js
-              />
+              <DropdownButton title={title} btnCategory='status' />
             </div>
             <div className='priority-wrapper relative w-[50%] flex flex-col gap-[8px]'>
               <p
@@ -124,20 +106,7 @@ export default function Onboarding_5() {
               >
                 Priority *
               </p>
-
-              <DropdownButton
-                title={priorityTitle}
-                onClick={(e) => {
-                  setPriorityVisible(!priorityVisible);
-                  e.preventDefault();
-                  console.log("Priority Selector");
-                }}
-              />
-              <Onboarding_Dropdown
-                category='priority'
-                dropdownClassName={`${priorityVisible ? "" : "hidden"}`}
-                //  <li> elements rendered here via map function in onboardingDropdown.js
-              />
+              <DropdownButton title={title} btnCategory='priority' />
             </div>
           </div>
           <label
