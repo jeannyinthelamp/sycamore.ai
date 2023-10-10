@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import DropdownItem from "./DropdownItem";
 import dotBlue from "../../../Assets/Icons/Onboarding/dot-blue.svg";
+import dotYellow from "../../../Assets/Icons/Onboarding/dot-yellow.svg";
 import dotOrange from "../../../Assets/Icons/Onboarding/dot-orange.svg";
-import dotRed from "../../../Assets/Icons/Onboarding/dot-red.svg";
 import dotGreen from "../../../Assets/Icons/Onboarding/dot-green.svg";
+import dotRed from "../../../Assets/Icons/Onboarding/dot-red.svg";
+import dotGrey from "../../../Assets/Icons/Onboarding/dot-grey.svg";
+import dotPurple from "../../../Assets/Icons/Onboarding/dot-purple.svg";
 import plus from "../../../Assets/Icons/Onboarding/plus.svg";
 import asap from "../../../Assets/Icons/Onboarding/ASAP.svg";
 import flagRed from "../../../Assets/Icons/Onboarding/flag-red.svg";
@@ -28,6 +31,7 @@ export default function Onboarding_Dropdown(props) {
         itemImg={data.img}
         key={data.id}
         onClick={data.onClick}
+        // className={data.className}
       />
     ));
   }
@@ -36,8 +40,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "To Do",
       img: dotBlue,
-      id: 1,
-
+      id: 0,
       onClick: () => {
         // console.log(statusData[0].name);
         props.updateTitle("status", statusData[0].img, statusData[0].name);
@@ -45,16 +48,16 @@ export default function Onboarding_Dropdown(props) {
     },
     {
       name: "In Progress",
-      img: dotOrange,
-      id: 2,
+      img: dotYellow,
+      id: 1,
       onClick: () => {
         props.updateTitle("status", statusData[1].img, statusData[1].name);
       },
     },
     {
       name: "Paused",
-      img: dotRed,
-      id: 3,
+      img: dotOrange,
+      id: 2,
       onClick: () => {
         props.updateTitle("status", statusData[2].img, statusData[2].name);
       },
@@ -62,20 +65,43 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "Done",
       img: dotGreen,
-      id: 4,
+      id: 3,
       onClick: () => {
         props.updateTitle("status", statusData[3].img, statusData[3].name);
       },
     },
     {
-      name: "Add",
-      img: plus,
-      id: 5,
-      // userInput: props.userInput,
+      name: "Cancelled",
+      img: dotRed,
+      id: 4,
       onClick: () => {
-        props.updateTitle("status", statusData[0].img, statusData[4].name);
+        props.updateTitle("status", statusData[4].img, statusData[4].name);
       },
     },
+    {
+      name: "Backlog",
+      img: dotGrey,
+      id: 5,
+      onClick: () => {
+        props.updateTitle("status", statusData[5].img, statusData[5].name);
+      },
+    },
+    {
+      name: "Planning",
+      img: dotPurple,
+      id: 6,
+      onClick: () => {
+        props.updateTitle("status", statusData[6].img, statusData[6].name);
+      },
+    },
+    // {
+    //   name: "Add",
+    //   img: plus,
+    //   id: 5,
+    //   onClick: () => {
+    //     props.updateTitle("status", statusData[0].img, statusData[4].name);
+    //   },
+    // },
   ];
 
   const priorityData = [
@@ -148,7 +174,7 @@ export default function Onboarding_Dropdown(props) {
     //TODO: add a shadow to UI
     <div className={`${dropdownStyles} ${props.dropdownClassName}`}>
       {/* Dropdown item components rendered here */}
-      <ul className='w-[100%] h-auto'>
+      <ul className='w-[100%] h-[100%]'>
         {/* / */}
         {generateData(props.category)}
       </ul>

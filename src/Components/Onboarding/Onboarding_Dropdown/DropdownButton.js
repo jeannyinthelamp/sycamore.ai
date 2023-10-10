@@ -26,7 +26,10 @@ export default function DropdownButton(props) {
       <Onboarding_Dropdown
         updateTitle={props.updateTitle}
         category={btnCategory}
-        dropdownClassName={`${visible ? "" : "hidden"}`}
+        //the second ternary adjusts the position of the status dropdown window
+        dropdownClassName={`${visible ? "" : "hidden"} ${
+          btnCategory === "status" ? " h-[196px]" : ""
+        }`}
         //^  DropdownItem components rendered here via map function in onboardingDropdown.js
       />
     </div>

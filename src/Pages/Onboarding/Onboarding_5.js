@@ -14,6 +14,10 @@ export default function Onboarding_5() {
   const [priorityTitle, setPriorityTitle] = useState("Not Selected");
 
   function updateTitle(category, img, name) {
+    const newDropdownItem = (
+      <DropdownItem name={name} itemImg={img} className='hover:bg-[#FFF]' />
+    );
+
     if (category === "status") {
       if (name === "Add") {
         //call function to create new entry
@@ -21,10 +25,10 @@ export default function Onboarding_5() {
       }
       setStatusTitle(
         // alternatively you can return a li element with the appropriate data
-        <DropdownItem name={name} itemImg={img} className='' />
+        newDropdownItem
       );
     } else if (category === "priority") {
-      setPriorityTitle(<DropdownItem name={name} itemImg={img} className='' />);
+      setPriorityTitle(newDropdownItem);
     }
   }
 
