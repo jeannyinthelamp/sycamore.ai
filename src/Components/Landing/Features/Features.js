@@ -47,7 +47,7 @@ const Features = () => {
     "
         >
             <div
-                className="features-inner-wrapper desktop:max-w-[90.6%]
+                className="features-inner-wrapper desktop:max-w-[90.6%] items-center
       
       tablet:max-w-[94.5%]
 
@@ -86,11 +86,10 @@ const Features = () => {
                 </div>
                 {/* //* Wrapper for the FeaturesCard components */}
                 <div
-                    className="card-components-wrapper desktop:max-w-[1104px] desktop:h-auto mt-[109px] mb-[138px] flex flex-row justify-start items-center desktop:gap-[35px] 
-        
-        tablet:max-w-[786px] tablet:gap-[24px] tablet:flex-col tablet:mt-[0px]
-
-        mobile:max-w-[338px] mobile:gap-[24px] mobile:flex-col mobile:mt-[0px]
+                    className="desktop:max-w-[100%] desktop:h-auto mt-[109px] mb-[138px] flex flex-row desktop:justify-center desktop:items-center  gap-[35px]
+ tablet:max-w-[786px] tablet:gap-[24px] tablet:flex-col tablet:mt-[0px]
+ mobile:max-w-[338px] mobile:gap-[24px] mobile:flex-col mobile:mt-[0px] 
+ 
         "
                 >
                     {/* displayCard function returns a FeaturesCard component for each object in the cardData array */}
@@ -112,15 +111,7 @@ const Features = () => {
                     
                     "
                     >
-                        <div
-                            className="border-[64px] border-black rounded-lg relative
-                        
-                        tablet:border-[20px] 
-
-                        
-                        
-                        "
-                        >
+                        <div className="flex items-center rounded-lg relative border-black border-[24px]">
                             <iframe
                                 src="https://www.youtube.com/embed/1BxhpPpotdA"
                                 allow="autoplay; encrypted-media"
@@ -128,9 +119,9 @@ const Features = () => {
                                 title="video"
                                 className="w-[900px] h-[618px]
                                 
-                                tablet:w-[722px] tablet:h-[490px]
+                                tablet:w-[100%] tablet:h-[490px]
 
-                                mobile:w-[279px] mobile:h-[490px]
+                                mobile:w-[100%] mobile:h-[490px]
                                 
                               "
                             ></iframe>
@@ -159,9 +150,9 @@ const Features = () => {
                                     <h1
                                         className="font-Poppins text-white text-[40px] leading-[54px] font-semibold desktop:w-[440px] desktop:h-[130px]
                                     
-                                    tablet:w-[722px] tablet:h-[154px] tablet:gap-4
+                                    tablet:w-[100%]] tablet:h-[154px] tablet:gap-4
 
-                                    mobile:w-[279px] mobile:h-[120px] mobile:text-[28px] mobile:leading-10
+                                    mobile:w-[100%] mobile:h-[120px] mobile:text-[28px] mobile:leading-10
 
                                     "
                                     >

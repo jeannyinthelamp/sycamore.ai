@@ -120,9 +120,9 @@ const FAQ = () => {
                     <h1
                         className=" font-semibold text-[40px] desktop:text-[#292421] leading-[54px] 
                     
-                        tablet:w-[786px]
+                        tablet:w-[100%]
 
-                        mobile:w-[343px] mobile:text-[28px]
+                        mobile:w-[100%] mobile:text-[28px]
                     "
                     >
                         Have Questions? We Have Answers!
@@ -140,9 +140,9 @@ const FAQ = () => {
                         }
                         className="gap-[10px] py-4 pl-4 pr-[9px] 
                         
-                        tablet:w-[786px]
+                        tablet:w-[100%]
                         
-                        mobile:w-[343px]"
+                        mobile:w-[100%]"
                     >
                         <AccordionHeader
                             onClick={() => handleOpen(data.id)}
