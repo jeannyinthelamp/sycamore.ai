@@ -31,7 +31,7 @@ export default function Onboarding_Dropdown(props) {
         itemImg={data.img}
         key={data.id}
         onClick={data.onClick}
-        // className={data.className}
+        className={data.className}
       />
     ));
   }
@@ -93,6 +93,14 @@ export default function Onboarding_Dropdown(props) {
       onClick: () => {
         props.updateTitle("status", statusData[6].img, statusData[6].name);
       },
+    },
+    {
+      name: "None",
+      id: 7,
+      onClick: () => {
+        props.updateTitle("status", priorityData[4].img, priorityData[4].name);
+      },
+      className: "mb-[8px]",
     },
     // {
     //   name: "Add",
