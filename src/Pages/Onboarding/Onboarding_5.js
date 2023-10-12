@@ -12,6 +12,7 @@ import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styli
 export default function Onboarding_5() {
   const [statusTitle, setStatusTitle] = useState("Not Selected");
   const [priorityTitle, setPriorityTitle] = useState("Not Selected");
+  const [categoryTitle, setCategoryTitle] = useState("Not Selected");
 
   function updateTitle(category, img, name) {
     const newDropdownItem = (
@@ -29,6 +30,8 @@ export default function Onboarding_5() {
       );
     } else if (category === "priority") {
       setPriorityTitle(newDropdownItem);
+    } else if (category === "category") {
+      setCategoryTitle(newDropdownItem);
     }
   }
 
@@ -125,20 +128,14 @@ export default function Onboarding_5() {
               />
             </div>
           </div>
-          <label
-            className='w-[100%] mb-[24px] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
-                '
-          >
+          <p className='label w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px]'>
             Category (Optional)
-            <input
-              //
-              type='text'
-              name='project-title'
-              placeholder='Not Selected'
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px] outline outline-1 outline-[#CED4DA] rounded-lg`}
-            />
-          </label>
-
+          </p>
+          <DropdownButton
+            updateTitle={updateTitle}
+            title={categoryTitle}
+            btnCategory='category'
+          />
           {/* //* Navigation Button and form Submit Input */}
           <Onboarding_Nav />
         </form>

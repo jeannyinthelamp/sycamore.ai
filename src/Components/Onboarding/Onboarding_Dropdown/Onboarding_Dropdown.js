@@ -12,6 +12,8 @@ import asap from "../../../Assets/Icons/Onboarding/ASAP.svg";
 import flagRed from "../../../Assets/Icons/Onboarding/flag-red.svg";
 import flagYellow from "../../../Assets/Icons/Onboarding/flag-yellow.svg";
 import flagGrey from "../../../Assets/Icons/Onboarding/flag-grey.svg";
+import unchecked from "../../../Assets/Icons/Onboarding/unchecked.svg";
+import checked from "../../../Assets/Icons/Onboarding/checked.svg";
 
 export default function Onboarding_Dropdown(props) {
   //TODO: function to get user input and create new DropdownItem
@@ -23,8 +25,9 @@ export default function Onboarding_Dropdown(props) {
       dataToMap = statusData;
     } else if (category === "priority") {
       dataToMap = priorityData;
+    } else if (category === "category") {
+      dataToMap = categoryData;
     }
-
     return dataToMap.map((data) => (
       <DropdownItem
         name={data.name}
@@ -116,7 +119,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "ASAP",
       img: asap,
-      id: 1,
+      id: 0,
       onClick: () => {
         props.updateTitle(
           "priority",
@@ -128,7 +131,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "High",
       img: flagRed,
-      id: 2,
+      id: 1,
       onClick: () => {
         props.updateTitle(
           "priority",
@@ -140,7 +143,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "Medium",
       img: flagYellow,
-      id: 3,
+      id: 2,
       onClick: () => {
         props.updateTitle(
           "priority",
@@ -152,7 +155,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "Low",
       img: flagGrey,
-      id: 4,
+      id: 3,
       onClick: () => {
         props.updateTitle(
           "priority",
@@ -164,7 +167,7 @@ export default function Onboarding_Dropdown(props) {
     {
       name: "None",
       // img: plus,
-      id: 5,
+      id: 4,
       onClick: () => {
         props.updateTitle(
           "priority",
@@ -175,8 +178,35 @@ export default function Onboarding_Dropdown(props) {
     },
   ];
 
+  const categoryData = [
+    {
+      name: "Product",
+      img: unchecked,
+      id: 0,
+      onClick: () => {
+        props.updateTitle(
+          "category",
+          categoryData[0].img,
+          categoryData[0].name
+        );
+      },
+    },
+    {
+      name: "Design",
+      img: unchecked,
+      id: 1,
+      onClick: () => {
+        props.updateTitle(
+          "category",
+          categoryData[1].img,
+          categoryData[1].name
+        );
+      },
+    },
+  ];
+
   const dropdownStyles =
-    "dropdown-modal-wrapper absolute bottom-[-208px] left-[0px] w-[200px] h-auto flex flex-col gap-[4px] justify-center items-center py-[8px] px-[8px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer overflow-y-scroll";
+    "dropdown-modal-wrapper absolute z-10  bottom-[-208px] left-[0px] w-[200px] h-[196px] flex flex-col gap-[4px] justify-center items-center py-[8px] px-[8px] font-Poppins font-normal text-[#21252956] leading-[24px] bg-[#FFF] outline outline-1 outline-[#CED4DA] rounded-lg cursor-pointer overflow-y-scroll";
 
   return (
     //TODO: add a shadow to UI
