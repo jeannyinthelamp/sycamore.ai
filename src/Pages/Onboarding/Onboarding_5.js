@@ -8,11 +8,16 @@ import DropdownButton from "../../Components/Onboarding/Onboarding_Dropdown/Drop
 import DropdownItem from "../../Components/Onboarding/Onboarding_Dropdown/DropdownItem";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
+import { list } from "@material-tailwind/react";
 
 export default function Onboarding_5() {
   const [statusTitle, setStatusTitle] = useState("Not Selected");
   const [priorityTitle, setPriorityTitle] = useState("Not Selected");
   const [categoryTitle, setCategoryTitle] = useState("Not Selected");
+  const [checked, setChecked] = useState(false);
+
+  // variable listOfCategories holds all items that are selected in the Categories dropdown
+  const listOfCategories = [];
 
   function updateTitle(category, img, name) {
     const newDropdownItem = (
@@ -31,15 +36,56 @@ export default function Onboarding_5() {
     } else if (category === "priority") {
       setPriorityTitle(newDropdownItem);
     } else if (category === "category") {
-      setCategoryTitle(newDropdownItem);
+      //! create function to display all titles in the dropdown button component
+      // setCategoryTitle(newDropdownItem);
+      collectCheckedCategories(name);
+      console.log(
+        "arr after returning to updateTitle " +
+          listOfCategories +
+          " length: " +
+          listOfCategories.length
+      );
+
+      generateTitleList();
     }
+  }
+
+  function collectCheckedCategories(name) {
+    if (listOfCategories.includes(name)) {
+      let index = listOfCategories.indexOf(name);
+      // if item already exists in array, remove
+      listOfCategories.splice(index, 1);
+      console.log(
+        "arr after SPLICE: " +
+          listOfCategories +
+          " length: " +
+          listOfCategories.length
+      );
+    } else {
+      listOfCategories.push(name);
+      console.log(
+        "arr after PUSH: " +
+          listOfCategories +
+          " length: " +
+          listOfCategories.length
+      );
+    }
+  }
+
+  function generateTitleList() {
+    // let list = []
+  }
+
+  function updateChecked(value) {
+    setChecked(!checked);
+    console.log("checked status: " + checked);
   }
 
   //TODO: createNewEntry should add the newly created DropdownItems to the Onboarding_Dropdown <ul> element
 
   function createNewEntry(img) {
     let userInput = prompt("Enter new status: ");
-    return setStatusTitle(
+    return setCategoryTitle(
       <DropdownItem name={userInput} itemImg={img} className='' />
     );
   }
@@ -133,6 +179,7 @@ export default function Onboarding_5() {
           </p>
           <DropdownButton
             updateTitle={updateTitle}
+            updateChecked={updateChecked}
             title={categoryTitle}
             btnCategory='category'
           />

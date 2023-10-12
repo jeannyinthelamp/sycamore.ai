@@ -19,7 +19,7 @@ export default function DropdownButton(props) {
       onClick={(e) => {
         setVisible(!visible);
         e.preventDefault();
-        console.log(btnCategory + " selector");
+        // console.log(btnCategory + " selector");
       }}
     >
       {props.title} <img src={arrow} alt='down arrow' className='w-[10.68px]' />

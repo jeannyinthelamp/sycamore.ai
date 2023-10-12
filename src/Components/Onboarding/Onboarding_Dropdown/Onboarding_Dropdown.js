@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownItem from "./DropdownItem";
 import dotBlue from "../../../Assets/Icons/Onboarding/dot-blue.svg";
 import dotYellow from "../../../Assets/Icons/Onboarding/dot-yellow.svg";
@@ -13,9 +13,12 @@ import flagRed from "../../../Assets/Icons/Onboarding/flag-red.svg";
 import flagYellow from "../../../Assets/Icons/Onboarding/flag-yellow.svg";
 import flagGrey from "../../../Assets/Icons/Onboarding/flag-grey.svg";
 import unchecked from "../../../Assets/Icons/Onboarding/unchecked.svg";
-import checked from "../../../Assets/Icons/Onboarding/checked.svg";
+import checkMark from "../../../Assets/Icons/Onboarding/check-mark.svg";
 
 export default function Onboarding_Dropdown(props) {
+  const [productCheck, setProductCheck] = useState(false);
+  const [designCheck, setDesignCheck] = useState(false);
+  const [engineeringCheck, setEngineeringCheck] = useState(false);
   //TODO: function to get user input and create new DropdownItem
 
   function generateData(category) {
@@ -181,7 +184,7 @@ export default function Onboarding_Dropdown(props) {
   const categoryData = [
     {
       name: "Product",
-      img: unchecked,
+      img: `${productCheck ? checkMark : unchecked}`,
       id: 0,
       onClick: () => {
         props.updateTitle(
@@ -189,11 +192,13 @@ export default function Onboarding_Dropdown(props) {
           categoryData[0].img,
           categoryData[0].name
         );
+        setProductCheck(!productCheck);
       },
     },
     {
       name: "Design",
-      img: unchecked,
+      img: `${designCheck ? checkMark : unchecked}`,
+
       id: 1,
       onClick: () => {
         props.updateTitle(
@@ -201,6 +206,29 @@ export default function Onboarding_Dropdown(props) {
           categoryData[1].img,
           categoryData[1].name
         );
+        setDesignCheck(!designCheck);
+      },
+    },
+    {
+      name: "Engineering",
+      img: `${engineeringCheck ? checkMark : unchecked}`,
+
+      id: 2,
+      onClick: () => {
+        props.updateTitle(
+          "category",
+          categoryData[2].img,
+          categoryData[2].name
+        );
+        setEngineeringCheck(!engineeringCheck);
+      },
+    },
+    {
+      name: "Add",
+      img: plus,
+      id: 3,
+      onClick: () => {
+        props.updateTitle("status", categoryData[0].img, categoryData[3].name);
       },
     },
   ];
