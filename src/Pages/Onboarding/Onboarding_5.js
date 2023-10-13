@@ -38,15 +38,8 @@ export default function Onboarding_5() {
     } else if (category === "category") {
       //! create function to display all titles in the dropdown button component
       // setCategoryTitle(newDropdownItem);
-      collectCheckedCategories(name);
-      console.log(
-        "arr after returning to updateTitle " +
-          listOfCategories +
-          " length: " +
-          listOfCategories.length
-      );
-
-      generateTitleList();
+      let list = collectCheckedCategories(name);
+      console.log(list);
     }
   }
 
@@ -70,10 +63,7 @@ export default function Onboarding_5() {
           listOfCategories.length
       );
     }
-  }
-
-  function generateTitleList() {
-    // let list = []
+    return listOfCategories;
   }
 
   function updateChecked(value) {
