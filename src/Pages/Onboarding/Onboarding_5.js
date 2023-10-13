@@ -158,7 +158,7 @@ export default function Onboarding_5() {
               />
             </div>
           </div>
-          <p className='label w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px]'>
+          <p className='label mb-[-12px] w-[100%] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px]'>
             Category (Optional)
           </p>
           <DropdownButton
