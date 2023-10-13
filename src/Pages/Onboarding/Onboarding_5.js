@@ -14,7 +14,6 @@ export default function Onboarding_5() {
   const [statusTitle, setStatusTitle] = useState("Not Selected");
   const [priorityTitle, setPriorityTitle] = useState("Not Selected");
   const [categoryTitle, setCategoryTitle] = useState("Not Selected");
-  const [checked, setChecked] = useState(false);
 
   // variable listOfCategories holds all items that are selected in the Categories dropdown
   const listOfCategories = [];
@@ -36,7 +35,7 @@ export default function Onboarding_5() {
     } else if (category === "priority") {
       setPriorityTitle(newDropdownItem);
     } else if (category === "category") {
-      //! create function to display all titles in the dropdown button component
+      //& Rewrite functions to use state array
       // setCategoryTitle(newDropdownItem);
       let list = collectCheckedCategories(name);
       console.log(list);
@@ -64,11 +63,6 @@ export default function Onboarding_5() {
       );
     }
     return listOfCategories;
-  }
-
-  function updateChecked(value) {
-    setChecked(!checked);
-    console.log("checked status: " + checked);
   }
 
   //TODO: createNewEntry should add the newly created DropdownItems to the Onboarding_Dropdown <ul> element
@@ -169,7 +163,6 @@ export default function Onboarding_5() {
           </p>
           <DropdownButton
             updateTitle={updateTitle}
-            updateChecked={updateChecked}
             title={categoryTitle}
             btnCategory='category'
           />
