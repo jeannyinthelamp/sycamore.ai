@@ -5,7 +5,9 @@ import google from "../../Assets/Icons/google-logo.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 const Login = () => {
-  //^ Add error states
+  //^ Error state styling for incorrect form inputs
+  const errorStyling = "text-[#C9324E] outline-[#C9324E]";
+
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
@@ -27,12 +29,12 @@ const Login = () => {
             <input
               type='text'
               placeholder='Email Address'
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] border border-[#CED4DA] rounded-lg ${detectBrowser}`}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
             />
             <input
               type='password'
               placeholder='Password'
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] border border-[#CED4DA] rounded-lg ${detectBrowser}`}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
             />
             <div className='remember-me-checkbox-wrapper flex flex-row justify-between items-center'>
               <div className='checkbox-and-label-wrapper'>
@@ -42,7 +44,7 @@ const Login = () => {
                   id='remember-me'
                   name='remember-me'
                   value='Remember Me'
-                  className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer'
+                  className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer border-none -webkit-border-none'
                 />
                 <label
                   for='remember-me'
