@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import LoginHeader from "../../Components/Login_Signup/LoginHeader";
 import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
-
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 const Login = () => {
   const [eyeVisible, setEyeVisible] = useState(false);
+
+  //^ Error state styling for incorrect form inputs
+  const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
   // get the value of the input field for password, then call checkPasswordInput function
   useEffect(() => {
@@ -25,9 +27,6 @@ const Login = () => {
       setEyeVisible(true);
     }
   };
-
-  //^ Error state styling for incorrect form inputs
-  const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -51,7 +50,7 @@ const Login = () => {
               type='text'
               placeholder='Email Address'
               required
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
             />
             {/* //! add state to trigger incorrect password / email style changes */}
             <p className='hidden mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
@@ -63,7 +62,7 @@ const Login = () => {
                 type='password'
                 required
                 placeholder='Password'
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser}  `}
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()}  `}
                 onChange={() => {
                   //get the value of the input field.
                   checkPasswordInput();
