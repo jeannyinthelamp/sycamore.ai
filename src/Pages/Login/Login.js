@@ -7,6 +7,7 @@ import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styli
 
 const Login = () => {
   const [eyeVisible, setEyeVisible] = useState(false);
+  const [textSize, setTextSize] = useState(false);
 
   //^ Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
@@ -25,6 +26,7 @@ const Login = () => {
       setEyeVisible(false);
     } else {
       setEyeVisible(true);
+      setTextSize(true);
     }
   };
 
@@ -62,7 +64,9 @@ const Login = () => {
                 type='password'
                 required
                 placeholder='Password'
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()}  `}
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} ${
+                  textSize ? "text-[24px] py-[3.5px]" : ""
+                }  `}
                 onChange={() => {
                   //get the value of the input field.
                   checkPasswordInput();
