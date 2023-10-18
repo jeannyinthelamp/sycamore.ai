@@ -21,9 +21,11 @@ const Login = () => {
   });
 
   // if the password field === an empty string, hide the eye icon. else show the eye icon
+  //! known bug - after deleting password text, the placeholder text does not go back to 16px
   const checkPasswordInput = (data) => {
     if (data === "") {
       setEyeVisible(false);
+      setTextSize(false);
     } else {
       setEyeVisible(true);
       setTextSize(true);
@@ -77,6 +79,8 @@ const Login = () => {
               <p className='hidden mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
                 You have entered the wrong password.
               </p>
+
+              {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] ${
                   eyeVisible ? "" : "hidden"
