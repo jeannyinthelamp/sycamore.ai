@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
-import { default as ProgressBar } from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
+import {default as Header} from "../../Components/Onboarding/Onboarding_header/Onboarding_header"
+import {default as ProgressBar} from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar"
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-export default function Onboarding_1() {
+export default function Onboarding_4() {
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into it to create an rounded outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {

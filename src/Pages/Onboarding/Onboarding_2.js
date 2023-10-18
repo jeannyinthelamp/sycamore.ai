@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
-import { default as ProgressBar } from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
-import { default as Nav } from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
+import {default as Header} from "../../Components/Onboarding/Onboarding_header/Onboarding_header"
+import {default as ProgressBar} from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar"
+import {default as Nav} from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav"
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Person from "../../Assets/Icons/Person.svg";
 import Group from "../../Assets/Icons/Group.svg";
@@ -10,7 +10,7 @@ import School from "../../Assets/Icons/School.svg";
 
 import { Link } from "react-router-dom";
 
-export default function Onboarding_3() {
+export default function Onboarding_2() {
   return (
     <div className='flex flex-col justify-center items-center'>
       <Header />
