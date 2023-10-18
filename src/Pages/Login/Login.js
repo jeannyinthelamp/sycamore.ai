@@ -50,21 +50,32 @@ const Login = () => {
             <input
               type='text'
               placeholder='Email Address'
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} ${errorStyling}`}
+              required
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
             />
+            {/* //! add state to trigger incorrect password / email style changes */}
+            <p className='hidden mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
+              Invalid email address.
+            </p>
             <div className='password-input-wrapper relative'>
               <input
                 id='passwordInput'
                 type='password'
+                required
                 placeholder='Password'
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} ${errorStyling}  `}
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser}  `}
                 onChange={() => {
                   //get the value of the input field.
                   checkPasswordInput();
                 }}
               />
+              {/* //! add state to trigger incorrect password / email style changes */}
+
+              <p className='hidden mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
+                You have entered the wrong password.
+              </p>
               <img
-                className={`absolute top-[35%] right-[17px] w-[22px] h-[15px] ${
+                className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] ${
                   eyeVisible ? "" : "hidden"
                 }`}
                 src={eye}
