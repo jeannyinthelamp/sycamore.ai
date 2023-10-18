@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LoginHeader from "../../Components/Login_Signup/LoginHeader";
 import google from "../../Assets/Icons/google-logo.svg";
+import eye from "../../Assets/Icons/password-eye.svg";
+
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 const Login = () => {
+  const [eyeVisible, setEyeVisible] = useState(false);
+
+  // get the value of the input field for password, then call checkPasswordInput function
+  useEffect(() => {
+    const passwordField = document.getElementById("passwordInput");
+    const value = passwordField.value;
+
+    checkPasswordInput(value);
+  });
+
+  // if the password field === an empty string, hide the eye icon. else show the eye icon
+  const checkPasswordInput = (data) => {
+    if (data === "") {
+      setEyeVisible(false);
+    } else {
+      setEyeVisible(true);
+    }
+  };
+
   //^ Error state styling for incorrect form inputs
-  const errorStyling = "text-[#C9324E] outline-[#C9324E]";
+  const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -29,22 +50,35 @@ const Login = () => {
             <input
               type='text'
               placeholder='Email Address'
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} ${errorStyling}`}
             />
-            <input
-              type='password'
-              placeholder='Password'
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} `}
-            />
+            <div className='password-input-wrapper relative'>
+              <input
+                id='passwordInput'
+                type='password'
+                placeholder='Password'
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser} ${errorStyling}  `}
+                onChange={() => {
+                  //get the value of the input field.
+                  checkPasswordInput();
+                }}
+              />
+              <img
+                className={`absolute top-[35%] right-[17px] w-[22px] h-[15px] ${
+                  eyeVisible ? "" : "hidden"
+                }`}
+                src={eye}
+                alt='eye'
+              />
+            </div>
             <div className='remember-me-checkbox-wrapper flex flex-row justify-between items-center'>
               <div className='checkbox-and-label-wrapper'>
-                {/* //^ update styling for checkbox input */}
                 <input
                   type='checkbox'
                   id='remember-me'
                   name='remember-me'
                   value='Remember Me'
-                  className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer border-none -webkit-border-none'
+                  className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer'
                 />
                 <label
                   for='remember-me'
@@ -67,10 +101,10 @@ const Login = () => {
               className={`w-[100%] h-[48px] mb-[24px] font-Poppins font-medium text-[16px] text-white text-center leading-[24px] bg-[#556AEB] rounded-lg cursor-pointer ${detectBrowser}`}
             />
           </form>
-          {/* //^ add dividing line */}
+
           <Link
             to=''
-            className='flex flex-row justify-center items-center gap-[16px] w-[100%] h-[48px] py-[12px] font-Poppins text-[16px] leading-[24px] text-[#556AEB]  rounded-lg border-[1px] border-[#556AEB]'
+            className='flex flex-row justify-center items-center gap-[16px] w-[100%] h-[48px] py-[12px] font-Poppins text-[16px] leading-[24px] text-[#556AEB]  rounded-lg border-[1px] border-[#556AEB] text-center'
           >
             <img src={google} alt='Google Logo' className='w-[24px] h-[24px]' />
             Continue with Google
