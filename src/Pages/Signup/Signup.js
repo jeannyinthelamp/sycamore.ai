@@ -5,11 +5,18 @@ import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
+//! fix bug that keeps the form from submitting
+
+//! fix bug that causes password field text to enlarge while entering a value AND password is visible
+
 const Signup = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
+  //passTextSize - true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
 
   const [confirmEyeVisible, setConfirmEyeVisible] = useState(false);
+  //confirmPassTextSize - true renders text at 24px, false at 16px
+
   const [confirmPassTextSize, setConfirmPassTextSize] = useState(false);
 
   //^ Error state styling for incorrect form inputs
@@ -125,7 +132,7 @@ const Signup = () => {
               </p>
 
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
-              {/* //& Clicking the eye icon should display password text, not dots or asterisks */}
+
               <img
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
                   passEyeVisible ? "" : "hidden"
