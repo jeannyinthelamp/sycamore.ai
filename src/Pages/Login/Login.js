@@ -50,7 +50,7 @@ const Login = () => {
             action=''
           >
             <input
-              type='text'
+              type='email'
               placeholder='Email Address'
               required
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
