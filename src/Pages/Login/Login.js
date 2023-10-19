@@ -21,7 +21,6 @@ const Login = () => {
   });
 
   // if the password field === an empty string, hide the eye icon. else show the eye icon
-  //! known bug - after deleting password text, the placeholder text does not go back to 16px
   const checkPasswordInput = (data) => {
     if (data === "") {
       setEyeVisible(false);
@@ -66,7 +65,7 @@ const Login = () => {
                 type='password'
                 required
                 placeholder='Password'
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} ${
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
                   textSize ? "text-[24px] py-[3.5px]" : ""
                 }  `}
                 onChange={() => {
