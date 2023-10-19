@@ -166,7 +166,7 @@ const Signup = () => {
                 id='confirmPasswordEye'
               />
             </div>
-            <div className='remember-me-checkbox-wrapper flex flex-row justify-between items-center'>
+            <div className='terms-and-conditions-checkbox-wrapper flex flex-row justify-start items-center'>
               <div className='checkbox-and-label-wrapper'>
                 <input
                   type='checkbox'
@@ -177,22 +177,22 @@ const Signup = () => {
                 />
                 <label
                   for='remember-me'
-                  className='font-Poppins font-medium text-[#212529] text-[16px] text-center leading-[24px]'
+                  className='mr-[4px] font-Poppins font-medium text-[#6C757D] text-[16px] text-center leading-[24px]'
                 >
                   {" "}
-                  Remember Me
+                  I agree to the
                 </label>
               </div>
               <Link
                 to=''
                 className='font-Poppins font-medium text-[#556AEB] text-[16px] text-center leading-[24px] underline'
               >
-                Forgot Password?
+                Terms and Conditions
               </Link>
             </div>
             <input
               type='submit'
-              value='Login'
+              value='Sign Up'
               className={`w-[100%] h-[48px] mb-[24px] font-Poppins font-medium text-[16px] text-white text-center leading-[24px] bg-[#556AEB] rounded-lg cursor-pointer ${detectBrowser}`}
             />
           </form>
@@ -202,13 +202,13 @@ const Signup = () => {
             className='flex flex-row justify-center items-center gap-[16px] w-[100%] h-[48px] py-[12px] font-Poppins text-[16px] leading-[24px] text-[#556AEB]  rounded-lg border-[1px] border-[#556AEB] text-center'
           >
             <img src={google} alt='Google Logo' className='w-[24px] h-[24px]' />
-            Continue with Google
+            Sign Up with Google
           </Link>
           <div className='sign-up-wrapper flex flex-row justify-center items-center'>
             <p className='font-Poppins font-medium text-[16px] leading-[24px] text-black'>
-              Don't have an Account?{" "}
+              Already have an Account?{" "}
               <Link className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'>
-                Sign Up
+                Sign In
               </Link>
             </p>
           </div>
