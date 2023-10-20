@@ -5,7 +5,8 @@ import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-//TODO: fix bug that keeps the form from submitting
+//TODO: fix bug that keeps the form from submitting - IN PROGRESS
+//TODO: fix bug that says passwords don't match - IN PROGRESS
 
 const Signup = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
@@ -13,11 +14,11 @@ const Signup = () => {
   const [passTextSize, setPassTextSize] = useState(false);
 
   const [confirmEyeVisible, setConfirmEyeVisible] = useState(false);
-  //confirmPassTextSize - true renders text at 24px, false at 16px
 
+  //confirmPassTextSize - true renders text at 24px, false at 16px
   const [confirmPassTextSize, setConfirmPassTextSize] = useState(false);
 
-  //^ Error state styling for incorrect form inputs
+  // Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
   // get the value of the input field for password and confirm password, then validate inputs to ensure they match
@@ -35,7 +36,7 @@ const Signup = () => {
     passEye.onclick = triggerPasswordTextVisibility;
     passConfirmEye.onclick = triggerConfirmTextVisibility;
 
-    //TODO: Refactor triggerPasswordVisiblibility, triggerConfirmTextVisibility, and checkPasswordInput
+    //TODO: Refactor triggerPasswordVisibility, triggerConfirmTextVisibility, and checkPasswordInput
     function triggerPasswordTextVisibility() {
       if (pass.type === "password") {
         pass.type = "text";
@@ -69,14 +70,22 @@ const Signup = () => {
     }
 
     function validatePassword() {
-      if (pass.value !== confirmPass.value) {
+      // console.log("pass value: " + pass.value);
+      // console.log("confirm pass value: " + confirmPass.value);
+      // console.log(typeof confirmPass.value);
+
+      if (confirmPass.value !== pass.value) {
         confirmPass.setCustomValidity("Your password does not match.");
+        console.log("passwords do not match");
+      } else {
+        confirmPass.setCustomValidity("");
+        console.log("passwords match");
       }
       return;
     }
 
     pass.onchange = validatePassword;
-    confirmPass.onkeyup = validatePassword;
+    confirmPass.onchange = validatePassword;
   });
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
@@ -94,8 +103,8 @@ const Signup = () => {
             Sign Up
           </h1>
           <form
-            className='flex flex-col gap-[24px] border-b-[1px] border-[#CED4DA]'
             action=''
+            className='flex flex-col gap-[24px] border-b-[1px] border-[#CED4DA]'
           >
             <input
               type='text'
