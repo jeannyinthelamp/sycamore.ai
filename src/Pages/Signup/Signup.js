@@ -29,6 +29,10 @@ const Signup = () => {
       passEye = document.getElementById("passwordEye"),
       passConfirmEye = document.getElementById("confirmPasswordEye");
 
+    // when password  & confirm password input fields are changed call checkPasswordInput function
+    pass.onChange = checkPasswordInput("pass", pass.type);
+    confirmPass.onChange = checkPasswordInput("confirm-pass", confirmPass.type);
+
     // When the eye icon is clicked, password visibility will toggle
     passEye.onclick = triggerPasswordTextVisibility;
     passConfirmEye.onclick = triggerConfirmTextVisibility;
@@ -52,6 +56,17 @@ const Signup = () => {
         confirmPass.type = "password";
         setConfirmPassTextSize(true);
       }
+      return;
+    }
+
+    function checkPasswordInput(field, inputType) {
+      if (field === "pass" && inputType === "password") {
+        setPassEyeVisible(true);
+        setPassTextSize(true);
+      } else if (field === "confirm-pass" && inputType === "password") {
+        setConfirmEyeVisible(true);
+        setConfirmPassTextSize(true);
+      }
     }
 
     function validatePassword() {
@@ -64,17 +79,6 @@ const Signup = () => {
     pass.onchange = validatePassword;
     confirmPass.onkeyup = validatePassword;
   });
-
-  // if the password field === an empty string, hide the eye icon. else show the eye icon
-  const checkPasswordInput = (field) => {
-    if (field === "pass") {
-      setPassEyeVisible(true);
-      setPassTextSize(true);
-    } else if (field === "confirm-pass") {
-      setConfirmEyeVisible(true);
-      setConfirmPassTextSize(true);
-    }
-  };
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -118,11 +122,11 @@ const Signup = () => {
                 minLength={6}
                 placeholder='Create Password'
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
-                  passTextSize ? "text-[24px] py-[3.5px]" : ""
+                  passTextSize ? " text-[24px] py-[3.5px] " : ""
                 }  `}
                 onChange={() => {
                   //get the value of the input field.
-                  checkPasswordInput("pass");
+                  // checkPasswordInput("pass");
                 }}
               />
               {/* //! add state to trigger password error messages (Firebase may help with this) */}
@@ -154,7 +158,7 @@ const Signup = () => {
                 }  `}
                 onChange={() => {
                   //get the value of the input field.
-                  checkPasswordInput("confirm-pass");
+                  // checkPasswordInput("confirm-pass");
                 }}
               />
               {/* //! add state to trigger password error messages (Firebase may help with this) */}
