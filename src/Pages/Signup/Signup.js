@@ -5,9 +5,7 @@ import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-//! fix bug that keeps the form from submitting
-
-//! fix bug that causes password field text to enlarge while entering a value AND password is visible
+//TODO: fix bug that keeps the form from submitting
 
 const Signup = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
@@ -37,6 +35,7 @@ const Signup = () => {
     passEye.onclick = triggerPasswordTextVisibility;
     passConfirmEye.onclick = triggerConfirmTextVisibility;
 
+    //TODO: Refactor triggerPasswordVisiblibility, triggerConfirmTextVisibility, and checkPasswordInput
     function triggerPasswordTextVisibility() {
       if (pass.type === "password") {
         pass.type = "text";
@@ -122,7 +121,7 @@ const Signup = () => {
                 minLength={6}
                 placeholder='Create Password'
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
-                  passTextSize ? " text-[24px] py-[3.5px] " : ""
+                  passTextSize ? " text-[24px] py-[3.6px] " : ""
                 }  `}
                 onChange={() => {
                   //get the value of the input field.
@@ -154,7 +153,7 @@ const Signup = () => {
                 minLength={6}
                 placeholder='Confirm Password'
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
-                  confirmPassTextSize ? "text-[24px] py-[3.5px]" : ""
+                  confirmPassTextSize ? "text-[24px] py-[3.6px]" : ""
                 }  `}
                 onChange={() => {
                   //get the value of the input field.

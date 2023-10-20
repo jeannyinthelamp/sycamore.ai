@@ -12,6 +12,7 @@ const Login = () => {
   //^ Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
+  //TODO: Add code to increase & decrease password input font
   // get the value of the input field for password, then call checkPasswordInput function
   useEffect(() => {
     const passwordField = document.getElementById("passwordInput");
