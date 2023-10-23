@@ -5,9 +5,6 @@ import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-//TODO: fix bug that keeps the form from submitting - IN PROGRESS
-//TODO: fix bug that says passwords don't match - IN PROGRESS
-
 const Signup = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
   //passTextSize - true renders text at 24px, false at 16px
@@ -36,7 +33,6 @@ const Signup = () => {
     passEye.onclick = triggerPasswordTextVisibility;
     passConfirmEye.onclick = triggerConfirmTextVisibility;
 
-    //TODO: Refactor triggerPasswordVisibility, triggerConfirmTextVisibility, and checkPasswordInput
     function triggerPasswordTextVisibility() {
       if (pass.type === "password") {
         pass.type = "text";
@@ -104,6 +100,7 @@ const Signup = () => {
           </h1>
           <form
             action=''
+            onSubmit=''
             className='flex flex-col gap-[24px] border-b-[1px] border-[#CED4DA]'
           >
             <input
