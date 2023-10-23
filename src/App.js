@@ -13,6 +13,7 @@ import Onboarding_5 from "./Pages/Onboarding/Onboarding_5";
 import Onboarding_6 from "./Pages/Onboarding/Onboarding_6";
 import Onboarding_7 from "./Pages/Onboarding/Onboarding_7";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
+import ForgotPassword2 from "./Pages/ForgotPassword/ForgotPassword2";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import "./index.css";
 
@@ -32,6 +33,7 @@ export default function App() {
       <Route path='/onboarding_7' element={<Onboarding_7 />} />
       <Route path='/onboarding_7' element={<Onboarding_7 />} />
       <Route path='/forgot-password' element={<ForgotPassword />} />
+      <Route path='/forgot-password-2' element={<ForgotPassword2 />} />
       <Route path='*' element={<ErrorPage />} />
     </Routes>
   );
