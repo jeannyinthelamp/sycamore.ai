@@ -6,8 +6,8 @@ import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 const Login = () => {
-  const [eyeVisible, setEyeVisible] = useState(false);
-  const [textSize, setTextSize] = useState(false);
+  const [passEyeVisible, setPassEyeVisible] = useState(false);
+  const [passTextSize, setPassTextSize] = useState(false);
 
   //^ Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
@@ -15,20 +15,42 @@ const Login = () => {
   //TODO: Add code to increase & decrease password input font
   // get the value of the input field for password, then call checkPasswordInput function
   useEffect(() => {
-    const passwordField = document.getElementById("passwordInput");
-    const value = passwordField.value;
+    const pass = document.getElementById("passwordInput"),
+      passEye = document.getElementById("passwordEye");
 
-    checkPasswordInput(value);
+    // when password  & confirm password input fields are changed call checkPasswordInput function
+    pass.onChange = checkPasswordInput("pass", pass.type);
+
+    // When the eye icon is clicked, password visibility will toggle
+    passEye.onclick = triggerPasswordTextVisibility;
+
+    function triggerPasswordTextVisibility() {
+      if (pass.type === "password") {
+        pass.type = "text";
+        setPassTextSize(false);
+      } else {
+        pass.type = "password";
+        setPassTextSize(true);
+      }
+      return;
+    }
+
+    function checkPasswordInput(field, inputType) {
+      if (field === "pass" && inputType === "password") {
+        setPassEyeVisible(true);
+        setPassTextSize(true);
+      }
+    }
   });
 
   // if the password field === an empty string, hide the eye icon. else show the eye icon
   const checkPasswordInput = (data) => {
     if (data === "") {
-      setEyeVisible(false);
-      setTextSize(false);
+      setPassEyeVisible(false);
+      setPassTextSize(false);
     } else {
-      setEyeVisible(true);
-      setTextSize(true);
+      setPassEyeVisible(true);
+      setPassTextSize(true);
     }
   };
 
@@ -65,13 +87,14 @@ const Login = () => {
                 id='passwordInput'
                 type='password'
                 required
+                minLength={6}
                 placeholder='Password'
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
-                  textSize ? "text-[24px] py-[3.5px]" : ""
+                  passTextSize ? " text-[24px] py-[3.6px] " : ""
                 }  `}
                 onChange={() => {
                   //get the value of the input field.
-                  checkPasswordInput();
+                  // checkPasswordInput();
                 }}
               />
               {/* //! add state to trigger incorrect password / email style changes */}
@@ -83,10 +106,11 @@ const Login = () => {
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] ${
-                  eyeVisible ? "" : "hidden"
+                  passEyeVisible ? "" : "hidden"
                 }`}
                 src={eye}
                 alt='eye'
+                id='passwordEye'
               />
             </div>
             <div className='remember-me-checkbox-wrapper flex flex-row justify-between items-center'>

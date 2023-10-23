@@ -72,10 +72,10 @@ const Signup = () => {
 
       if (confirmPass.value !== pass.value) {
         confirmPass.setCustomValidity("Your password does not match.");
-        console.log("passwords do not match");
+        // console.log("passwords do not match");
       } else {
         confirmPass.setCustomValidity("");
-        console.log("passwords match");
+        // console.log("passwords match");
       }
       return;
     }
