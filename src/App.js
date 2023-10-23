@@ -12,6 +12,7 @@ import Onboarding_4 from "./Pages/Onboarding/Onboarding_4";
 import Onboarding_5 from "./Pages/Onboarding/Onboarding_5";
 import Onboarding_6 from "./Pages/Onboarding/Onboarding_6";
 import Onboarding_7 from "./Pages/Onboarding/Onboarding_7";
+import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import "./index.css";
 
@@ -29,6 +30,8 @@ export default function App() {
       <Route path='/onboarding_5' element={<Onboarding_5 />} />
       <Route path='/onboarding_6' element={<Onboarding_6 />} />
       <Route path='/onboarding_7' element={<Onboarding_7 />} />
+      <Route path='/onboarding_7' element={<Onboarding_7 />} />
+      <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route path='*' element={<ErrorPage />} />
     </Routes>
   );

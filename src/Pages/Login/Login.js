@@ -132,7 +132,7 @@ const Login = () => {
                 </label>
               </div>
               <Link
-                to='forgot-password'
+                to='/forgot-password'
                 className='font-Poppins font-medium text-[#556AEB] text-[16px] text-center leading-[24px] underline'
               >
                 Forgot Password?
