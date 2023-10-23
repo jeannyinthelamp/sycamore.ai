@@ -4,6 +4,7 @@ import LoginHeader from "../../Components/Login_Signup/LoginHeader";
 import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
+import Signup from "../Signup/Signup";
 
 const Login = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
@@ -131,7 +132,7 @@ const Login = () => {
                 </label>
               </div>
               <Link
-                to=''
+                to='forgot-password'
                 className='font-Poppins font-medium text-[#556AEB] text-[16px] text-center leading-[24px] underline'
               >
                 Forgot Password?
@@ -154,7 +155,10 @@ const Login = () => {
           <div className='sign-up-wrapper flex flex-row justify-center items-center'>
             <p className='font-Poppins font-medium text-[16px] leading-[24px] text-black'>
               Don't have an Account?{" "}
-              <Link className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'>
+              <Link
+                to='/sign-up'
+                className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'
+              >
                 Sign Up
               </Link>
             </p>

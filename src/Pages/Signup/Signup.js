@@ -200,7 +200,7 @@ const Signup = () => {
                 </label>
               </div>
               <Link
-                to=''
+                to='/terms'
                 className='font-Poppins font-medium text-[#556AEB] text-[16px] text-center leading-[24px] underline'
               >
                 Terms and Conditions
@@ -223,7 +223,10 @@ const Signup = () => {
           <div className='sign-up-wrapper flex flex-row justify-center items-center'>
             <p className='font-Poppins font-medium text-[16px] leading-[24px] text-black'>
               Already have an Account?{" "}
-              <Link className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'>
+              <Link
+                to='/login'
+                className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'
+              >
                 Sign In
               </Link>
             </p>
