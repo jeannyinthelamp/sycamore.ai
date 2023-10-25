@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Components/Landing/Navbar/Navbar";
 import Footer from "../../Components/Landing/Footer/Footer";
 
@@ -7,6 +7,12 @@ export default function TermsAndConditions() {
     " font-Poppins font-bold text-[18px] text-[#212529] leading-[28px] ";
   const bodyText =
     " font-Poppins font-normal text-[18px] text-[#212529] leading-[28px] ";
+
+  // automatically scroll to the top of the page when it renders
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />
