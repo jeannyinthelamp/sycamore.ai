@@ -2,8 +2,6 @@ import React from "react";
 import Navbar from "../../Components/Landing/Navbar/Navbar";
 import Footer from "../../Components/Landing/Footer/Footer";
 
-//TODO: Add content margins for Tablet and Mobile Versions
-
 export default function TermsAndConditions() {
   const titleText =
     " font-Poppins font-bold text-[18px] text-[#212529] leading-[28px] ";
@@ -12,8 +10,23 @@ export default function TermsAndConditions() {
   return (
     <>
       <Navbar />
-      <div className='terms-content-wrapper flex flex-col gap-[24px] justify-center items-start mx-auto max-w-[1109px] h-fit my-[126px] '>
-        <h1 className='font-Poppins font-semibold text-[40px] text-[#212529] leading-[54px]'>
+      <div
+        className='terms-content-wrapper flex flex-col gap-[24px] justify-center items-start max-w-[1109px] h-fit my-[126px] mx-auto px-[24px]
+      
+      tablet:my-[64px] tablet:mx-[24px] tablet:px-0
+
+      mobile:my-[64px] mobile:mx-[16px] mobile-px-0
+
+      '
+      >
+        <h1
+          className='font-Poppins font-semibold text-[40px] text-[#212529] leading-[54px]
+        
+        tablet:text-[28px] tablet:leading-[40px]
+
+        mobile:text-[28px] mobile:leading-[40px]
+        '
+        >
           Terms and Conditions
         </h1>
         <p className={titleText}>Last Updated: October 24, 2023</p>
