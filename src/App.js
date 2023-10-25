@@ -15,6 +15,7 @@ import Onboarding_7 from "./Pages/Onboarding/Onboarding_7";
 import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 import ForgotPassword2 from "./Pages/ForgotPassword/ForgotPassword2";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import TermsAndConditions from "./Pages/TermsAndConditions/TermsAndConditions";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import "./index.css";
 
@@ -36,6 +37,7 @@ export default function App() {
       <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route path='/forgot-password-2' element={<ForgotPassword2 />} />
       <Route path='/reset-password' element={<ResetPassword />} />
+      <Route path='/terms-and-conditions' element={<TermsAndConditions />} />
       <Route path='*' element={<ErrorPage />} />
     </Routes>
   );
