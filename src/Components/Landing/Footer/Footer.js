@@ -107,7 +107,10 @@ export default function Footer() {
             <Link to='' className=' text-center'>
               Cookie Settings
             </Link>
-            <Link to='' className=' text-center mobile:mb-[24px]'>
+            <Link
+              to='/terms-and-conditions'
+              className=' text-center mobile:mb-[24px]'
+            >
               Terms of Use
             </Link>
           </div>

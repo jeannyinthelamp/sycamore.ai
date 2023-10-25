@@ -12,7 +12,7 @@ export default function TermsAndConditions() {
   return (
     <>
       <Navbar />
-      <div className='terms-content-wrapper flex flex-col gap-[24px] justify-center items-start mx-auto max-w-[1109px] h-fit my-[126px] border border-red-400'>
+      <div className='terms-content-wrapper flex flex-col gap-[24px] justify-center items-start mx-auto max-w-[1109px] h-fit my-[126px] '>
         <h1 className='font-Poppins font-semibold text-[40px] text-[#212529] leading-[54px]'>
           Terms and Conditions
         </h1>
