@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
 import ProgressBar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import { Link } from "react-router-dom";
@@ -15,7 +15,7 @@ export default function Onboarding_5() {
   }
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Header />
+      <Onboarding_Header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <ProgressBar active='page5' />

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
 import ProgressBar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 import Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
@@ -10,7 +10,7 @@ import { Progress } from "@material-tailwind/react";
 export default function Onboarding_3() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Header />
+      <Onboarding_Header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <ProgressBar active='page3' />
