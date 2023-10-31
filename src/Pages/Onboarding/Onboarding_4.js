@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
+import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
 import { default as ProgressBar } from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
 
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
