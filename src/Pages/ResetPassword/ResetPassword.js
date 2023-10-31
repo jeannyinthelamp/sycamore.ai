@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LoginHeader from "../../Components/Login_Signup/LoginHeader";
-import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-const Signup = () => {
+export default function ResetPassword() {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
   //passTextSize - true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
@@ -66,10 +65,6 @@ const Signup = () => {
     }
 
     function validatePassword() {
-      // console.log("pass value: " + pass.value);
-      // console.log("confirm pass value: " + confirmPass.value);
-      // console.log(typeof confirmPass.value);
-
       if (confirmPass.value !== pass.value) {
         confirmPass.setCustomValidity("Your password does not match.");
         // console.log("passwords do not match");
@@ -84,41 +79,26 @@ const Signup = () => {
     confirmPass.onchange = validatePassword;
   });
 
-  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
       return safari_input_styling;
     }
   }
   return (
-    <div className='login-page-wrapper w-[100%]'>
+    <div className='reset-password-page-wrapper w-[100%] h-[100%]'>
       <LoginHeader />
-      <div className='flex flex-col justify-center items-center login-page-inner-wrapper w-[100%] h-[100%]'>
-        <div className='content-wrapper flex flex-col gap-[24px] mt-[192px] max-w-[420px] w-[52%]'>
+      <div className='reset-password-page-inner-wrapper flex flex-col justify-center items-center w-[100%] h-[100%]'>
+        <div className='content-wrapper flex flex-col gap-[24px] max-w-[420px] w-[52%] mt-[216px]'>
           <h1 className='font-Poppins font-semibold w-[100%] text-[40px] leading-[54px] text-center text-black'>
-            Sign Up
+            Reset Password
           </h1>
-          <form
-            action=''
-            onSubmit=''
-            className='flex flex-col gap-[24px] border-b-[1px] border-[#CED4DA]'
-          >
-            <input
-              type='text'
-              placeholder='Your Full Name'
-              required
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
-            />
-            <input
-              type='email'
-              placeholder='Your Email'
-              required
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
-            />
-            {/* //! add state to trigger required error message */}
-            <p className='hidden mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
-              This field is required
-            </p>
+          <p className='mt-[-10px] font-Poppins font-normal text-[16px] leading-[24px] text-black text-center'>
+            Please enter and confirm your new password.
+          </p>
+          <p className='mt-[-24px] font-Poppins font-normal text-[16px] leading-[24px] text-black text-center'>
+            Use at least 6 characters.
+          </p>
+          <form className='flex flex-col gap-[24px]' action=''>
             <div className='password-input-wrapper relative'>
               <input
                 id='passwordInput'
@@ -182,59 +162,30 @@ const Signup = () => {
                 id='confirmPasswordEye'
               />
             </div>
-            <div className='terms-and-conditions-checkbox-wrapper flex flex-row justify-start items-center'>
-              <div className='checkbox-and-label-wrapper'>
-                <input
-                  type='checkbox'
-                  id='remember-me'
-                  name='remember-me'
-                  value='Remember Me'
-                  className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer'
-                />
-                <label
-                  for='remember-me'
-                  className='mr-[4px] font-Poppins font-medium text-[#6C757D] text-[16px] text-center leading-[24px]'
-                >
-                  {" "}
-                  I agree to the
-                </label>
-              </div>
-              <Link
-                to='/terms'
-                className='font-Poppins font-medium text-[#556AEB] text-[16px] text-center leading-[24px] underline'
-              >
-                Terms and Conditions
-              </Link>
-            </div>
-            <input
-              type='submit'
-              value='Sign Up'
-              className={`w-[100%] h-[48px] mb-[24px] font-Poppins font-medium text-[16px] text-white text-center leading-[24px] bg-[#556AEB] rounded-lg cursor-pointer ${detectBrowser}`}
-            />
-          </form>
-
-          <Link
-            to=''
-            className='flex flex-row justify-center items-center gap-[16px] w-[100%] h-[48px] py-[12px] font-Poppins text-[16px] leading-[24px] text-[#556AEB]  rounded-lg border-[1px] border-[#556AEB] text-center'
-          >
-            <img src={google} alt='Google Logo' className='w-[24px] h-[24px]' />
-            Sign Up with Google
-          </Link>
-          <div className='sign-up-wrapper flex flex-row justify-center items-center'>
-            <p className='font-Poppins font-medium text-[16px] leading-[24px] text-black'>
-              Already have an Account?{" "}
+            <div className='flex flex-col gap-[24px]'>
+              <input
+                id='reset-password'
+                type='submit'
+                required
+                minLength={6}
+                value='Reset Password'
+                className={`w-[100%] py-[12px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-white bg-[#556AEB] outline outline-[1px] rounded-lg cursor-pointer ${detectBrowser()} `}
+                onClick={() => {
+                  //TODO: handle resend email functionality
+                }}
+                Reset
+                Email
+              />
               <Link
                 to='/login'
-                className='ml-[4px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] cursor-pointer underline'
+                className={`w-[100%] h-[48px] mb-[24px] py-[12px] font-Poppins font-medium text-[16px] text-[#556AEB] text-center leading-[24px] bg-white rounded-lg border border-[#556AEB] cursor-pointer ${detectBrowser}`}
               >
-                Sign In
+                Back to Log In
               </Link>
-            </p>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   );
-};
-
-export default Signup;
+}

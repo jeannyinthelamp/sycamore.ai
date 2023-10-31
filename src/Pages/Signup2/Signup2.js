@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import ButtonSmall from "../../Components/ButtonSmall/ButtonSmall/ButtonSmall";
-import checkbox from "../../Assets/Icons/checkbox.svg";
-import check_icon from "../../Assets/Icons/check-icon.svg";
 
 export default function Signup() {
   const [checked, setChecked] = useState(false);
@@ -48,7 +46,7 @@ export default function Signup() {
           <div className='relative w-[283px] h-[44px] flex flex-row justify-start items-center border-solid '>
             {/* On click the checkbox SVG will show the check_icon */}
             <img
-              src={checkbox}
+              src=''
               alt='check box'
               className='w-[25.68px] h-[18.38px] mb-5 pr-2 cursor-pointer'
               onClick={() => {
@@ -58,7 +56,7 @@ export default function Signup() {
 
             {/* On click the check_icon SVG will hide its self by adding the className 'hidden' */}
             <img
-              src={check_icon}
+              src=''
               alt='check mark'
               className={`w-[8.8px] h-[9.29px] absolute top-[7px] left-[4px] cursor-pointer ${
                 checked ? "" : "hidden"
