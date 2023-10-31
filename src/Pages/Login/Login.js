@@ -1,19 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginHeader from "../../Components/Login_Signup/LoginHeader";
 import google from "../../Assets/Icons/google-logo.svg";
 import eye from "../../Assets/Icons/password-eye.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
-import Signup from "../Signup/Signup";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [passEyeVisible, setPassEyeVisible] = useState(false);
+  // true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
+  const navigate = useNavigate();
 
   //^ Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
 
-  //TODO: Add code to increase & decrease password input font
+  const onLogin = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        alert("Successfully logged in --> Going to Home page");
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
+
   // get the value of the input field for password, then call checkPasswordInput function
   useEffect(() => {
     const pass = document.getElementById("passwordInput"),
@@ -36,6 +58,8 @@ const Login = () => {
       return;
     }
 
+    // if the password field === an empty string, hide the eye icon. else show the eye icon
+
     function checkPasswordInput(field, inputType) {
       if (field === "pass" && inputType === "password") {
         setPassEyeVisible(true);
@@ -43,17 +67,6 @@ const Login = () => {
       }
     }
   });
-
-  // if the password field === an empty string, hide the eye icon. else show the eye icon
-  const checkPasswordInput = (data) => {
-    if (data === "") {
-      setPassEyeVisible(false);
-      setPassTextSize(false);
-    } else {
-      setPassEyeVisible(true);
-      setPassTextSize(true);
-    }
-  };
 
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
@@ -77,6 +90,7 @@ const Login = () => {
               type='email'
               placeholder='Email Address'
               required
+              onChange={(e) => setEmail(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
             />
             {/* //! add state to trigger incorrect password / email style changes */}
@@ -90,13 +104,10 @@ const Login = () => {
                 required
                 minLength={6}
                 placeholder='Password'
+                onChange={(e) => setPassword(e.target.value)}
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
                   passTextSize ? " text-[24px] py-[3.6px] " : ""
                 }  `}
-                onChange={() => {
-                  //get the value of the input field.
-                  // checkPasswordInput();
-                }}
               />
               {/* //! add state to trigger incorrect password / email style changes */}
 
@@ -138,9 +149,12 @@ const Login = () => {
                 Forgot Password?
               </Link>
             </div>
+            {/* //& login btn */}
+
             <input
               type='submit'
               value='Login'
+              onClick={onLogin}
               className={`w-[100%] h-[48px] mb-[24px] font-Poppins font-medium text-[16px] text-white text-center leading-[24px] bg-[#556AEB] rounded-lg cursor-pointer ${detectBrowser}`}
             />
           </form>
