@@ -1,5 +1,6 @@
 import React from "react";
-import {default as Header} from "../../Components/Onboarding/Onboarding_header/Onboarding_header"
+import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_header";
+
 import checkmark from "../../Assets/Icons/check_circle.svg";
 import { Link } from "react-router-dom";
 
