@@ -12,18 +12,19 @@ import {
   validatePassword,
 } from "firebase/auth";
 
-//TODO: add ability to sign in once user is created
+//TODO: implement error states and error popups
+//TODO remove simple placeholder validation and add name, email, password validation
 //TODO refactor everything inside of useEffect
 //TODO: Work on form input popup logic 'required' and 'incorrect password' etc...
 
 const Signup = () => {
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passEyeVisible, setPassEyeVisible] = useState(false);
   const [confirmEyeVisible, setConfirmEyeVisible] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
-
   const [emailError, setEmailError] = useState(false);
 
   // true renders text at 24px, false at 16px
@@ -39,36 +40,59 @@ const Signup = () => {
   const signupNewUser = (e) => {
     e.preventDefault();
 
-    //! TODO: implement actual email validation
-    if (validateEmail(email)) {
-      if (validatePasswords(password, confirmPassword)) {
-        if (termsAccepted) {
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              // Signed in
-              const user = userCredential.user;
-              console.log(user);
-              alert("Successfully created user!");
-              navigate("/login");
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-              // ..
-            });
+    //! Clean up this if tree, ether use guard clauses or make a catch all validation function.
+    if (validateUserName(userName)) {
+      if (validateEmail(email)) {
+        if (validatePasswords(password, confirmPassword)) {
+          if (termsAccepted) {
+            createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                // Signed in
+                const user = userCredential.user;
+                console.log(user);
+                alert("Successfully created user!");
+                navigate("/login");
+              })
+              .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+                // ..
+              });
+          } else {
+            console.log("Terms not accepted");
+            alert("Terms and Conditions my be accepted to continue");
+          }
         } else {
-          console.log("Terms not accepted");
-          alert("Terms and Conditions my be accepted to continue");
+          console.log("passwords don't match");
+          alert("passwords do not match");
         }
       } else {
-        console.log("passwords don't match");
-        alert("passwords do not match");
+        console.log("must enter email");
+        alert("must enter email");
       }
-    } else {
-      console.log("must enter email");
-      alert("must enter email");
     }
+  };
+
+  // Ensure username field is not empty
+  function validateUserName(name) {
+    if (userName) {
+      console.log(userName);
+
+      return true;
+    }
+    alert("Must enter a name");
+    return false;
+  }
+
+  //! TODO: implement actual email validation
+  const validateEmail = (email, userName) => {
+    if (email === "") {
+      setEmailError(true);
+      return false;
+    }
+    setEmailError(false);
+    return true;
   };
 
   //! TODO: implement actual password validation
@@ -76,17 +100,6 @@ const Signup = () => {
     if (passwordValue !== confirmPasswordValue || passwordValue === "") {
       return false;
     }
-    return true;
-  };
-
-  //! TODO: implement actual email validation
-
-  const validateEmail = (email) => {
-    if (email === "") {
-      setEmailError(true);
-      return false;
-    }
-    setEmailError(false);
     return true;
   };
 
@@ -173,6 +186,7 @@ const Signup = () => {
               type='text'
               placeholder='Your Full Name'
               required
+              onChange={(e) => setUserName(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
             />
             <input
