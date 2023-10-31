@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
-import ProgressBar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
-import Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
+import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
+import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Person from "../../Assets/Icons/Person.svg";
 import Group from "../../Assets/Icons/Group.svg";
@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 export default function Onboarding_2() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_Header />
+      <Onboarding_header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <ProgressBar active='page2' />
+      <Onboarding_progress_bar active='page2' />
 
       <div className='title-and-button-wrapper max-w-[714px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
@@ -58,7 +58,7 @@ export default function Onboarding_2() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
-          <Nav />
+          <Onboarding_nav />
         </form>
         <Link
           to=''

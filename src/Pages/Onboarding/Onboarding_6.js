@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
-import ProgressBar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
-import Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
+import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
+import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_dropdown";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
@@ -19,10 +19,10 @@ export default function Onboarding_6() {
   }
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_Header />
+      <Onboarding_header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <ProgressBar active='page6' />
+      <Onboarding_progress_bar active='page6' />
 
       <div className='title-and-form-wrapper max-w-[541px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[541px] h-auto mb-[72px] flex flex-col justify-start items-center'>
@@ -96,7 +96,7 @@ export default function Onboarding_6() {
           </button>
 
           {/* //* Navigation Button and form Submit Input */}
-          <Nav />
+          <Onboarding_nav />
         </form>
         <Link
           to=''
