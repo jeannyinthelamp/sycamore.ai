@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import { default as Header } from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
-import { default as ProgressBar } from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
-import { default as Nav } from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
+import Header from "../../Components/Onboarding/Onboarding_Header/Onboarding_Header";
+import ProgressBar from "../../Components/Onboarding/Onboarding_Progress_Bar/Onboarding_Progress_Bar";
+import Nav from "../../Components/Onboarding/Onboarding_Nav/Onboarding_Nav";
 import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_dropdown";
 import { Link } from "react-router-dom";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
