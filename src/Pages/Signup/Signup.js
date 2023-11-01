@@ -27,6 +27,9 @@ const Signup = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(false);
+  //! Add state for terms and conditions error
 
   // true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
@@ -44,7 +47,9 @@ const Signup = () => {
 
     //! Clean up this if tree, ether use guard clauses or make a catch all validation function.
     if (validateUserName(userName) && validateEmail(email)) {
-      if (validatePasswords(password, confirmPassword) && termsAccepted) {
+      if (validatePasswords(password, confirmPassword)) {
+        //! keep password validation and terms validation seperate
+        //! keep password validation and terms validation seperate
         if (termsAccepted) {
           createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -62,11 +67,8 @@ const Signup = () => {
             });
         } else {
           console.log("Terms not accepted");
-          alert("Terms and Conditions my be accepted to continue");
+          alert("Terms and Conditions must be accepted to continue");
         }
-      } else {
-        console.log("passwords don't match");
-        alert("passwords do not match");
       }
     }
   };
@@ -109,12 +111,37 @@ const Signup = () => {
     }
   };
 
-  //! TODO: implement actual password validation
   const validatePasswords = (passwordValue, confirmPasswordValue) => {
-    if (passwordValue !== confirmPasswordValue || passwordValue === "") {
+    //^ password length must be 8+
+    //^ password must contain: lower-case, upper-case, symbol, number
+
+    const passwordRegEx =
+      /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+
+    let isValidPassword = passwordRegEx.test(passwordValue);
+    let passwordsMatch = passwordValue === confirmPasswordValue;
+
+    if (isValidPassword) {
+      setPasswordError(false);
+
+      if (passwordsMatch) {
+        setConfirmPasswordError(false);
+        // alert("Passwords MATCH");
+        return true;
+      } else {
+        // alert("Passwords DO NOT MATCH");
+        setConfirmPasswordError(true);
+        return false;
+      }
+    } else {
+      setPasswordError(true);
       return false;
     }
-    return true;
+
+    // if (passwordValue !== confirmPasswordValue || passwordValue === "") {
+    //   return false;
+    // }
+    // return true;
   };
 
   // get the value of the input field for password and confirm password, then validate inputs to ensure they match
@@ -239,14 +266,25 @@ const Signup = () => {
                 minLength={8}
                 placeholder='Create Password'
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${
+                  passwordError ? errorOutlineStyling : " "
+                } ${detectBrowser()} ${
                   passTextSize ? " text-[24px] py-[3.6px] " : ""
                 }  `}
               />
               {/* //! add state to trigger password error messages (Firebase may help with this) */}
 
-              <p className='hidden mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
-                Your password should be at least 6 characters long.
+              <p
+                className={` mt-[5px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                  passwordError ? errorStyling : "hidden"
+                }`}
+              >
+                Your password doesn't fit the requirement of:
+                <ul className='ml-[20px] list-disc font-Poppins'>
+                  <li>8 + characters</li>
+                  <li>1 Uppercase & 1 lowercase</li>
+                  <li>1 Symbol & 1 number</li>
+                </ul>
               </p>
 
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
@@ -268,20 +306,26 @@ const Signup = () => {
                 minLength={8}
                 placeholder='Confirm Password'
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${
+                  confirmPasswordError ? errorOutlineStyling : " "
+                } ${detectBrowser()} ${
                   confirmPassTextSize ? "text-[24px] py-[3.6px]" : ""
                 }  `}
               />
               {/* //! add state to trigger password error messages (Firebase may help with this) */}
 
-              <p className='hidden mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
+              <p
+                className={` mt-[5px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                  confirmPasswordError ? errorStyling : " hidden "
+                }`}
+              >
                 Your password does not match.
               </p>
 
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
-                  confirmEyeVisible ? "" : "hidden"
+                  confirmEyeVisible ? "" : " hidden "
                 }`}
                 src={eye}
                 alt='eye'
@@ -292,9 +336,9 @@ const Signup = () => {
               <div className='checkbox-and-label-wrapper'>
                 <input
                   type='checkbox'
-                  id='remember-me'
-                  name='remember-me'
-                  value='Remember Me'
+                  id='terms'
+                  name='terms'
+                  value=''
                   required
                   checked={termsAccepted}
                   onClick={() => {
@@ -303,7 +347,7 @@ const Signup = () => {
                   className='w-[16px] h-[16px] mr-[8px] rounded-lg cursor-pointer'
                 />
                 <label
-                  for='remember-me'
+                  for='terms'
                   className='mr-[4px] font-Poppins font-medium text-[#6C757D] text-[16px] text-center leading-[24px]'
                 >
                   {" "}
