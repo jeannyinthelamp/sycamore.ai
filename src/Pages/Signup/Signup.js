@@ -177,6 +177,7 @@ const Signup = () => {
           <h1 className='font-Poppins font-semibold w-[100%] text-[40px] leading-[54px] text-center text-black'>
             Sign Up
           </h1>
+          {/* //! Known bug: On mobile devices form input element borders dont appear. May have something to do with detectBrowser function. Or may need to add transform: perspective 1px */}
           <form
             action=''
             onSubmit=''
