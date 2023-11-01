@@ -25,6 +25,7 @@ const Signup = () => {
   const [passEyeVisible, setPassEyeVisible] = useState(false);
   const [confirmEyeVisible, setConfirmEyeVisible] = useState(false);
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
   // true renders text at 24px, false at 16px
@@ -35,57 +36,60 @@ const Signup = () => {
 
   // Error state styling for incorrect form inputs
   const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
+  const errorOutlineStyling = " text-[#C9324E] outline-[#C9324E] ";
 
   // Sign up a new user with firebase
   const signupNewUser = (e) => {
     e.preventDefault();
 
     //! Clean up this if tree, ether use guard clauses or make a catch all validation function.
-    if (validateUserName(userName)) {
-      if (validateEmail(email)) {
-        if (validatePasswords(password, confirmPassword)) {
-          if (termsAccepted) {
-            createUserWithEmailAndPassword(auth, email, password)
-              .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                alert("Successfully created user!");
-                navigate("/login");
-              })
-              .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
-                // ..
-              });
-          } else {
-            console.log("Terms not accepted");
-            alert("Terms and Conditions my be accepted to continue");
-          }
+    if (validateUserName(userName) && validateEmail(email)) {
+      if (validatePasswords(password, confirmPassword) && termsAccepted) {
+        if (termsAccepted) {
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              // Signed in
+              const user = userCredential.user;
+              console.log(user);
+              alert("Successfully created user!");
+              navigate("/login");
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+              // ..
+            });
         } else {
-          console.log("passwords don't match");
-          alert("passwords do not match");
+          console.log("Terms not accepted");
+          alert("Terms and Conditions my be accepted to continue");
         }
       } else {
-        console.log("must enter email");
-        // alert("must enter email");
+        console.log("passwords don't match");
+        alert("passwords do not match");
       }
     }
   };
 
-  // Ensure username field is not empty
   const validateUserName = (name) => {
-    if (userName) {
-      console.log(userName);
+    //check user name against regular expression
+    const nameRegEx = /[^a-zA-Z]/;
+    // returns true if test is passed, else false
+    let isValidName = nameRegEx.test(name);
+    //checks if name only contains white space
+    let isWhiteSpace = name.trim().length !== 0;
 
+    if (isValidName && isWhiteSpace) {
+      setNameError(false);
+      // alert("Valid Name");
       return true;
+    } else {
+      // alert("NOT Valid Name");
+      setNameError(true);
+      return false;
     }
-    alert("Must enter a name");
-    return false;
   };
 
-  //email validation
   const validateEmail = (email) => {
     // email address will be checked against this regular expression:
     const emailRegEx =
@@ -198,15 +202,25 @@ const Signup = () => {
               placeholder='Your Full Name'
               required
               onChange={(e) => setUserName(e.target.value)}
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
+                nameError ? errorOutlineStyling : " "
+              } ${detectBrowser()} `}
             />
+            {/* //! add state to trigger required error message */}
+            <p
+              className={`mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                nameError ? errorStyling : "hidden"
+              }`}
+            >
+              First and last name required.
+            </p>
             <input
               type='email'
               placeholder='Your Email'
               required
               onChange={(e) => setEmail(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
-                emailError ? " text-[#C9324E] outline-[#C9324E] " : ""
+                emailError ? errorOutlineStyling : ""
               }  ${detectBrowser()} `}
             />
             {/* //! add state to trigger required error message */}
