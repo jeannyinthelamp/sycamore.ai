@@ -69,13 +69,13 @@ const Signup = () => {
         }
       } else {
         console.log("must enter email");
-        alert("must enter email");
+        // alert("must enter email");
       }
     }
   };
 
   // Ensure username field is not empty
-  function validateUserName(name) {
+  const validateUserName = (name) => {
     if (userName) {
       console.log(userName);
 
@@ -83,16 +83,26 @@ const Signup = () => {
     }
     alert("Must enter a name");
     return false;
-  }
+  };
 
-  //! TODO: implement actual email validation
-  const validateEmail = (email, userName) => {
-    // if (email === "") {
-    //   setEmailError(true);
-    //   return false;
-    // }
-    // setEmailError(false);
-    // return true;
+  //email validation
+  const validateEmail = (email) => {
+    // email address will be checked against this regular expression:
+    const emailRegEx =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    // returns true if test is passed, else false
+    let isValidEmail = emailRegEx.test(email);
+
+    if (isValidEmail) {
+      setEmailError(false);
+      // alert("Email is VALID");
+      return true;
+    } else {
+      setEmailError(true);
+      // alert("Email NOT VALID");
+      return false;
+    }
   };
 
   //! TODO: implement actual password validation
@@ -195,7 +205,9 @@ const Signup = () => {
               placeholder='Your Email'
               required
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
+                emailError ? " text-[#C9324E] outline-[#C9324E] " : ""
+              }  ${detectBrowser()} `}
             />
             {/* //! add state to trigger required error message */}
             <p
@@ -210,7 +222,7 @@ const Signup = () => {
                 id='passwordInput'
                 type='password'
                 required
-                minLength={6}
+                minLength={8}
                 placeholder='Create Password'
                 onChange={(e) => setPassword(e.target.value)}
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
@@ -239,7 +251,7 @@ const Signup = () => {
                 id='confirmPassword'
                 type='password'
                 required
-                minLength={6}
+                minLength={8}
                 placeholder='Confirm Password'
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
