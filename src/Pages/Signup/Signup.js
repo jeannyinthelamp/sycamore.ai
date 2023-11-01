@@ -87,12 +87,12 @@ const Signup = () => {
 
   //! TODO: implement actual email validation
   const validateEmail = (email, userName) => {
-    if (email === "") {
-      setEmailError(true);
-      return false;
-    }
-    setEmailError(false);
-    return true;
+    // if (email === "") {
+    //   setEmailError(true);
+    //   return false;
+    // }
+    // setEmailError(false);
+    // return true;
   };
 
   //! TODO: implement actual password validation
