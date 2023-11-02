@@ -209,6 +209,8 @@ const Signup = () => {
               This field is required
             </p>
             <div className='password-input-wrapper relative'>
+              {/* //! disable ability to copy / paste text */}
+
               <input
                 id='passwordInput'
                 type='password'
@@ -258,12 +260,15 @@ const Signup = () => {
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
                   passwordVisible ? "" : "hidden"
                 }`}
+                //! Add closed eye icon + logic + switch alt name
+
                 src={eye}
                 alt='eye'
                 id='passwordEye'
               />
             </div>
             <div className='confirm-password-input-wrapper relative'>
+              {/* //! disable ability to copy / paste text */}
               <input
                 id='confirmPassword'
                 type='password'
@@ -291,6 +296,7 @@ const Signup = () => {
                 className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
                   confirmPasswordVisible ? "" : " hidden "
                 }`}
+                //! Add closed eye icon + logic + switch alt name
                 src={eye}
                 alt='eye'
                 id='confirmPasswordEye'
