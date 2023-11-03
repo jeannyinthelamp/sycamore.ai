@@ -30,10 +30,8 @@ const Signup = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [termsAcceptedError, setTermsAcceptedError] = useState(false);
 
-  const [passwordVisible, setPasswordVisible] = useState(false);
-  const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
-  const [passwordEyeIcon, setPasswordEyeIcon] = useState(true);
-  const [confirmPasswordEyeIcon, setConfirmPasswordEyeIcon] = useState(true);
+  const [passwordEyeIcon, setPasswordEyeIcon] = useState(false);
+  const [confirmPasswordEyeIcon, setConfirmPasswordEyeIcon] = useState(false);
   const [showPasswordRequirements, setShowPasswordRequirements] =
     useState(false);
 
@@ -109,7 +107,6 @@ const Signup = () => {
     passwordEyeToggle.onclick = togglePasswordTextVisibility;
     passConfirmEye.onclick = toggleConfirmTextVisibility;
 
-    //! rename this function
     function togglePasswordTextVisibility() {
       if (passwordInput.type === "password") {
         passwordInput.type = "text";
@@ -123,7 +120,6 @@ const Signup = () => {
       return;
     }
 
-    //! rename this function
     function toggleConfirmTextVisibility() {
       if (confirmPasswordInput.type === "password") {
         confirmPasswordInput.type = "text";
@@ -137,15 +133,16 @@ const Signup = () => {
       return;
     }
 
+    //! rename this function
     function checkPasswordInput(field, inputType) {
       if (field === "passwordInput" && inputType === "password") {
-        setPasswordVisible(true);
+        // setPasswordVisible(true);
         setPassTextSize(true);
       } else if (
         field === "confirm-passwordInput" &&
         inputType === "password"
       ) {
-        setConfirmPasswordVisible(true);
+        // setConfirmPasswordVisible(true);
         setConfirmPassTextSize(true);
       }
     }
@@ -219,6 +216,7 @@ const Signup = () => {
             </p>
             <div className='password-input-wrapper relative'>
               {/* //! disable ability to copy / paste text */}
+              {/* //! disable ability to copy / paste text */}
 
               <input
                 id='passwordInput'
@@ -226,7 +224,7 @@ const Signup = () => {
                 required
                 minLength={8}
                 placeholder='Create Password'
-                onChange={(e, password) => {
+                onChange={(e) => {
                   setPassword(e.target.value);
                   displayPasswordRequirements();
                 }}
@@ -266,13 +264,11 @@ const Signup = () => {
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
 
               <img
-                className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
-                  passwordVisible ? "" : "hidden"
-                }`}
+                className='absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer'
                 //! Add closed eye icon + logic + switch alt name
 
-                src={passwordEyeIcon ? eye_closed : eye_open}
-                alt='eye'
+                src={passwordEyeIcon ? eye_open : eye_closed}
+                alt={passwordEyeIcon ? "eyeball" : "eyeball closed"}
                 id='passwordEye'
               />
             </div>
@@ -302,12 +298,10 @@ const Signup = () => {
 
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
-                className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer ${
-                  confirmPasswordVisible ? "" : " hidden "
-                }`}
+                className='absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer'
                 //! Add closed eye icon + logic + switch alt name
-                src={confirmPasswordEyeIcon ? eye_closed : eye_open}
-                alt='eye'
+                src={confirmPasswordEyeIcon ? eye_open : eye_closed}
+                alt={confirmPasswordEyeIcon ? "eyeball" : "eyeball closed"}
                 id='confirmPasswordEye'
               />
             </div>
