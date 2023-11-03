@@ -108,26 +108,26 @@ const Signup = () => {
     passConfirmEye.onclick = toggleConfirmTextVisibility;
 
     function togglePasswordTextVisibility() {
+      setPasswordEyeIcon(!passwordEyeIcon);
+
       if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        setPasswordEyeIcon(!passwordEyeIcon);
         setPassTextSize(false);
       } else {
         passwordInput.type = "password";
-        setPasswordEyeIcon(!passwordEyeIcon);
         setPassTextSize(true);
       }
       return;
     }
 
     function toggleConfirmTextVisibility() {
+      setConfirmPasswordEyeIcon(!confirmPasswordEyeIcon);
+
       if (confirmPasswordInput.type === "password") {
         confirmPasswordInput.type = "text";
-        setConfirmPasswordEyeIcon(!confirmPasswordEyeIcon);
         setConfirmPassTextSize(false);
       } else {
         confirmPasswordInput.type = "password";
-        setConfirmPasswordEyeIcon(!confirmPasswordEyeIcon);
         setConfirmPassTextSize(true);
       }
       return;
