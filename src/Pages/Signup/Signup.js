@@ -8,6 +8,7 @@ import {
   validateUserName,
   validateEmail,
   validateUserPasswords,
+  preventCopyPaste,
 } from "../../Components/Login_Signup/Validation";
 
 import google from "../../Assets/Icons/google-logo.svg";
@@ -102,6 +103,13 @@ const Signup = () => {
       "confirm-passwordInput",
       confirmPasswordInput.type
     );
+
+    // Disable copy / paste functionality for password and confirm password fields
+    //^ Should there be some kind of UI interaction to notify user that copy / paste is disabled
+    passwordInput.onpaste = preventCopyPaste;
+    passwordInput.oncopy = preventCopyPaste;
+    confirmPasswordInput.onpaste = preventCopyPaste;
+    confirmPasswordInput.oncopy = preventCopyPaste;
 
     // When the eye icon is clicked, password visibility will toggle
     passwordEyeToggle.onclick = togglePasswordTextVisibility;
@@ -262,15 +270,12 @@ const Signup = () => {
 
               <img
                 className='absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer'
-                //! Add closed eye icon + logic + switch alt name
-
                 src={passwordEyeIcon ? eye_open : eye_closed}
                 alt={passwordEyeIcon ? "eyeball" : "eyeball closed"}
                 id='passwordEye'
               />
             </div>
             <div className='confirm-password-input-wrapper relative'>
-              {/* //! disable ability to copy / paste text */}
               <input
                 id='confirmPassword'
                 type='password'
@@ -296,7 +301,6 @@ const Signup = () => {
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
                 className='absolute top-[15px] right-[17px] w-[22px] h-[15px] cursor-pointer'
-                //! Add closed eye icon + logic + switch alt name
                 src={confirmPasswordEyeIcon ? eye_open : eye_closed}
                 alt={confirmPasswordEyeIcon ? "eyeball" : "eyeball closed"}
                 id='confirmPasswordEye'

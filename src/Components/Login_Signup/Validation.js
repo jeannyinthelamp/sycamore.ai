@@ -73,3 +73,7 @@ export const validateUserPasswords = (
     return false;
   }
 };
+
+export const preventCopyPaste = (e) => {
+  e.preventDefault();
+};
