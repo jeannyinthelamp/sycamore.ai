@@ -155,6 +155,9 @@ const Signup = () => {
 
   function displayPasswordRequirements() {
     //! Currently there is an off by 1 bug. password length keeps returning 1 less than the actual value
+
+    // the bug may be cause by the regex in validateUsersPasswords function introducing white space, or some other unicode value
+    console.log(password);
     if (password.length + 1 !== 0) {
       setShowPasswordRequirements(true);
       if (passwordError) {
