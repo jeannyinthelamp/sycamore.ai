@@ -93,12 +93,12 @@ const Signup = () => {
       passwordEyeToggle = document.getElementById("passwordEye"),
       passConfirmEye = document.getElementById("confirmPasswordEye");
 
-    // when password  & confirm password input fields are changed call checkPasswordInput function
-    passwordInput.onChange = checkPasswordInput(
+    // when password  & confirm password input fields are changed call toggleBulletPointTextSize function
+    passwordInput.onChange = toggleBulletPointTextSize(
       "passwordInput",
       passwordInput.type
     );
-    confirmPasswordInput.onChange = checkPasswordInput(
+    confirmPasswordInput.onChange = toggleBulletPointTextSize(
       "confirm-passwordInput",
       confirmPasswordInput.type
     );
@@ -133,16 +133,13 @@ const Signup = () => {
       return;
     }
 
-    //! rename this function
-    function checkPasswordInput(field, inputType) {
+    function toggleBulletPointTextSize(field, inputType) {
       if (field === "passwordInput" && inputType === "password") {
-        // setPasswordVisible(true);
         setPassTextSize(true);
       } else if (
         field === "confirm-passwordInput" &&
         inputType === "password"
       ) {
-        // setConfirmPasswordVisible(true);
         setConfirmPassTextSize(true);
       }
     }
