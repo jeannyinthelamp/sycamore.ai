@@ -11,7 +11,8 @@ import {
 } from "../../Components/Login_Signup/Validation";
 
 import google from "../../Assets/Icons/google-logo.svg";
-import eye from "../../Assets/Icons/password-eye.svg";
+import eye_open from "../../Assets/Icons/password-eye.svg";
+import eye_closed from "../../Assets/Icons/password-eye-closed.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 //TODO refactor everything inside of useEffect
@@ -31,6 +32,8 @@ const Signup = () => {
 
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const [passwordEyeIcon, setPasswordEyeIcon] = useState(true);
+  const [confirmPasswordEyeIcon, setConfirmPasswordEyeIcon] = useState(true);
   const [showPasswordRequirements, setShowPasswordRequirements] =
     useState(false);
 
@@ -106,23 +109,29 @@ const Signup = () => {
     passwordEyeToggle.onclick = togglePasswordTextVisibility;
     passConfirmEye.onclick = toggleConfirmTextVisibility;
 
+    //! rename this function
     function togglePasswordTextVisibility() {
       if (passwordInput.type === "password") {
         passwordInput.type = "text";
+        setPasswordEyeIcon(!passwordEyeIcon);
         setPassTextSize(false);
       } else {
         passwordInput.type = "password";
+        setPasswordEyeIcon(!passwordEyeIcon);
         setPassTextSize(true);
       }
       return;
     }
 
+    //! rename this function
     function toggleConfirmTextVisibility() {
       if (confirmPasswordInput.type === "password") {
         confirmPasswordInput.type = "text";
+        setConfirmPasswordEyeIcon(!confirmPasswordEyeIcon);
         setConfirmPassTextSize(false);
       } else {
         confirmPasswordInput.type = "password";
+        setConfirmPasswordEyeIcon(!confirmPasswordEyeIcon);
         setConfirmPassTextSize(true);
       }
       return;
@@ -224,7 +233,7 @@ const Signup = () => {
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${
                   passwordError ? errorStyling : " "
                 } ${detectBrowser()} ${
-                  passTextSize ? " text-[24px] py-[3.6px] " : ""
+                  passTextSize ? " text-[24px] py-[4.1px] " : ""
                 }  `}
               />
               {/* // Password requirements should appear when user begins typing */}
@@ -262,7 +271,7 @@ const Signup = () => {
                 }`}
                 //! Add closed eye icon + logic + switch alt name
 
-                src={eye}
+                src={passwordEyeIcon ? eye_closed : eye_open}
                 alt='eye'
                 id='passwordEye'
               />
@@ -279,7 +288,7 @@ const Signup = () => {
                 className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${
                   confirmPasswordError ? errorStyling : " "
                 } ${detectBrowser()} ${
-                  confirmPassTextSize ? "text-[24px] py-[3.6px]" : ""
+                  confirmPassTextSize ? "text-[24px] py-[4.2px] " : ""
                 }  `}
               />
 
@@ -297,7 +306,7 @@ const Signup = () => {
                   confirmPasswordVisible ? "" : " hidden "
                 }`}
                 //! Add closed eye icon + logic + switch alt name
-                src={eye}
+                src={confirmPasswordEyeIcon ? eye_closed : eye_open}
                 alt='eye'
                 id='confirmPasswordEye'
               />
