@@ -16,8 +16,6 @@ import eye_open from "../../Assets/Icons/password-eye.svg";
 import eye_closed from "../../Assets/Icons/password-eye-closed.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-//TODO refactor everything inside of useEffect
-
 const Signup = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -105,7 +103,7 @@ const Signup = () => {
     );
 
     // Disable copy / paste functionality for password and confirm password fields
-    //^ Should there be some kind of UI interaction to notify user that copy / paste is disabled
+    //^ Should there be some kind of UI interaction to notify user that copy / paste is disabled?
     passwordInput.onpaste = preventCopyPaste;
     passwordInput.oncopy = preventCopyPaste;
     confirmPasswordInput.onpaste = preventCopyPaste;
@@ -141,6 +139,7 @@ const Signup = () => {
       return;
     }
 
+    //set the text size for password fields. Bullets 24px / text 16px
     function toggleBulletPointTextSize(field, inputType) {
       if (field === "passwordInput" && inputType === "password") {
         setPassTextSize(true);
@@ -156,7 +155,7 @@ const Signup = () => {
   function displayPasswordRequirements() {
     //! Currently there is an off by 1 bug. password length keeps returning 1 less than the actual value
 
-    // the bug may be cause by the regex in validateUsersPasswords function introducing white space, or some other unicode value
+    //! the bug may be cause by the regex in validateUsersPasswords function introducing white space, or some other unicode value
     console.log(password);
     if (password.length + 1 !== 0) {
       setShowPasswordRequirements(true);
@@ -223,9 +222,6 @@ const Signup = () => {
               This field is required
             </p>
             <div className='password-input-wrapper relative'>
-              {/* //! disable ability to copy / paste text */}
-              {/* //! disable ability to copy / paste text */}
-
               <input
                 id='passwordInput'
                 type='password'
@@ -242,7 +238,7 @@ const Signup = () => {
                   passTextSize ? " text-[24px] py-[4.1px] " : ""
                 }  `}
               />
-              {/* // Password requirements should appear when user begins typing */}
+
               <p
                 className={` mt-[5px] font-Poppins font-normal text-[14px] text-[#6C757D] leading-[21px] ${
                   showPasswordRequirements ? null : "hidden"
