@@ -1,39 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoginHeader from "../../Components/Login_Signup/LoginHeader";
-import google from "../../Assets/Icons/google-logo.svg";
-import eye from "../../Assets/Icons/password-eye.svg";
-import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+
+import {
+  validateEmail,
+  validateUserPasswords,
+  preventCopyPaste,
+} from "../../Components/Login_Signup/Validation";
+
+import eye from "../../Assets/Icons/password-eye.svg";
+import google from "../../Assets/Icons/google-logo.svg";
+import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const [passEyeVisible, setPassEyeVisible] = useState(false);
   // true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
   const navigate = useNavigate();
 
   //^ Error state styling for incorrect form inputs
-  const errorStyling = "text-[#c9324e] outline-[2px] outline-[#c9324e]";
+  const errorStyling =
+    "text-[#c9324e] placeholder-[#c9324e] outline-[2px] outline-[#c9324e]";
 
   const onLogin = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        alert("Successfully logged in --> Going to Home page");
-        navigate("/");
-        console.log(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
+    if (validateEmail(email, setEmailError)) {
+      //! import and use validation functions for email, and password
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          alert("Successfully logged in --> Going to Home page");
+          navigate("/");
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+    }
   };
 
   // get the value of the input field for password, then call checkPasswordInput function
@@ -91,10 +104,16 @@ const Login = () => {
               placeholder='Email Address'
               required
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
+                emailError ? errorStyling : ""
+              } ${detectBrowser()} `}
             />
             {/* //! add state to trigger incorrect password / email style changes */}
-            <p className='hidden mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
+            <p
+              className={`mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                emailError ? errorStyling : " hidden "
+              }`}
+            >
               Invalid email address.
             </p>
             <div className='password-input-wrapper relative'>

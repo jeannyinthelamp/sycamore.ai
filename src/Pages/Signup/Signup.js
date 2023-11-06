@@ -167,7 +167,7 @@ const Signup = () => {
     }
   }
 
-  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
+  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames in to create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
       return safari_input_styling;
