@@ -5,7 +5,7 @@ import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import {
-  validateUserName,
+  validateFirstName,
   validateEmail,
   validateUserPasswords,
   preventCopyPaste,
@@ -22,13 +22,14 @@ import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styli
 //TODO 4 refactor validateUserName function to handle first/last names
 
 const Signup = () => {
-  const [userName, setUserName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
-  const [userNameError, setUserNameError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
@@ -55,7 +56,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (
-      validateUserName(userName, setUserNameError) &&
+      validateFirstName(firstName, setFirstNameError) &&
       validateEmail(email, setEmailError)
     ) {
       if (
@@ -194,21 +195,28 @@ const Signup = () => {
           >
             <input
               type='text'
-              placeholder='Your Full Name'
+              placeholder='First Name'
               required
-              onChange={(e) => setUserName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
-                userNameError ? errorStyling : " "
+                firstNameError ? errorStyling : " "
               } ${detectBrowser()} `}
             />
 
             <p
               className={`mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
-                userNameError ? errorStyling : "hidden"
+                firstNameError ? errorStyling : "hidden"
               }`}
             >
-              First and last name required.
+              First name required.
             </p>
+            <input
+              type='text'
+              placeholder='Last Name (Optional)'
+              onChange={(e) => setLastName(e.target.value)}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
+            />
+
             <input
               type='email'
               placeholder='Your Email'

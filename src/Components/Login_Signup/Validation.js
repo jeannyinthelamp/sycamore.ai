@@ -1,20 +1,23 @@
 // This file contains the functions for validating user full userName, email, and password
 
-export const validateUserName = (userName, setUserNameError) => {
-  //check user userName against regular expression
-  const nameRegEx = /[^a-zA-Z]/;
-  // returns true if test is passed, else false
-  let isValidName = nameRegEx.test(userName);
-  //checks if userName only contains white space
-  let isWhiteSpace = userName.trim().length !== 0;
+export const validateFirstName = (firstName, setFirstNameError) => {
+  //remove white space from start and end of firstName, also checks if firstName only contains white space
+  firstName = firstName.trim();
 
-  if (isValidName && isWhiteSpace) {
-    setUserNameError(false);
+  //check user firstName against regular expression
+  const nameRegEx = /[a-zA-Z]/;
+
+  // returns true if test is passed, else false
+  let isValidName = nameRegEx.test(firstName);
+
+  console.log(firstName);
+  if (isValidName) {
+    setFirstNameError(false);
     // alert("Valid userName");
     return true;
   } else {
     // alert("NOT Valid userName");
-    setUserNameError(true);
+    setFirstNameError(true);
     return false;
   }
 };
