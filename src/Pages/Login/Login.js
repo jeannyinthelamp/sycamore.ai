@@ -6,11 +6,11 @@ import { auth } from "../../firebase";
 
 import {
   validateEmail,
-  validateUserPasswords,
   preventCopyPaste,
 } from "../../Components/Login_Signup/Validation";
 
-import eye from "../../Assets/Icons/password-eye.svg";
+import eye_open from "../../Assets/Icons/password-eye.svg";
+import eye_closed from "../../Assets/Icons/password-eye-closed.svg";
 import google from "../../Assets/Icons/google-logo.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
@@ -19,7 +19,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const [passEyeVisible, setPassEyeVisible] = useState(false);
+  const [passwordEyeIcon, setPasswordEyeIcon] = useState(false);
+
   // true renders text at 24px, false at 16px
   const [passTextSize, setPassTextSize] = useState(false);
   const navigate = useNavigate();
@@ -32,50 +33,69 @@ const Login = () => {
     e.preventDefault();
 
     if (validateEmail(email, setEmailError)) {
-      //! import and use validation functions for email, and password
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          alert("Successfully logged in --> Going to Home page");
-          navigate("/");
-          console.log(user);
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
+      //& NEXT STEP: validate if user email exist in firebase
+      //! get firebase error codes for incorrect email / password
+      setEmailError(false);
+      if (password) {
+        setPasswordError(false);
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            setPasswordError(false);
+            const user = userCredential.user;
+            alert("Successfully logged in --> Going to Home page");
+            navigate("/");
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            setPasswordError(true);
+          });
+      } else {
+        setPasswordError(true);
+      }
+    } else {
+      setEmailError(true);
     }
   };
 
   // get the value of the input field for password, then call checkPasswordInput function
   useEffect(() => {
-    const pass = document.getElementById("passwordInput"),
-      passEye = document.getElementById("passwordEye");
+    const passwordInput = document.getElementById("passwordInput"),
+      passwordEyeToggle = document.getElementById("passwordEye");
 
-    // when password  & confirm password input fields are changed call checkPasswordInput function
-    pass.onChange = checkPasswordInput("pass", pass.type);
+    // when password  input field is changed call toggleBulletPointTextSize function
+    passwordInput.onChange = toggleBulletPointTextSize(
+      "passwordInput",
+      passwordInput.type
+    );
+
+    // Disable copy / paste functionality for password and confirm password fields
+    //^ Should there be some kind of UI interaction to notify user that copy / paste is disabled?
+    passwordInput.onpaste = preventCopyPaste;
+    passwordInput.oncopy = preventCopyPaste;
 
     // When the eye icon is clicked, password visibility will toggle
-    passEye.onclick = triggerPasswordTextVisibility;
+    passwordEyeToggle.onclick = togglePasswordTextVisibility;
 
-    function triggerPasswordTextVisibility() {
-      if (pass.type === "password") {
-        pass.type = "text";
+    function togglePasswordTextVisibility() {
+      setPasswordEyeIcon(!passwordEyeIcon);
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
         setPassTextSize(false);
       } else {
-        pass.type = "password";
+        passwordInput.type = "password";
         setPassTextSize(true);
       }
       return;
     }
 
-    // if the password field === an empty string, hide the eye icon. else show the eye icon
-
-    function checkPasswordInput(field, inputType) {
-      if (field === "pass" && inputType === "password") {
-        setPassEyeVisible(true);
+    //set the text size for password fields. Bullets 24px / text 16px
+    function toggleBulletPointTextSize(field, inputType) {
+      if (field === "passwordInput" && inputType === "password") {
         setPassTextSize(true);
       }
     }
@@ -104,11 +124,11 @@ const Login = () => {
               placeholder='Email Address'
               required
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px] text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
                 emailError ? errorStyling : ""
               } ${detectBrowser()} `}
             />
-            {/* //! add state to trigger incorrect password / email style changes */}
+
             <p
               className={`mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
                 emailError ? errorStyling : " hidden "
@@ -121,26 +141,29 @@ const Login = () => {
                 id='passwordInput'
                 type='password'
                 required
-                minLength={6}
+                minLength={8}
                 placeholder='Password'
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${detectBrowser()} ${
+                className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg placeholder:text-[16px] ${
+                  passwordError ? errorStyling : " "
+                } ${detectBrowser()} ${
                   passTextSize ? " text-[24px] py-[3.6px] " : ""
                 }  `}
               />
-              {/* //! add state to trigger incorrect password / email style changes */}
 
-              <p className='hidden mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px]'>
+              <p
+                className={`mt-[2px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                  passwordError ? errorStyling : "hidden"
+                }`}
+              >
                 You have entered the wrong password.
               </p>
 
               {/* //! known bug - on safari this SVG overlays the default browser input field icon*/}
               <img
-                className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] ${
-                  passEyeVisible ? "" : "hidden"
-                }`}
-                src={eye}
-                alt='eye'
+                className={`absolute top-[15px] right-[17px] w-[22px] h-[15px] `}
+                src={passwordEyeIcon ? eye_open : eye_closed}
+                alt={passwordEyeIcon ? "eyeball" : "eyeball closed"}
                 id='passwordEye'
               />
             </div>
