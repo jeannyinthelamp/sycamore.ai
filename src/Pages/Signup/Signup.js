@@ -21,6 +21,9 @@ import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styli
 //TODO: 3 add lastName state var, adn setup
 //TODO: 3 add validateLastName function
 //TODO 4 refactor validateUserName function to handle first/last names - DONE
+//TODO: Make Last Name mandatory / required - for validation make sure at least one letter exists
+
+//TODO: reset password, google, terms and service. In this order
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
