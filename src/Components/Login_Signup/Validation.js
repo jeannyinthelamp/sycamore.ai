@@ -5,7 +5,8 @@ export const validateFirstName = (firstName, setFirstNameError) => {
   firstName = firstName.trim();
 
   //check user firstName against regular expression
-  const nameRegEx = /[a-zA-Z]/;
+  // firstName should only contain lowercase and or uppercase letters.
+  const nameRegEx = /^[a-zA-Z ]+$/;
 
   // returns true if test is passed, else false
   let isValidName = nameRegEx.test(firstName);
@@ -18,6 +19,29 @@ export const validateFirstName = (firstName, setFirstNameError) => {
   } else {
     // alert("NOT Valid userName");
     setFirstNameError(true);
+    return false;
+  }
+};
+
+export const validateLastName = (lastName, setLastNameError) => {
+  //remove white space from start and end of firstName, also checks if firstName only contains white space
+  lastName = lastName.trim();
+
+  //check user firstName against regular expression
+  // firstName should only contain lowercase and or uppercase letters.
+  const nameRegEx = /^[a-zA-Z ]+$/;
+
+  // returns true if test is passed, else false
+  let isValidName = nameRegEx.test(lastName);
+
+  console.log(lastName);
+  if (isValidName) {
+    setLastNameError(false);
+    // alert("Valid userName");
+    return true;
+  } else {
+    // alert("NOT Valid userName");
+    setLastNameError(true);
     return false;
   }
 };

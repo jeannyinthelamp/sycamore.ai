@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import {
   validateFirstName,
+  validateLastName,
   validateEmail,
   validateUserPasswords,
   preventCopyPaste,
@@ -16,14 +17,11 @@ import eye_open from "../../Assets/Icons/password-eye.svg";
 import eye_closed from "../../Assets/Icons/password-eye-closed.svg";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 
-//TODO 1 Separate full name into first/last name fields, last name is optional - DONE
-//TODO 2 change userName state var to firstName- DONE
-//TODO: 3 add lastName state var, adn setup
-//TODO: 3 add validateLastName function
-//TODO 4 refactor validateUserName function to handle first/last names - DONE
-//TODO: Make Last Name mandatory / required - for validation make sure at least one letter exists
-
-//TODO: reset password, google, terms and service. In this order
+//TODO: In this order:
+// Make inputs validate on focus out
+//Reset password
+//Google Sign up
+//Terms and Service
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -34,6 +32,7 @@ const Signup = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
@@ -59,37 +58,38 @@ const Signup = () => {
     // prevent form from submitting before all inputs are validated and return true
     e.preventDefault();
 
-    if (
-      validateFirstName(firstName, setFirstNameError) &&
-      validateEmail(email, setEmailError)
-    ) {
-      if (
-        validateUserPasswords(
-          password,
-          confirmPassword,
-          setPasswordError,
-          setConfirmPasswordError,
-          setShowPasswordRequirements
-        )
-      ) {
-        if (termsAccepted) {
-          setTermsAcceptedError(false);
-          createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-              // Signed in
-              const user = userCredential.user;
-              console.log(user);
-              alert("Successfully created user!");
-              navigate("/login");
-            })
-            .catch((error) => {
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-              // ..
-            });
-        } else {
-          setTermsAcceptedError(true);
+    if (validateFirstName(firstName, setFirstNameError)) {
+      if (validateLastName(lastName, setLastNameError)) {
+        if (validateEmail(email, setEmailError)) {
+          if (
+            validateUserPasswords(
+              password,
+              confirmPassword,
+              setPasswordError,
+              setConfirmPasswordError,
+              setShowPasswordRequirements
+            )
+          ) {
+            if (termsAccepted) {
+              setTermsAcceptedError(false);
+              createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed in
+                  const user = userCredential.user;
+                  console.log(user);
+                  alert("Successfully created user!");
+                  navigate("/login");
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.log(errorCode, errorMessage);
+                  // ..
+                });
+            } else {
+              setTermsAcceptedError(true);
+            }
+          }
         }
       }
     }
@@ -216,10 +216,20 @@ const Signup = () => {
             </p>
             <input
               type='text'
-              placeholder='Last Name (Optional)'
+              placeholder='Last Name'
+              required
               onChange={(e) => setLastName(e.target.value)}
-              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${detectBrowser()} `}
+              className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
+                lastNameError ? errorStyling : " "
+              } ${detectBrowser()} `}
             />
+            <p
+              className={`mt-[-20px] font-Poppins font-normal text-[14px] text-[#c9324e] leading-[21px] ${
+                lastNameError ? errorStyling : "hidden"
+              }`}
+            >
+              Last name required.
+            </p>
 
             <input
               type='email'
