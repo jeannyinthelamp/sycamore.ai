@@ -97,10 +97,21 @@ const Signup = () => {
 
   // get the value of the input fields for password and confirm password, then validate inputs to ensure they match
   useEffect(() => {
-    const passwordInput = document.getElementById("passwordInput"),
+    const firstNameInput = document.getElementById("firstNameInput"),
+      lastNameInput = document.getElementById("lastNameInput"),
+      passwordInput = document.getElementById("passwordInput"),
       confirmPasswordInput = document.getElementById("confirmPassword"),
       passwordEyeToggle = document.getElementById("passwordEye"),
       passConfirmEye = document.getElementById("confirmPasswordEye");
+
+    //^ Validate various input fields on change
+    firstNameInput.onchange = firstName
+      ? validateFirstName(firstName, setFirstNameError)
+      : null;
+
+    lastNameInput.onchange = lastName
+      ? validateLastName(lastName, setLastNameError)
+      : null;
 
     // when password  & confirm password input fields are changed call toggleBulletPointTextSize function
     passwordInput.onChange = toggleBulletPointTextSize(
@@ -200,6 +211,7 @@ const Signup = () => {
             <input
               type='text'
               placeholder='First Name'
+              id='firstNameInput'
               required
               onChange={(e) => setFirstName(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
@@ -217,6 +229,7 @@ const Signup = () => {
             <input
               type='text'
               placeholder='Last Name'
+              id='lastNameInput'
               required
               onChange={(e) => setLastName(e.target.value)}
               className={`w-[100%] py-[10px] px-[16px] font-Poppins font-normal text-[16px] leading-[24px text-[#6C757D] placeholder-[#6C757D] outline outline-[1px] outline-[#CED4DA] rounded-lg ${
