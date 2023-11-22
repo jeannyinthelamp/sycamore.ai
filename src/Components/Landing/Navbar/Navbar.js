@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="flex desktop:px-[165px] desktop:py-4 justify-between items-center self-stretch tablet:py-4 tablet:px-5 tablet:gap-[10px]">
                 <div className="flex items-center gap-[14px]">
                     <Svglogo />
-                    {!isTablet && <h1 className="text-[20px]">Syne</h1>}
+                    {!isTablet && <h1 className="text-[20px] pr-7">Syne</h1>}
                 </div>
 
                 <div className="flex items-center gap-[35px]">
@@ -35,17 +35,17 @@ const Navbar = () => {
                             <button className="leading-6 font-medium text-[16px]">
                                 Features
                             </button>
-                            <button className="leading-6 font-medium text-[16px]">
+                            <button className="whitespace-nowrap leading-6 font-medium text-[16px]">
                                 About Us
                             </button>
                             <Divider />
                             <button
-                                className={` ${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} px-5 py-2 border-[1px] text-[#556AEB] rounded-lg h-10 border-[#556AEB] ${btn_styles.focus}`}
+                                className={` ${btn_styles.btn_white_hover} ${btn_styles.btn_white_active} w-32 h-10 border-[1px] text-[#556AEB] rounded-lg h-10 border-[#556AEB] ${btn_styles.focus}`}
                             >
                                 Contact Us
                             </button>
                             <button
-                                className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} px-5 py-2 border-[1px] rounded-lg bg-[#556AEB] text-white h-10  border-[#556AEB]  ${btn_styles.focus}`}
+                                className={`${btn_styles.btn_blue_hover} ${btn_styles.btn_blue_active} w-32 h-10 border-[1px] rounded-lg bg-[#556AEB] text-white h-10  border-[#556AEB]  ${btn_styles.focus}`}
                             >
                                 Join Waitlist
                             </button>
