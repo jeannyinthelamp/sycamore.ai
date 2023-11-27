@@ -2,81 +2,82 @@
 import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
-import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
+import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
+import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
+import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
+import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
+import School from "../../Assets/Icons/Onboarding_Icons/school.svg";
+import Work from "../../Assets/Icons/Onboarding_Icons/work.svg";
+
+import { Link } from "react-router-dom";
+
 export default function Onboarding_1() {
-  // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into it to create an rounded outline
-  function detectBrowser() {
-    if (navigator.userAgent.includes("Safari")) {
-      return safari_input_styling;
-    }
-  }
+  const workplaceOptions = [
+    {
+      type: "Personal",
+      img: Person,
+      alt: "Personal icon",
+    },
+    {
+      type: "Work",
+      img: Work,
+      alt: "Work icon",
+    },
+    {
+      type: "With Team",
+      img: Team,
+      alt: "Team icon",
+    },
+    {
+      type: "School",
+      img: School,
+      alt: "School icon",
+    },
+  ];
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_header />
+
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page1' />
 
-      <div className='title-and-form-wrapper max-w-[541px] mx-[20px] h-auto flex flex-col justify-center items-center'>
-        <div className='text-wrapper max-w-[541px] h-auto mb-[72px] flex flex-col justify-start items-center'>
-          <h1 className='w-[100%] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
-            Let's set up your account
+      <div className='title-and-button-wrapper max-w-fit h-auto flex flex-col justify-center items-center'>
+        <div className='text-wrapper w-[100%] h-auto flex flex-col gap-[16px] '>
+          <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
+            How are you planning to use Syne?
           </h1>
-          <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
-            You can always change them later
+          <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
+            You can choose multiple options. We will tailor your workspace
+            accordingly.
           </p>
         </div>
-        <form
-          action=''
-          className='w-[79.8%] h-auto flex flex-col gap-[24px] justify-center items-start'
-        >
-          <label
-            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px]
-                '
-          >
-            Your Full Name *
-            <input
-              //
-              type='text'
-              name='full-name'
-              required
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px] outline outline-1 outline-[#CED4DA] rounded-lg`}
-            />
-          </label>
-
-          <label
-            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
-                '
-          >
-            Company Name (Optional)
-            <input
-              //
-              type='text'
-              name='company-name'
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 outline-[#CED4DA] rounded-lg`}
-            />
-          </label>
-
-          <label
-            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
-                '
-          >
-            Your Company / Portfolio Link (Optional)
-            <input
-              //
-              type='text'
-              name='company-name'
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 outline-[#CED4DA] rounded-lg`}
-            />
-          </label>
-
-          {/* TODO: You can use the traverseNext function from onboarding_nav.js for the continue button navigation functionality */}
-
-          <input
-            type='submit'
-            value='Continue'
-            className=' w-[100%] mt-[24px] py-[12px] px-[24px] flex justify-center items-center bg-[#212529] rounded-lg font-Poppins text-[#F8F9FA] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer $'
-          />
+        {/* //^ add form action */}
+        <form action='' className='w-auto'>
+          <div className='first-selection-wrapper max-w-[420px] h-auto mt-[48px]  flex flex-col justify-start items-start '>
+            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
+              <div className='checkbox-wrapper flex flex-row flex-wrap gap-[24px]'>
+                {/* //* Generate options */}
+                {workplaceOptions.map((data) => (
+                  <Onboarding_Checkbox_Large
+                    title={data.type}
+                    id={data.type}
+                    for={data.type}
+                    img={data.img}
+                    alt={data.alt}
+                  />
+                ))}
+              </div>
+            </label>
+          </div>
+          {/* Go Back and Continue Buttons */}
+          <Onboarding_nav />
         </form>
+        <Link
+          to=''
+          className='h-[24px] mt-[12px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
+        >
+          Ask Later
+        </Link>
       </div>
     </div>
   );
