@@ -8,7 +8,14 @@ export default function Onboarding_Checkbox(props) {
 
   return (
     <div className=' flex flex-row justify-center items-center'>
-      <input type='checkbox' id={props.id} className='peer hidden' />
+      <input
+        type='checkbox'
+        id={props.id}
+        className='peer hidden'
+        onClick={(e) => {
+          console.log(e.target.id + " checkbox pressed");
+        }}
+      />
       <label
         htmlFor={props.for}
         className={`option-wrapper flex items-center w-fit h-auto p-[14px] font-Poppins font-medium text-[16+8px] text-center leading-[28px] text-[#212529] select-none cursor-pointer rounded-[8px]  border  transition-colors duration-200 ease-in-out ${
