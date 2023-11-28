@@ -4,6 +4,8 @@ import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onb
 import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
+import { Link } from "react-router-dom";
+
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
 import School from "../../Assets/Icons/Onboarding_Icons/school.svg";
@@ -11,11 +13,9 @@ import Work from "../../Assets/Icons/Onboarding_Icons/work.svg";
 import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
 import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
-import { Link } from "react-router-dom";
-
 export default function Onboarding_1() {
-  //! reminder to set visible to false
-  const [visible, isVisible] = useState(true);
+  //Press Skip btn at bottom of page to open modal
+  const [visible, setVisible] = useState(false);
 
   const workplaceOptions = [
     {
@@ -40,11 +40,7 @@ export default function Onboarding_1() {
     },
   ];
 
-  // Placeholder functions for handling skip / exit btn in Alert Modal
-  const handleExit = () => {
-    alert("exit btn pressed");
-  };
-
+  // Placeholder function for handling skip btn in Alert Modal
   const handleSkip = () => {
     alert("skip btn pressed");
   };
@@ -54,7 +50,7 @@ export default function Onboarding_1() {
       <Onboarding_header />
 
       <div className='title-and-button-wrapper max-w-fit h-auto flex flex-col justify-center items-center'>
-        <div className='text-wrapper w-[100%] h-auto flex flex-col gap-[16px] '>
+        <div className='text-wrapper relative flex flex-col items-center w-[100%] h-auto gap-[16px] '>
           <Onboarding_Alert_Modal
             isVisible={visible ? " " : " hidden "}
             message='Are you sure you want to skip?'
@@ -66,14 +62,16 @@ export default function Onboarding_1() {
             iconRightAlt='exit button'
             skipBtnVisible={true}
             exitBtnOnClick={() => {
-              handleExit();
+              setVisible(false);
             }}
             skipBtnOnClick={() => {
+              //navigate to next page of onboarding
               handleSkip();
             }}
           />
 
-          <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
+          {/* //TODO: update margin once back and exit Btn's are built */}
+          <h1 className='w-[100%] min-h-[54px] mt-[75px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
             How are you planning to use Syne?
           </h1>
           <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
@@ -102,12 +100,14 @@ export default function Onboarding_1() {
           {/* Go Back and Continue Buttons */}
           <Onboarding_nav />
         </form>
-        <Link
-          to=''
+        <button
           className='h-[24px] mt-[12px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
+          onClick={() => {
+            setVisible(true);
+          }}
         >
-          Ask Later
-        </Link>
+          Skip
+        </button>
       </div>
     </div>
   );
