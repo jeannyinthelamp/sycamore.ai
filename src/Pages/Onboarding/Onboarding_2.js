@@ -3,10 +3,7 @@ import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
-import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
-import Person from "../../Assets/Icons/Person.svg";
-import Group from "../../Assets/Icons/Group.svg";
-import School from "../../Assets/Icons/School.svg";
+import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 
 import { Link } from "react-router-dom";
 
@@ -16,43 +13,87 @@ export default function Onboarding_2() {
       <Onboarding_header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page2' />
+      <Onboarding_progress_bar active='page3' />
 
       <div className='title-and-button-wrapper max-w-[714px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
-            How are you planning to use Syne?
+            How would you like to use Syne?
           </h1>
           <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
-            Tell us more about your work
+            Choose 1 or more.
           </p>
         </div>
         {/* //^ add form action */}
         <form action=''>
-          <div className='first-selection-wrapper max-w-[420px] h-auto mt-[72px] mb-[48px] flex flex-col justify-start items-start'>
+          <div className='mx-auto mt-[72px] mb-[48px]'>
             <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
-              {/* //^ select items here, use form select items */}
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px]'>
-                <Onboarding_Checkbox_Large
-                  title='For Myself'
-                  id='For Myself'
-                  for='For Myself'
-                  img={<img src={Person} alt='For Myself' />}
+                <Onboarding_Checkbox
+                  title='Productivity'
+                  id='Productivity'
+                  for='Productivity'
+                  className=''
+                  />
+                <Onboarding_Checkbox
+                  title='Administration'
+                  id='Administration'
+                  for='Administration'
                   className=''
                 />
-                <Onboarding_Checkbox_Large
-                  title='With My Team'
-                  id='With My Team'
-                  for='With My Team'
-                  img={<img src={Group} alt='With My Team' />}
+                <Onboarding_Checkbox
+                  title='Finance Tracking'
+                  id='Finance Tracking'
+                  for='Finance Tracking'
                   className=''
                 />
-                <Onboarding_Checkbox_Large
-                  title='For School'
-                  id='For School'
-                  for='For School'
-                  img={<img src={School} alt='For School' />}
+                <Onboarding_Checkbox
+                  title='Time Tracking'
+                  id='Time Tracking'
+                  for='Time Tracking'
                   className=''
+                />
+                <Onboarding_Checkbox
+                  title='Marketing Pipeline'
+                  id='Marketing Pipeline'
+                  for='Marketing Pipeline'
+                  className=''
+                />
+                <Onboarding_Checkbox
+                title='Organization'
+                id='Organization'
+                for='Organization'
+                className=''
+                />
+                <Onboarding_Checkbox
+                title='Sales Pipeline'
+                id='Sales Pipeline'
+                for='Sales Pipeline'
+                className=''
+                />
+                <Onboarding_Checkbox
+                title='Freelancing'
+                id='Freelancing'
+                for='Freelancing'
+                className=''
+                />
+                <Onboarding_Checkbox
+                title='Project Management'
+                id='Project Management'
+                for='Project Management'
+                className=''
+                />
+                <Onboarding_Checkbox
+                title='Product Management'
+                id='Product Management'
+                for='Product Management'
+                className=''
+                />
+                <Onboarding_Checkbox
+                title='Development Pipeline'
+                id='Development Pipeline'
+                for='Development Pipeline'
+                className=''
                 />
               </div>
             </label>
