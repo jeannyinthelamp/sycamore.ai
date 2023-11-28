@@ -1,17 +1,22 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useState } from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
-import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
 import School from "../../Assets/Icons/Onboarding_Icons/school.svg";
 import Work from "../../Assets/Icons/Onboarding_Icons/work.svg";
+import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
+import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 import { Link } from "react-router-dom";
 
 export default function Onboarding_1() {
+  //! reminder to set visible to false
+  const [visible, isVisible] = useState(true);
+
   const workplaceOptions = [
     {
       type: "Personal",
@@ -34,15 +39,40 @@ export default function Onboarding_1() {
       alt: "School icon",
     },
   ];
+
+  // Placeholder functions for handling skip / exit btn in Alert Modal
+  const handleExit = () => {
+    alert("exit btn pressed");
+  };
+
+  const handleSkip = () => {
+    alert("skip btn pressed");
+  };
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_header />
 
-      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page1' />
-
       <div className='title-and-button-wrapper max-w-fit h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper w-[100%] h-auto flex flex-col gap-[16px] '>
+          <Onboarding_Alert_Modal
+            isVisible={visible ? " " : " hidden "}
+            message='Are you sure you want to skip?'
+            border='border-[#D82D07]'
+            background='bg-[#FFDDDF]'
+            iconLeft={warning}
+            iconLeftAlt='warning'
+            btnText='Skip'
+            iconRight={exit}
+            iconRightAlt='exit button'
+            exitOnClick={() => {
+              handleExit();
+            }}
+            skipBtnOnClick={() => {
+              handleSkip();
+            }}
+          />
+
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
             How are you planning to use Syne?
           </h1>
