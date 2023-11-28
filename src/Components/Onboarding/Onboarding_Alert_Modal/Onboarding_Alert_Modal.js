@@ -13,16 +13,19 @@ export default function Onboarding_Alert_Modal(props) {
       </div>
       <div className='alert-modal-right flex flex-row justify-center items-center gap-5 w-fit h-8'>
         <button
-          className='py-[6px] px-3 bg-[#000] rounded-lg font-Poppins text-center text-[#FFF] text-[14px] font-medium leading-6 cursor-pointer hover:bg-[#1D2E99] transition-colors duration-200 ease-in-out'
+          //^ When providing a value for skipBtnVisible prop, it must be true/false and not a string. Example: true will work while the string 'true' will cause an error
+          className={`py-[6px] px-3 bg-[#000] rounded-lg font-Poppins text-center text-[#FFF] text-[14px] font-medium leading-6 cursor-pointer hover:bg-[#1D2E99] transition-colors duration-200 ease-in-out ${
+            props.skipBtnVisible ? "" : " hidden "
+          }`}
           onClick={props.skipBtnOnClick}
         >
-          {props.btnText}
+          Skip
         </button>
         <img
           className=' p-1 bg-transparent rounded-3xl cursor-pointer hover:bg-[#B9C4FF] transition-colors duration-200 ease-in-out'
           src={props.iconRight}
           alt={props.iconRightAlt}
-          onClick={props.exitOnClick}
+          onClick={props.exitBtnOnClick}
         />
       </div>
     </div>

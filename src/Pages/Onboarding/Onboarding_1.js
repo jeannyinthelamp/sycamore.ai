@@ -62,10 +62,10 @@ export default function Onboarding_1() {
             background='bg-[#FFDDDF]'
             iconLeft={warning}
             iconLeftAlt='warning'
-            btnText='Skip'
             iconRight={exit}
             iconRightAlt='exit button'
-            exitOnClick={() => {
+            skipBtnVisible={true}
+            exitBtnOnClick={() => {
               handleExit();
             }}
             skipBtnOnClick={() => {
