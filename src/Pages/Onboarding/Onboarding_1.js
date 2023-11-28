@@ -98,7 +98,7 @@ export default function Onboarding_1() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
-          <Onboarding_nav />
+          {/* <Onboarding_nav /> */}
         </form>
         <button
           className='h-[24px] mt-[12px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
