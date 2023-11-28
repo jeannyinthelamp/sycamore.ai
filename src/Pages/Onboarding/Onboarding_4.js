@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useState } from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_Button from "../../Components/Onboarding/Onboarding_Button/Onboarding_Button";
@@ -13,6 +13,12 @@ export default function Onboarding_4() {
       return safari_input_styling;
     }
   }
+  const [companyName, setCompanyName] = useState('');
+
+  const getFirstLetter = (companyName) => {
+    return companyName.trim().charAt(0).toUpperCase();
+  } 
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_header />
@@ -28,7 +34,7 @@ export default function Onboarding_4() {
         </div>
         <div className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center'>
           <h1 className='text-6xl pt-5 text-white font-Poppins font-extrabold'>
-            U
+            {companyName !== '' ? getFirstLetter(companyName) : "U"}
           </h1>
         </div>
         <p className='my-[8px] text-[#212529] font-Poppins'>Choose Icon</p>
@@ -47,6 +53,8 @@ export default function Onboarding_4() {
               type='text'
               name='company-name'
               placeholder='Example: Syne Studio'
+              value={companyName}
+              onChange={(e) => setCompanyName(e.target.value)}
               className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 outline-[#CED4DA] rounded-lg`}
             />
           </label>
@@ -54,7 +62,7 @@ export default function Onboarding_4() {
           {/* TODO: You can use the traverseNext function from onboarding_nav.js for the continue button navigation functionality */}
           <Onboarding_Button 
             btnText='Continue'
-            disabled={true}
+            disabled={false}
           />
         </form>
       </div>
