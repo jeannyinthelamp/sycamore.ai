@@ -100,7 +100,7 @@ export default function Onboarding_2() {
           </div>
           {/* Go Back and Continue Buttons */}
         </form>
-        <Onboarding_progress_bar active='page3' />
+        <Onboarding_progress_bar active='page2' />
       </div>
     </div>
   );
