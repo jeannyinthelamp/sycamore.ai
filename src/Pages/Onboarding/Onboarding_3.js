@@ -26,9 +26,9 @@ export default function Onboarding_3() {
         </div>
         {/* //^ add form action */}
         <form action=''>
-          <div className='mx-auto mt-[72px] mb-[48px]'>
+          <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
             <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
-              <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px]'>
+              <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
                   title='Product Manager'
                   id='Product Manager'
