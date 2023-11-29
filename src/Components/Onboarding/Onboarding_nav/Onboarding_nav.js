@@ -62,10 +62,10 @@ export default function Onboarding_Nav() {
   };
   return (
     //* Back and Exit buttons
-    <div className='navigation-wrapper w-[50%] flex'>
+    <div className='navigation-wrapper max-h-48px py-[12px] px-[24px] flex justify-start items-center font-Poppins text-black text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'>
       <Link
         //^  Fonts wont update
-        className='max-h-48px py-[12px] px-[24px] flex justify-start items-center font-Poppins text-black text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer ml-[10%]'
+        className='flex justify-start ml-auto pr-[800px]'
         to={traverseBack(currentLocation.pathname)}
         onClick={() => {
           //calculate new path
@@ -86,7 +86,7 @@ export default function Onboarding_Nav() {
         Back
       </Link> 
       <button 
-    className='max-h-48px py-[12px] px-[24px] flex justify-start items-center font-Poppins text-black text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer ml-auto'>
+    className='flex justify-end'>
       <img
           className=''
           src={exit}
