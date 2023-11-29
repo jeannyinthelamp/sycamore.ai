@@ -13,7 +13,7 @@ export default function Onboarding_2() {
       <Onboarding_header />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-      <Onboarding_progress_bar active='page3' />
+      <Onboarding_nav />
 
       <div className='title-and-button-wrapper max-w-[714px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
@@ -99,14 +99,8 @@ export default function Onboarding_2() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
-          <Onboarding_nav />
         </form>
-        <Link
-          to=''
-          className='h-[24px] mt-[12px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
-        >
-          Ask Later
-        </Link>
+        <Onboarding_progress_bar active='page3' />
       </div>
     </div>
   );
