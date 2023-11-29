@@ -4,6 +4,7 @@ import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onb
 import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
+import Onboarding_Action_Modal from "../../Components/Onboarding/Onboarding_Action_Modal/Onboarding_Action_Modal";
 import { Link } from "react-router-dom";
 
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
