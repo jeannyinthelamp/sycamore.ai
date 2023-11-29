@@ -24,7 +24,7 @@ export default function Onboarding_4() {
       <Onboarding_header />
 
       <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
-        <div className='text-wrapper max-w-[730px] h-auto mb-[72px] flex flex-col justify-start items-center'>
+        <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
           <h1 className='w-[100%] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
             Let's get your workspace ready
           </h1>
@@ -32,14 +32,14 @@ export default function Onboarding_4() {
             Choose an icon and name your workspace (ex. company name). You can always change them later.
           </p>
         </div>
-        <div className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center'>
-          <h1 className='text-6xl pt-5 text-white font-Poppins font-extrabold'>
-            {companyName !== '' ? getFirstLetter(companyName) : "U"}
-          </h1>
+        <div className='my-[48px]'>
+          <div className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center'>
+            <h1 className='text-6xl pt-5 text-white font-Poppins font-extrabold'>
+              {companyName !== '' ? getFirstLetter(companyName) : "U"}
+            </h1>
+          </div>
+          <p className='my-[8px] text-[#212529] font-Poppins'>Choose Icon</p>
         </div>
-        <p className='my-[8px] text-[#212529] font-Poppins'>Choose Icon</p>
-        <br />
-        <br />
         <form
           action=''
           className='w-[79.8%] max-w-[420px] h-auto flex flex-col gap-[24px] justify-center items-center'
