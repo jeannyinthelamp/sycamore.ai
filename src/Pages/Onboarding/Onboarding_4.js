@@ -7,11 +7,13 @@ import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styli
 import { useNavigate } from "react-router-dom";
 import { validateCompanyName } from "./Onboarding_Validation/Onboarding_Validation";
 import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
+import Onboarding_Icon_Picker from "../../Components/Onboarding/Onboarding_Icon_Picker/Onboarding_Icon_Picker";
 import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
 import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_4() {
   const [visible, setVisible] = useState(false);
+  const [iconModalVisible, setIconModalVisible] = useState(false);
   const [companyName, setCompanyName] = useState("");
   const [companyNameError, setCompanyNameError] = useState(false);
   const [companyNameExists, setCompanyNameExists] = useState(false);
@@ -20,6 +22,10 @@ export default function Onboarding_4() {
 
   const getFirstLetter = (companyName) => {
     return companyName.trim().charAt(0).toUpperCase();
+  };
+
+  const toggleIconPicker = () => {
+    setIconModalVisible(true);
   };
 
   //TODO: export to module
@@ -50,7 +56,7 @@ export default function Onboarding_4() {
   }
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='relative flex flex-col justify-center items-center'>
       <Onboarding_header />
 
       <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
@@ -87,7 +93,12 @@ export default function Onboarding_4() {
               {companyName !== "" ? getFirstLetter(companyName) : "U"}
             </h1>
           </div>
-          <p className='my-[8px] text-[#212529] font-Poppins text-center'>
+          <p
+            className='my-[8px] text-[#212529] font-Poppins text-center'
+            onClick={() => {
+              toggleIconPicker();
+            }}
+          >
             Choose Icon
           </p>
         </div>
@@ -151,6 +162,7 @@ export default function Onboarding_4() {
       </button>
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page4' />
+      <Onboarding_Icon_Picker />
     </div>
   );
 }
