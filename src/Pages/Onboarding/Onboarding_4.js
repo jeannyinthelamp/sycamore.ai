@@ -87,7 +87,9 @@ export default function Onboarding_4() {
               {companyName !== "" ? getFirstLetter(companyName) : "U"}
             </h1>
           </div>
-          <p className='my-[8px] text-[#212529] font-Poppins'>Choose Icon</p>
+          <p className='my-[8px] text-[#212529] font-Poppins text-center'>
+            Choose Icon
+          </p>
         </div>
         <form
           action=''
