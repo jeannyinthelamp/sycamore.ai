@@ -41,6 +41,7 @@ export default function Onboarding_1() {
   ];
 
   // Placeholder function for handling skip btn in Alert Modal
+  //TODO: export to module
   const handleSkip = () => {
     alert("skip btn pressed");
   };
