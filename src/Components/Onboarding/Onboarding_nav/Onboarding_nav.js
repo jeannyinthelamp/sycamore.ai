@@ -25,10 +25,7 @@ export default function Onboarding_Nav() {
 
       case "/onboarding_5":
         return "/onboarding_4";
-
-      case "/onboarding_6":
-        return "/onboarding_5";
-
+        
       default:
         return;
     }
@@ -49,23 +46,16 @@ export default function Onboarding_Nav() {
       case "/onboarding_4":
         return "/onboarding_5";
 
-      case "/onboarding_5":
-        return "/onboarding_6";
-
-      //TODO: Update path for page 6
-      case "/onboarding_6":
-        return;
-
       default:
         return;
     }
   };
   return (
     //* Back and Exit buttons
-    <div className='navigation-wrapper max-h-48px py-[12px] px-[24px] flex justify-start items-center font-Poppins text-black text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'>
+<div class="flex p-4 md:p-16 justify-between items-center self-stretch">
       <Link
         //^  Fonts wont update
-        className='flex justify-start ml-auto pr-[800px]'
+        className='flex'
         to={traverseBack(currentLocation.pathname)}
         onClick={() => {
           //calculate new path
@@ -86,7 +76,7 @@ export default function Onboarding_Nav() {
         Back
       </Link> 
       <button 
-    className='flex justify-end'>
+    className='flex'>
       <img
           className=''
           src={exit}
