@@ -25,7 +25,7 @@ export default function Onboarding_4() {
   };
 
   const toggleIconPicker = () => {
-    setIconModalVisible(true);
+    setIconModalVisible(!iconModalVisible);
   };
 
   //TODO: export to module
@@ -88,16 +88,17 @@ export default function Onboarding_4() {
           </p>
         </div>
         <div className='my-[48px]'>
-          <div className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center'>
+          <div
+            className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center cursor-pointer'
+            onClick={toggleIconPicker}
+          >
             <h1 className='text-6xl pt-5 text-white font-Poppins font-extrabold'>
               {companyName !== "" ? getFirstLetter(companyName) : "U"}
             </h1>
           </div>
           <p
-            className='my-[8px] text-[#212529] font-Poppins text-center'
-            onClick={() => {
-              toggleIconPicker();
-            }}
+            className='my-[8px] text-[#212529] font-Poppins text-center cursor-pointer'
+            onClick={toggleIconPicker}
           >
             Choose Icon
           </p>
@@ -162,7 +163,10 @@ export default function Onboarding_4() {
       </button>
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page4' />
-      <Onboarding_Icon_Picker />
+      <Onboarding_Icon_Picker
+        iconModalVisible={iconModalVisible}
+        handleModalExit={toggleIconPicker}
+      />
     </div>
   );
 }
