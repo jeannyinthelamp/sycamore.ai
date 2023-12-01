@@ -34,12 +34,7 @@ export default function Onboarding_progress_bar(props) {
           props.active === "page5" ? active_style : non_active_style
         }`}
       ></div>
-
-      <div
-        className={`mr-0 ${
-          props.active === "page6" ? active_style : non_active_style
-        }`}
-      ></div>
+      
     </div>
   );
 }
