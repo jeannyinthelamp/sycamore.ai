@@ -5,8 +5,6 @@ import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_prog
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 
-import { Link } from "react-router-dom";
-
 export default function Onboarding_2() {
   return (
     <div className='flex flex-col justify-center items-center'>

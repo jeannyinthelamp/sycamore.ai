@@ -68,12 +68,14 @@ export default function Onboarding_Nav() {
           );
         }}
       >
+      <div class="flex items-center hover:text-[#556AEB]">
         <img
-          className=''
+          class='mr-2'
           src={back}
           alt='back'
-        />
+        />  
         Back
+      </div>
       </Link> 
       <button 
     className='flex'>
