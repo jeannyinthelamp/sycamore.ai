@@ -1,4 +1,5 @@
 import React from "react";
+import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_Alert_Modal(props) {
   return (
@@ -23,8 +24,8 @@ export default function Onboarding_Alert_Modal(props) {
         </button>
         <img
           className=' p-1 bg-transparent rounded-3xl cursor-pointer hover:bg-[#B9C4FF] transition-colors duration-200 ease-in-out'
-          src={props.iconRight}
-          alt={props.iconRightAlt}
+          src={exit}
+          alt='exit button'
           onClick={props.exitBtnOnClick}
         />
       </div>
