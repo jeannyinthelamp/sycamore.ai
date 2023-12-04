@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import OnboardingButton from "../Onboarding_Button/Onboarding_Button";
 import OnboardingAlertModal from "../Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import warning from "../../../Assets/Icons/Onboarding_Icons/warning.svg";
-import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg";
 
-// To use the Skip/Continue component, pass the following props: 
+// To use the Skip/Continue component, pass the following props:
 //   1) pass the filepath to navigate to (skipToPage)
 //   2) pass the id of the form (formID)
 //   3) pass the button text of the Continue Btn (btnText)
@@ -20,37 +19,39 @@ export default function Onboarding_Skip_Continue_Btns(props) {
 
   const handleSkip = () => {
     setShowAlert(false);
-    navigate(props.skipToPage)
-  }
+    navigate(props.skipToPage);
+  };
 
   return (
-    <div className="w-[100%] flex flex-col justify-center items-center">
+    <div className='w-[100%] flex flex-col justify-center items-center'>
       <OnboardingButton
-        type="submit"
+        type='submit'
         form={props.formID}
         btnText={props.btnText}
         disabled={props.disabledState}
-        className="w-[100%]"
+        className='w-[100%]'
       />
       <button
-        onClick={() => setShowAlert(true)}
+        onClick={(e) => {
+          e.preventDefault();
+          setShowAlert(true);
+        }}
         className='text-[#0A70E8] underline my-[24px]'
       >
         Skip
       </button>
-      <OnboardingAlertModal 
-        isVisible={showAlert ? 'visible' : 'hidden'}
-        message={props.message}
-        border="border-[#D82D07]"
-        background="bg-[#FFDDDF]"
+      <OnboardingAlertModal
+        isVisible={showAlert ? "visible" : "hidden"}
+        modalPosition='top-[70px]'
+        message='Are you sure you want to skip?'
+        border='border-[#D82D07]'
+        background='bg-[#FFDDDF]'
         iconLeft={warning}
         iconLeftAlt='warning'
-        iconRight={exit}
-        iconRightAlt='exit button'
         skipBtnVisible={true}
         skipBtnOnClick={handleSkip}
         exitBtnOnClick={() => setShowAlert(false)}
       />
     </div>
-  )
+  );
 }

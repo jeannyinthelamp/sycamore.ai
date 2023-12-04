@@ -1,9 +1,10 @@
 import React from "react";
+import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_Alert_Modal(props) {
   return (
     <div
-      className={`alert-modal-wrapper absolute flex flex-row justify-between items-center gap-[16px] w-[100%] max-w-[730px] h-[60px] py-3 px-5 border rounded-lg ${props.border} ${props.background} ${props.isVisible}`}
+      className={`alert-modal-wrapper absolute flex flex-row justify-between items-center gap-[16px] w-[100%] max-w-[730px] h-[60px] py-3 px-5 border rounded-lg ${props.border} ${props.background} ${props.isVisible} ${props.modalPosition}`}
     >
       <div className='alert-modal-left flex flex-row justify-center items-center gap-4 w-fit h-8'>
         <img src={props.iconLeft} alt={props.iconLeftAlt} />
@@ -23,8 +24,8 @@ export default function Onboarding_Alert_Modal(props) {
         </button>
         <img
           className=' p-1 bg-transparent rounded-3xl cursor-pointer hover:bg-[#B9C4FF] transition-colors duration-200 ease-in-out'
-          src={props.iconRight}
-          alt={props.iconRightAlt}
+          src={exit}
+          alt='exit button'
           onClick={props.exitBtnOnClick}
         />
       </div>
