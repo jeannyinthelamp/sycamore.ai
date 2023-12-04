@@ -13,6 +13,8 @@ import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_4() {
   const [visible, setVisible] = useState(false);
+  const [icon, setIcon] = useState("");
+  const [iconSelected, setIconSelected] = useState(false);
   const [iconModalVisible, setIconModalVisible] = useState(false);
   const [companyName, setCompanyName] = useState("");
   const [companyNameError, setCompanyNameError] = useState(false);
@@ -26,6 +28,16 @@ export default function Onboarding_4() {
 
   const toggleIconPicker = () => {
     setIconModalVisible(!iconModalVisible);
+  };
+
+  const handelIcon = (e) => {
+    console.log(e.target);
+    // set icon selected to true
+    setIconSelected(true);
+    // set new icon
+    setIcon(e.target.textContent);
+    // toggle icon picker visibility
+    toggleIconPicker();
   };
 
   //TODO: export to module
@@ -68,8 +80,6 @@ export default function Onboarding_4() {
             background='bg-[#FFDDDF]'
             iconLeft={warning}
             iconLeftAlt='warning'
-            iconRight={exit}
-            iconRightAlt='exit button'
             skipBtnVisible={true}
             exitBtnOnClick={() => {
               setVisible(false);
@@ -92,8 +102,18 @@ export default function Onboarding_4() {
             className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center cursor-pointer'
             onClick={toggleIconPicker}
           >
-            <h1 className='text-6xl pt-5 text-white font-Poppins font-extrabold'>
-              {companyName !== "" ? getFirstLetter(companyName) : "U"}
+            <h1
+              className={`text-6xl pt-5 text-white font-extrabold ${
+                iconSelected ? "font-NotoEmoji" : "font-Poppins"
+              }`}
+            >
+              {/* {companyName !== "" ? getFirstLetter(companyName) : "U"}
+              {iconSelected ? icon : companyName} */}
+              {!iconSelected
+                ? companyName !== ""
+                  ? getFirstLetter(companyName)
+                  : "U"
+                : icon}
             </h1>
           </div>
           <p
@@ -166,6 +186,10 @@ export default function Onboarding_4() {
       <Onboarding_Icon_Picker
         iconModalVisible={iconModalVisible}
         handleModalExit={toggleIconPicker}
+        iconSelectionOnClick={(e) => {
+          handelIcon(e);
+        }}
+        // cancelIcon=()
       />
     </div>
   );
