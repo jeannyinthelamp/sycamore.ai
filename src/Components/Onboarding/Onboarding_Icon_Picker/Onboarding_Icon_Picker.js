@@ -44,6 +44,7 @@ export default function Onboarding_Icon_Picker(props) {
       emojis.forEach((element) => {
         // show/hide searched emojis
         if (element.getAttribute("emoji-name").includes(searchValue)) {
+          console.log(element);
           element.style.display = "";
         } else {
           element.style.display = "none";
@@ -52,7 +53,7 @@ export default function Onboarding_Icon_Picker(props) {
     });
 
     fetchEmojiData();
-  });
+  }, []);
 
   return (
     <div
