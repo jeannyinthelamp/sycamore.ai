@@ -31,13 +31,9 @@ export default function Onboarding_4() {
   };
 
   const handelIcon = (e) => {
-    console.log(e.target);
-    // set icon selected to true
     setIconSelected(true);
-    // set new icon
     setIcon(e.target.textContent);
-    // toggle icon picker visibility
-    toggleIconPicker();
+    setIconModalVisible(false);
   };
 
   //TODO: export to module
