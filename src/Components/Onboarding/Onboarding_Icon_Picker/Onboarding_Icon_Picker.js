@@ -20,8 +20,6 @@ export default function Onboarding_Icon_Picker(props) {
 
     function loadEmoji(data) {
       data.forEach((emoji) => {
-        console.log(emoji);
-
         let p = document.createElement("p");
         p.setAttribute("emoji-name", emoji.slug);
         p.setAttribute("group", emoji.group);
@@ -30,8 +28,6 @@ export default function Onboarding_Icon_Picker(props) {
           "flex justify-center items-center font-NotoEmoji text-[19.7px] p-1 cursor-pointer";
         p.textContent = emoji.character;
         p.onclick = function (e) {
-          //clear search box
-          searchbox.value = "";
           //set emoji as icon
           props.iconSelectionOnClick(e);
         };
@@ -41,7 +37,6 @@ export default function Onboarding_Icon_Picker(props) {
 
     //* Emoji search functionality
     searchbox.addEventListener("keyup", (e) => {
-      // console.log(e.target.value);
       let searchValue = e.target.value;
       let emojis = document.querySelectorAll("#icon-selection-window p");
 
