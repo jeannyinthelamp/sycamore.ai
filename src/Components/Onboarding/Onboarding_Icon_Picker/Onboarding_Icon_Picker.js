@@ -4,10 +4,10 @@ import search from "../../../Assets/Icons/Onboarding_Icons/search.svg";
 
 export default function Onboarding_Icon_Picker(props) {
   //TODO: ask UI team for remove icon button
-  //TODO* Add search functionality
 
   useEffect(() => {
     const emojiDisplayWindow = document.getElementById("icon-selection-window");
+    const searchbox = document.getElementById("search-box");
 
     function fetchEmojiData() {
       fetch(
@@ -20,19 +20,36 @@ export default function Onboarding_Icon_Picker(props) {
 
     function loadEmoji(data) {
       data.forEach((emoji) => {
-        // console.log(emoji);
         let p = document.createElement("p");
         p.setAttribute("emoji-name", emoji.slug);
         p.className =
           "flex justify-center items-center font-NotoEmoji text-[19.7px] p-1 cursor-pointer";
         p.textContent = emoji.character;
         p.onclick = function (e) {
-          // console.log(e.target.textContent + " clicked");
+          //clear search box
+          searchbox.value = "";
+          //set emoji as icon
           props.iconSelectionOnClick(e);
         };
         emojiDisplayWindow.appendChild(p);
       });
     }
+
+    //* Emoji search functionality
+    searchbox.addEventListener("keyup", (e) => {
+      // console.log(e.target.value);
+      let searchValue = e.target.value;
+      let emojis = document.querySelectorAll("#icon-selection-window p");
+
+      emojis.forEach((element) => {
+        // show/hide searched emojis
+        if (element.getAttribute("emoji-name").includes(searchValue)) {
+          element.style.display = "";
+        } else {
+          element.style.display = "none";
+        }
+      });
+    });
 
     fetchEmojiData();
   });
@@ -56,18 +73,15 @@ export default function Onboarding_Icon_Picker(props) {
             onClick={props.handleModalExit}
           />
         </div>
-        {/* //TODO: add search icon */}
         <input
           type='text'
-          id='search-input'
+          id='search-box'
           placeholder='Search'
           className='w-[100%] py-[10px] px-[14px]  bg-white font-Poppins placeholder:font-Poppins placeholder:text-[16px] placeholder:font-normal placeholder:text-[#6C757D] border-none outline-1 outline-[#ADB5BD] outline-none rounded-lg focus:outline-[2px] focus:outline-[#556AEB]'
-          onChange={() => {
-            //TODO: Logic for searching icons data
-          }}
+          onChange={() => {}}
         />
         <div
-          className='icon-selection-window flex justify-start items-center flex-wrap gap-x-[10px] gap-y-[10px] border w-[100%] h-[200px] p-2 overflow-y-scroll  bg-white border-none outline-none'
+          className='icon-selection-window flex justify-start items-start flex-wrap gap-x-[10px] gap-y-[10px] border w-[100%] h-[200px] p-2 overflow-y-scroll  bg-white border-none outline-none'
           id='icon-selection-window'
         >
           {/* //& emoji content gets appended here via useEffect */}
