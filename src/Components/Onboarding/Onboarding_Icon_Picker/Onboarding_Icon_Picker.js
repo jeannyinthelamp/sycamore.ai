@@ -20,8 +20,12 @@ export default function Onboarding_Icon_Picker(props) {
 
     function loadEmoji(data) {
       data.forEach((emoji) => {
+        console.log(emoji);
+
         let p = document.createElement("p");
         p.setAttribute("emoji-name", emoji.slug);
+        p.setAttribute("group", emoji.group);
+        p.setAttribute("sub-group", emoji.subGroup);
         p.className =
           "flex justify-center items-center font-NotoEmoji text-[19.7px] p-1 cursor-pointer";
         p.textContent = emoji.character;
@@ -41,10 +45,14 @@ export default function Onboarding_Icon_Picker(props) {
       let searchValue = e.target.value;
       let emojis = document.querySelectorAll("#icon-selection-window p");
 
+      // check if search value is found in any emoji name, group, or sun group
       emojis.forEach((element) => {
-        // show/hide searched emojis
-        if (element.getAttribute("emoji-name").includes(searchValue)) {
-          console.log(element);
+        if (
+          element.getAttribute("emoji-name").includes(searchValue) ||
+          element.getAttribute("group").includes(searchValue) ||
+          element.getAttribute("sub-group").includes(searchValue)
+        ) {
+          // show/hide searched emojis
           element.style.display = "";
         } else {
           element.style.display = "none";

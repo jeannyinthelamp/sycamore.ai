@@ -11,6 +11,8 @@ import Onboarding_Icon_Picker from "../../Components/Onboarding/Onboarding_Icon_
 import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
 import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
+//! Known bug: Manually entering an emoji into the company name input field allows the user to continue. Update regex validation to include only alphanumeric characters
+
 export default function Onboarding_4() {
   const [visible, setVisible] = useState(false);
   const [icon, setIcon] = useState("");
