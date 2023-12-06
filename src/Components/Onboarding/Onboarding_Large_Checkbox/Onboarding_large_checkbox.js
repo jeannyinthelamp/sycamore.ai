@@ -7,7 +7,7 @@ export default function Onboarding_Checkbox(props) {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className=' flex flex-row justify-center items-center'>
+    <div className=' flex flex-row justify-center items-center w-full'>
       <input
         type='checkbox'
         id={props.id}
@@ -18,7 +18,7 @@ export default function Onboarding_Checkbox(props) {
       />
       <label
         htmlFor={props.for}
-        className={`option-wrapper flex items-center w-fit h-auto p-[14px] font-Poppins font-medium text-[16+8px] text-center leading-[28px] text-[#212529] select-none cursor-pointer rounded-[8px]  border  transition-colors duration-200 ease-in-out ${
+        className={`option-wrapper flex items-center w-full h-auto p-[14px] font-Poppins font-medium text-[16+8px] text-center leading-[28px] text-[#212529] select-none cursor-pointer rounded-[8px]  border  transition-colors duration-200 ease-in-out ${
           hover ? " border-[#556AEB] " : " border-[#6C757D] "
         } ${selected ? " bg-[#EBEFFF] " : " bg-white "}`}
         onMouseOver={() => {
@@ -31,10 +31,10 @@ export default function Onboarding_Checkbox(props) {
           setSelected(!selected);
         }}
       >
-        <div className='flex flex-row items-center justify-between w-[392px]'>
-          <div className='flex items-center'>
+        <div className='flex flex-row items-center w-full'>
+          <div className='flex items-center w-full'>
             <div
-              className={`icon-wrapper p-3 rounded-md transition-colors duration-200 ease-in-out  ${
+              className={`icon-wrapper p-3 rounded-md transition-colors duration-200 ease-in-out ${
                 selected || hover ? " bg-[#B9C4FF] " : "bg-[#E9ECEF]"
               }   
               
