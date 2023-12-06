@@ -60,11 +60,11 @@ export default function Onboarding_Icon_Picker(props) {
 
   return (
     <div
-      className={`icon-modal-page-wrapper absolute flex justify-center items-center w-screen h-screen bg-black bg-opacity-20 z-10 ${
+      className={`icon-modal-page-wrapper absolute flex justify-center items-start w-screen h-screen  bg-black bg-opacity-20 z-10 ${
         props.iconModalVisible ? "" : "hidden"
       }`}
     >
-      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[410px] h-[356px] p-6 bg-white rounded-lg shadow-md'>
+      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[410px] h-[356px] mt-[275px] p-6 bg-white rounded-lg shadow-md'>
         <div className='title-and-exit-wrapper flex flex-row justify-between items-center w-[100%] h-auto'>
           <h1 className='title font-Poppins text-[1.125rem] text-[#000] font-semibold leading-[28px]'>
             Icons

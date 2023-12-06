@@ -66,7 +66,7 @@ export default function Onboarding_4() {
   }
 
   return (
-    <div className='relative flex flex-col justify-center items-center'>
+    <div className='relative flex flex-col justify-start items-center w-screen h-screen'>
       <Onboarding_header />
 
       <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
