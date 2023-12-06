@@ -39,7 +39,7 @@ export default function Onboarding_5() {
         >
           <label hidden="hidden" for="emails">Emails:</label>
           <textarea
-            className={`${detectBrowser()}block w-full h-[110px] border py-[10px] px-[14px] border-[#ADB5BD] rounded-lg resize-none`}
+            className={`${detectBrowser()} block w-full h-[110px] border py-[10px] px-[14px] border-[#ADB5BD] focus:border-[#556AEB] outline outline-1 outline-[#CED4DA] rounded-lg resize-none`}
             placeholder="johndoe@gmail.com, janedoe@gmail.com, ..."
             name="emails"
           >
