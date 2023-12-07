@@ -5,6 +5,7 @@ import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 
+
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
 import School from "../../Assets/Icons/Onboarding_Icons/school.svg";
