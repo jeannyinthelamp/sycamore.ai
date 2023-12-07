@@ -1,6 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
+import back from "../../../Assets/Icons/Onboarding_Icons/back.svg"
+import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg"
+
+
 export default function Onboarding_Nav() {
   const currentLocation = useLocation();
 
@@ -21,10 +25,7 @@ export default function Onboarding_Nav() {
 
       case "/onboarding_5":
         return "/onboarding_4";
-
-      case "/onboarding_6":
-        return "/onboarding_5";
-
+        
       default:
         return;
     }
@@ -45,23 +46,16 @@ export default function Onboarding_Nav() {
       case "/onboarding_4":
         return "/onboarding_5";
 
-      case "/onboarding_5":
-        return "/onboarding_6";
-
-      //TODO: Update path for page 6
-      case "/onboarding_6":
-        return;
-
       default:
         return;
     }
   };
   return (
-    //* Navigation Button and form Submit Input
-    <div className='navigation-wrapper w-[100%] h-auto flex flex-row gap-[12px]'>
+    //* Back and Exit buttons
+<div class="flex p-4 md:p-16 justify-between items-center self-stretch">
       <Link
         //^  Fonts wont update
-        className='w-[50%] max-h-48px py-[12px] px-[24px] flex justify-center items-center bg-[#E9ECEF] rounded-lg font-Poppins text-black text-center text-[16px] font-medium leading-[24px]  outline-none border-none cursor-pointer'
+        className='flex'
         to={traverseBack(currentLocation.pathname)}
         onClick={() => {
           //calculate new path
@@ -74,13 +68,22 @@ export default function Onboarding_Nav() {
           );
         }}
       >
-        Go Back
-      </Link>
-      <input
-        type='submit'
-        value='Continue'
-        className=' w-[50%] py-[12px] px-[24px] flex justify-center items-center bg-[#212529] rounded-lg font-Poppins text-[#F8F9FA] text-center text-[16px] font-medium leading-[24px] outline-none border-none cursor-pointer'
-      />
+        <img
+          className=''
+          src={back}
+          alt='back'
+        />
+        Back
+      </Link> 
+      <button 
+    className='flex'>
+      <img
+          className=''
+          src={exit}
+          alt='exit'
+        />
+        </button>
+      {/* Account for Onboarding1 - where there is no back button */}
     </div>
   );
 }
