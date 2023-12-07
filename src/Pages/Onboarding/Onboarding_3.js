@@ -4,8 +4,7 @@ import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onb
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
-import { Link } from "react-router-dom";
-import { Progress } from "@material-tailwind/react";
+import Onboarding_skip_continue from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons"
 
 export default function Onboarding_3() {
   return (
@@ -99,6 +98,10 @@ export default function Onboarding_3() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
+          <Onboarding_skip_continue
+            btnText='Continue'
+            skipToPage='/onboarding_4'
+          />
         </form>
         <Onboarding_progress_bar active='page3' />
       </div>
