@@ -9,7 +9,8 @@ import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg"
 export default function Onboarding_Nav() {
   const currentLocation = useLocation();
 
-  const [isHovered, setIsHovered] = useState(false);
+  const [isBackHovered, setIsBackHovered] = useState(false);
+  const [isExitHovered, setIsExitHovered] = useState(false);
 
   //Back button functionality
   const traverseBack = (currentPath) => {
@@ -53,11 +54,11 @@ export default function Onboarding_Nav() {
         }}
       >
         <div class="flex items-center hover:text-[#556AEB]"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)} >
+          onMouseEnter={() => setIsBackHovered(true)}
+          onMouseLeave={() => setIsBackHovered(false)} >
           <img
             class='mr-2'
-            src={isHovered ? back_selected : back}
+            src={isBackHovered ? back_selected : back}
             alt='back'
           />  
           Back
@@ -65,12 +66,27 @@ export default function Onboarding_Nav() {
       </Link> 
       
     <button 
-    className='flex'>
+      className='flex'
+      onMouseEnter={() => setIsExitHovered(true)}
+      onMouseLeave={() => setIsExitHovered(false)}
+    >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '50%',
+          background: isExitHovered ? 'var(--neutral-300, #e9ecef)' : 'var(--neutral-100, #F8F9FA)', // Conditional background color
+          width: '32px', 
+          height: '32px', 
+        }}
+      >
       <img
           className=''
           src={exit}
           alt='exit'
         />
+      </div>
         </button>
     </div>
   );
