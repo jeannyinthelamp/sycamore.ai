@@ -4,6 +4,7 @@ import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onb
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
+import Onboarding_skip_continue from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons"
 
 export default function Onboarding_2() {
   return (
@@ -97,6 +98,10 @@ export default function Onboarding_2() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
+          <Onboarding_skip_continue
+            btnText='Continue'
+            skipToPage='/onboarding_3'
+          />
         </form>
         <Onboarding_progress_bar active='page2' />
       </div>
