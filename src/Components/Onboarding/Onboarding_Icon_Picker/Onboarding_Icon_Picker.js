@@ -18,6 +18,9 @@ export default function Onboarding_Icon_Picker(props) {
         .then((data) => loadEmoji(data));
     }
 
+    //! Known Bug: When fetching emoji data and populating them in the DOM, sometimes 2 emojis are fetched together and appear to be 'stuck together' in the modal.
+    // The error may be with the API since nothing was changed on our end to cause this
+
     function loadEmoji(data) {
       data.forEach((emoji) => {
         let p = document.createElement("p");
@@ -64,7 +67,7 @@ export default function Onboarding_Icon_Picker(props) {
         props.iconModalVisible ? "" : "hidden"
       }`}
     >
-      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[410px] h-[356px] mt-[480px] p-6 bg-white rounded-lg outline outline-1 outline-[#DEE2E6] shadow-md'>
+      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[410px] h-[356px] mt-[500px] p-6 bg-white rounded-lg outline outline-1 outline-[#DEE2E6] shadow-md'>
         <div className='title-and-exit-wrapper flex flex-row justify-between items-center w-[100%] h-auto'>
           <h1 className='title font-Poppins text-[1.125rem] text-[#000] font-semibold leading-[28px]'>
             Icons

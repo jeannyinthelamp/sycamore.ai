@@ -95,7 +95,7 @@ export default function Onboarding_4() {
             always change them later.
           </p>
         </div>
-        <div className='my-[48px]'>
+        <div className='flex flex-col items-center my-[48px]'>
           <div
             className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center cursor-pointer'
             onClick={toggleIconPicker}
@@ -115,10 +115,10 @@ export default function Onboarding_4() {
             </h1>
           </div>
           <p
-            className='my-[8px] text-[#212529] font-Poppins text-center cursor-pointer'
+            className='w-auto mt-[8px] py-1 px-3 text-[14px] font-medium text-white font-Poppins text-center leading-6 bg-[#556AEB] rounded-lg cursor-pointer'
             onClick={toggleIconPicker}
           >
-            Choose Icon
+            Choose an icon
           </p>
         </div>
         <form
@@ -133,10 +133,10 @@ export default function Onboarding_4() {
               //
               type='text'
               name='company-name'
-              placeholder='Example: Syne Studio'
+              placeholder='Group / Organization / Company Name'
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg ${
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#495057] ${
                 companyNameError || companyNameExists
                   ? "outline-[#D82D07]"
                   : "outline-[#CED4DA]"
@@ -172,7 +172,7 @@ export default function Onboarding_4() {
       </div>
 
       <button
-        className='h-[24px] mt-[12px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
+        className='h-[24px] mt-[24px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
         onClick={() => {
           setVisible(true);
         }}
