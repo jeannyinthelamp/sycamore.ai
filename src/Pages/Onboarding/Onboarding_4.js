@@ -95,10 +95,23 @@ export default function Onboarding_4() {
             always change them later.
           </p>
         </div>
-        <div className='flex flex-col items-center my-[48px]'>
+        <div className=' relative flex flex-col items-center my-[48px]'>
+          <img
+            className='remove-icon-btn absolute top-[10px] right-[10px] w-[24px] h-[24px] p-[3px] bg-[#B9C4FF] rounded-full cursor-pointer z-30 hover:bg-[#8FA0FF] '
+            src={exit}
+            alt='exit icon'
+            onClick={() => {
+              setIconModalVisible(false);
+              setIconSelected(false);
+            }}
+          />
           <div
-            className='bg-[#CED4DA] p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center cursor-pointer'
-            onClick={toggleIconPicker}
+            className={`p-[10px] w-[120px] h-[120px] rounded-full flex flex-col items-center cursor-pointer z-0 hover:bg-[#ADB5BD] hover:outline hover:outline-[5px] hover:outline-offset-[-5px] hover:outline-[#E9ECEF] ${
+              !iconSelected ? "bg-[#CED4DA]" : "bg-[#F8F9FA]"
+            }`}
+            onClick={() => {
+              toggleIconPicker();
+            }}
           >
             <h1
               className={`text-6xl pt-5 text-white font-extrabold ${
@@ -115,7 +128,7 @@ export default function Onboarding_4() {
             </h1>
           </div>
           <p
-            className='w-auto mt-[8px] py-1 px-3 text-[14px] font-medium text-white font-Poppins text-center leading-6 bg-[#556AEB] rounded-lg cursor-pointer'
+            className='w-auto mt-[8px] py-1 px-3 text-[14px] font-medium text-white font-Poppins text-center leading-6 bg-[#556AEB] rounded-lg cursor-pointer hover:bg-[#1D2E99]'
             onClick={toggleIconPicker}
           >
             Choose an icon
@@ -187,7 +200,10 @@ export default function Onboarding_4() {
         iconSelectionOnClick={(e) => {
           handelIcon(e);
         }}
-        // cancelIcon=()
+        // close modal when clicking anywhere outside of it
+        exitOnOutsideClick={() => {
+          setIconModalVisible(false);
+        }}
       />
     </div>
   );
