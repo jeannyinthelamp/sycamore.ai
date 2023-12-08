@@ -73,7 +73,11 @@ export default function Onboarding_4() {
         <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
           <Onboarding_Alert_Modal
             isVisible={visible ? " " : " hidden "}
-            message='Are you sure you want to skip?'
+            message={
+              companyName
+                ? "Are you sure you want to skip?"
+                : "Not writing your workspace name will make it difficult for us to tailor your workspace. Are you sure you want to skip?"
+            }
             border='border-[#D82D07]'
             background='bg-[#FFDDDF]'
             iconLeft={warning}
