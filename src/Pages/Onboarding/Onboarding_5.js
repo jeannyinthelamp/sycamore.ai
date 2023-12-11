@@ -50,6 +50,11 @@ export default function Onboarding_5() {
             onClick={(e) => {
               e.preventDefault();
               setShowLinkAlert(true); // trigger is here to test the show link success modal, remove later when share Link confirmation modal is added
+
+              // hide modal after 2 seconds
+              setTimeout(() => {
+                setShowLinkAlert(false);
+              }, 2000);
             }}
           >
             <img src={shareLink} alt='Share Link Icon' className='mr-[4px]' />
