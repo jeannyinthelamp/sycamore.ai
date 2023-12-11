@@ -63,7 +63,7 @@ export default function Onboarding_Icon_Picker(props) {
 
   return (
     <div
-      className={`icon-modal-page-wrapper absolute flex justify-center items-start w-screen h-screen  z-10 ${
+      className={`icon-modal-page-wrapper absolute flex justify-center items-start w-screen h-screen  z-30 ${
         props.iconModalVisible ? "" : "hidden"
       }`}
     >
