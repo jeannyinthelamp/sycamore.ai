@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_Button from "../../Components/Onboarding/Onboarding_Button/Onboarding_Button";
+import Onboarding_Nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 import { useNavigate } from "react-router-dom";
 import { validateCompanyName } from "./Onboarding_Validation/Onboarding_Validation";
@@ -68,7 +69,7 @@ export default function Onboarding_4() {
   return (
     <div className='relative flex flex-col justify-start items-center w-screen h-screen'>
       <Onboarding_header />
-
+      <Onboarding_Nav />
       <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
           <Onboarding_Alert_Modal
@@ -86,6 +87,9 @@ export default function Onboarding_4() {
             skipBtnOnClick={() => {
               //navigate to next page of onboarding
               handleSkip();
+            }}
+            exitBtnOnClick={() => {
+              setVisible(false);
             }}
           />
           <h1 className='w-[100%] mt-[75px] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
