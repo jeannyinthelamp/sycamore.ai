@@ -14,6 +14,7 @@ module.exports = withMT({
         Gloria: ["Gloria Hallelujah"],
         Poppins: ["Poppins", "sans-serif"],
         Inter: ["Inter", "sans-serif"],
+        NotoEmoji: ["Noto Color Emoji", "sans-serif"],
       },
       colors: {
         "base-black": "#424242",
