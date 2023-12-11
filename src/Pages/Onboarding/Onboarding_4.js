@@ -83,9 +83,6 @@ export default function Onboarding_4() {
             iconLeft={warning}
             iconLeftAlt='warning'
             skipBtnVisible={true}
-            exitBtnOnClick={() => {
-              setVisible(false);
-            }}
             skipBtnOnClick={() => {
               //navigate to next page of onboarding
               handleSkip();
@@ -203,10 +200,6 @@ export default function Onboarding_4() {
         handleModalExit={toggleIconPicker}
         iconSelectionOnClick={(e) => {
           handelIcon(e);
-        }}
-        // close modal when clicking anywhere outside of it
-        exitOnOutsideClick={() => {
-          setIconModalVisible(false);
         }}
       />
     </div>

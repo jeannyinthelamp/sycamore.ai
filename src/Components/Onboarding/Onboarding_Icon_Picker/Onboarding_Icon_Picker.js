@@ -66,9 +66,8 @@ export default function Onboarding_Icon_Picker(props) {
       className={`icon-modal-page-wrapper absolute flex justify-center items-start w-screen h-screen  z-10 ${
         props.iconModalVisible ? "" : "hidden"
       }`}
-      onClick={props.exitOnOutsideClick}
     >
-      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[410px] h-[356px] mt-[500px] p-6 bg-white rounded-lg outline outline-1 outline-[#DEE2E6] z-20 shadow-md'>
+      <div className='icon-modal-wrapper flex flex-col justify-center items-center gap-[16px] w-[420px] h-[356px] mt-[500px] p-6 bg-white rounded-lg outline outline-1 outline-[#DEE2E6] z-20 shadow-md'>
         <div className='title-and-exit-wrapper flex flex-row justify-between items-center w-[100%] h-auto'>
           <h1 className='title font-Poppins text-[1.125rem] text-[#000] font-semibold leading-[28px]'>
             Icons
@@ -91,9 +90,7 @@ export default function Onboarding_Icon_Picker(props) {
         <div
           className='icon-selection-window flex justify-start items-start flex-wrap gap-x-[10px] gap-y-[10px] border w-[100%] h-[200px] p-2 overflow-y-scroll  bg-white border-none outline-none'
           id='icon-selection-window'
-        >
-          {/* //& emoji content gets appended here via useEffect */}
-        </div>
+        ></div>
       </div>
     </div>
   );
