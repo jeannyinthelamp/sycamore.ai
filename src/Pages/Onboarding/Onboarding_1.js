@@ -1,10 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { useState } from "react";
+import React from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
-import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
-
+import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
@@ -15,7 +14,6 @@ import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_1() {
   //Press Skip btn at bottom of page to open modal
-  const [visible, setVisible] = useState(false);
 
   const workplaceOptions = [
     {
@@ -40,17 +38,11 @@ export default function Onboarding_1() {
     },
   ];
 
-  // Placeholder function for handling skip btn in Alert Modal
-  //TODO: export to module
-  const handleSkip = () => {
-    alert("skip btn pressed");
-  };
-
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_header />
 
-      <div className='title-and-button-wrapper max-w-fit h-auto flex flex-col justify-center items-center'>
+      <div className='title-and-button-wrapper max-w-fit h-auto mt-[50px] flex flex-col justify-center items-center'>
         <div className='text-wrapper relative flex flex-col items-center w-[100%] h-auto gap-[16px] '>
           {/* //TODO: update margin once back and exit Btn's are built */}
           <h1 className='w-[100%] min-h-[54px] mt-[75px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
@@ -80,13 +72,19 @@ export default function Onboarding_1() {
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
-          {/* <Onboarding_nav /> */}
+
           <Onboarding_Skip_Continue_Btns
             btnText='Continue'
+            message='Are you sure you want to skip?'
+            modalPosition='top-[100px]'
             skipToPage='/onboarding_2'
+            continueOnClick={(e) => {
+              // continue logic
+            }}
           />
         </form>
       </div>
+      <Onboarding_progress_bar active='page1' />
     </div>
   );
 }

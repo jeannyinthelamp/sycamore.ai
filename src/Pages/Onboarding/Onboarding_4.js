@@ -2,12 +2,13 @@
 import React, { useState } from "react";
 import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
-import Onboarding_Button from "../../Components/Onboarding/Onboarding_Button/Onboarding_Button";
+
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 import { useNavigate } from "react-router-dom";
 import { validateCompanyName } from "./Onboarding_Validation/Onboarding_Validation";
-import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
+
+import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 import Onboarding_Icon_Picker from "../../Components/Onboarding/Onboarding_Icon_Picker/Onboarding_Icon_Picker";
 import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
 import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
@@ -15,7 +16,6 @@ import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 //! Known bug: Manually entering an emoji into the company name input field allows the user to continue. Update regex validation to include only alphanumeric characters
 
 export default function Onboarding_4() {
-  const [visible, setVisible] = useState(false);
   const [icon, setIcon] = useState("");
   const [iconSelected, setIconSelected] = useState(false);
   const [iconModalVisible, setIconModalVisible] = useState(false);
@@ -70,29 +70,9 @@ export default function Onboarding_4() {
     <div className='relative flex flex-col justify-start items-center w-screen h-screen'>
       <Onboarding_header />
       <Onboarding_Nav />
-      <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
+      <div className='title-and-form-wrapper max-w-[730px] mt-[20px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
-          <Onboarding_Alert_Modal
-            isVisible={visible ? " " : " hidden "}
-            message={
-              companyName
-                ? "Are you sure you want to skip?"
-                : "Not writing your workspace name will make it difficult for us to tailor your workspace. Are you sure you want to skip?"
-            }
-            border='border-[#D82D07]'
-            background='bg-[#FFDDDF]'
-            iconLeft={warning}
-            iconLeftAlt='warning'
-            skipBtnVisible={true}
-            skipBtnOnClick={() => {
-              //navigate to next page of onboarding
-              handleSkip();
-            }}
-            exitBtnOnClick={() => {
-              setVisible(false);
-            }}
-          />
-          <h1 className='w-[100%] mt-[75px] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
+          <h1 className='w-[100%] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
             Let's get your workspace ready
           </h1>
           <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
@@ -181,23 +161,22 @@ export default function Onboarding_4() {
             </p>
           </label>
 
-          <Onboarding_Button
+          <Onboarding_Skip_Continue_Btns
             btnText='Continue'
-            disabled={companyName ? false : true}
-            onClick={processCompanyName}
+            message={`${
+              companyName
+                ? "Are you sure you want to skip?"
+                : "Not writing your workspace name will make it difficult for us to tailor your workspace. Are you sure you want to skip?"
+            }`}
+            modalPosition='top-[170px]'
+            skipToPage='/onboarding_5'
+            continueOnClick={(e) => {
+              processCompanyName(e);
+            }}
           />
         </form>
       </div>
 
-      <button
-        className='h-[24px] mt-[24px] font-Poppins font-medium text-[16px] leading-[24px] text-[#556AEB] text-center underline underline-offset-2 cursor-pointer'
-        onClick={() => {
-          setVisible(true);
-        }}
-      >
-        Skip
-      </button>
-      {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page4' />
       <Onboarding_Icon_Picker
         iconModalVisible={iconModalVisible}

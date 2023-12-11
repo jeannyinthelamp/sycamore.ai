@@ -30,6 +30,7 @@ export default function Onboarding_Skip_Continue_Btns(props) {
         btnText={props.btnText}
         disabled={props.disabledState}
         className='w-[100%]'
+        onClick={props.continueOnClick}
       />
       <button
         onClick={(e) => {
@@ -42,8 +43,8 @@ export default function Onboarding_Skip_Continue_Btns(props) {
       </button>
       <OnboardingAlertModal
         isVisible={showAlert ? "visible" : "hidden"}
-        modalPosition='top-[70px]'
-        message='Are you sure you want to skip?'
+        modalPosition={props.modalPosition}
+        message={props.message}
         border='border-[#D82D07]'
         background='bg-[#FFDDDF]'
         iconLeft={warning}
