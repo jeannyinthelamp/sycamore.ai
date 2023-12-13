@@ -10,7 +10,9 @@ import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboardin
 import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 import { ReactMultiEmail } from "react-multi-email";
-// import 'react-multi-email/dist/style.css';
+import "./Styles/emailInput.css"
+// import exit from "/../../Assets/Icons/Onboarding_Icons/exit.svg";
+import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg"
 
 export default function Onboarding_5() {
   const [emails, setEmails] = useState([]);
@@ -62,8 +64,8 @@ export default function Onboarding_5() {
               return (
                 <div data-tag key={index} className="bg-[#B9C4FF]">
                   <div data-tag-item>{email}</div>
-                  <span data-tag-handle onClick={() => removeEmail(index)}>
-                    ×
+                  <span data-tag-handle onClick={() => removeEmail(index)} >
+                    <img src={exit} alt="Close Icon"/>
                   </span>
                 </div>
               );
