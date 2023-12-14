@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-
+import { Link, useLocation , useNavigate } from "react-router-dom";
 import back from "../../../Assets/Icons/Onboarding_Icons/back.svg"
 import back_selected from "../../../Assets/Icons/Onboarding_Icons/back_selected.svg"
 import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg"
+import Onboarding_Action_Modal from "../Onboarding_Action_Modal/Onboarding_Action_Modal"
 
-
-export default function Onboarding_Nav() {
+export default function Onboarding_Nav(props) {
   const currentLocation = useLocation();
+  const navigate = useNavigate();
 
   const [isBackHovered, setIsBackHovered] = useState(false);
   const [isExitHovered, setIsExitHovered] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+
+  const handleSkip = () => {
+    setShowAlert(false);
+    navigate(props.skipToPage);
+  };
 
   //Back button functionality
   const traverseBack = (currentPath) => {
@@ -69,7 +76,10 @@ export default function Onboarding_Nav() {
       className='flex'
       onMouseEnter={() => setIsExitHovered(true)}
       onMouseLeave={() => setIsExitHovered(false)}
-    >
+      onClick={(e) => {
+        e.preventDefault();
+        setShowAlert(true);
+      }}      >    
       <div
         style={{
           display: 'flex',
@@ -81,13 +91,25 @@ export default function Onboarding_Nav() {
           height: '32px', 
         }}
       >
+ 
       <img
           className=''
           src={exit}
           alt='exit'
         />
+                 
       </div>
-        </button>
+    </button>
+    <Onboarding_Action_Modal
+      isVisible={showAlert ? "visible" : "hidden"}
+      modalPosition=''
+      title="Close your workspace setup?"
+      message="You will skip all the set up and be taken to workspace dashboard."
+      topBtnText="Continue setup"
+      topBtnOnClick={() => setShowAlert(false)}
+      bottomBtnText="Skip all setup"
+      bottomBtnOnClick={handleSkip}
+    />
     </div>
   );
 }

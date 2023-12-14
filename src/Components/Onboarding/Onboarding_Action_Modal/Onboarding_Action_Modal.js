@@ -8,7 +8,7 @@ import React from "react";
 export default function Onboarding_Action_Modal(props) {
   return (
     <div
-      className={`action-modal-page-wrapper absolute top-0 flex justify-center items-center w-screen h-screen  bg-[#000] bg-opacity-40 ${props.className}`}
+      className={`action-modal-page-wrapper absolute top-0 flex justify-center items-center w-screen h-screen  bg-[#000] bg-opacity-40 ${props.className} ${props.isVisible} ${props.modalPosition}`}
     >
       <div className='action-modal-page-inner-wrapper flex justify-center items-start w-[100%] h-[50%]'>
         <div className='action-modal-wrapper flex flex-col justify-center items-center w-[410px] p-6 bg-[#FFF] rounded-lg shadow-sm '>
