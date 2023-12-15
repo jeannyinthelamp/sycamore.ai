@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
@@ -9,11 +8,9 @@ import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboardin
 export default function Onboarding_3() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
       <Onboarding_nav />
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
-
       <div className='title-and-button-wrapper max-w-[714px] h-auto mt-[20px] flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>

@@ -4,6 +4,7 @@ import back from "../../../Assets/Icons/Onboarding_Icons/back.svg"
 import back_selected from "../../../Assets/Icons/Onboarding_Icons/back_selected.svg"
 import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg"
 import Onboarding_Action_Modal from "../Onboarding_Action_Modal/Onboarding_Action_Modal"
+import syne_logo from "../../../Assets/Icons/syne-logo.svg";
 
 export default function Onboarding_Nav(props) {
   const currentLocation = useLocation();
@@ -42,11 +43,25 @@ export default function Onboarding_Nav(props) {
     }
   };
 
+  // Only show nav bar if we can go to previous page
+  const renderNavBar = currentLocation.pathname !== '/onboarding_1';
+
   return (
     //* Back and Exit buttons
-<div class="flex p-4 md:p-16 justify-between items-center self-stretch">
+    <div className=' w-[100%] self-stretch'>
+      <div className='header-inner-wrapper w-[1440px] h-[72px] mx-[24px] pt-[16px] pb-[16px] flex justify-start items-center pr-'>
+        <img
+          className='w-[30px] h-[30px] mr-[14px]'
+          src={syne_logo}
+          alt='Syne Logo'
+        />
+        <p className='font-Poppins text-[20px] font-normal leading-[30px] tracking-[-0.266px]'>
+          Syne
+        </p>
+      </div>
+      {renderNavBar && (
+        <div className="flex p-16 px-74 h-[64px] pt-[16px] pb-[136px] justify-between items-center self-stretch">
       <Link
-        //^  Fonts wont update
         className='flex'
         to={traverseBack(currentLocation.pathname)}
         onClick={() => {
@@ -60,11 +75,10 @@ export default function Onboarding_Nav(props) {
           );
         }}
       >
-        <div class="flex items-center hover:text-[#556AEB]"
+        <div class="flex items-center gap-[2px] hover:text-[#556AEB]"
           onMouseEnter={() => setIsBackHovered(true)}
           onMouseLeave={() => setIsBackHovered(false)} >
           <img
-            class='mr-2'
             src={isBackHovered ? back_selected : back}
             alt='back'
           />  
@@ -91,7 +105,6 @@ export default function Onboarding_Nav(props) {
           height: '32px', 
         }}
       >
- 
       <img
           className=''
           src={exit}
@@ -100,16 +113,20 @@ export default function Onboarding_Nav(props) {
                  
       </div>
     </button>
-    <Onboarding_Action_Modal
-      isVisible={showAlert ? "visible" : "hidden"}
-      modalPosition=''
-      title="Close your workspace setup?"
-      message="You will skip all the set up and be taken to workspace dashboard."
-      topBtnText="Continue setup"
-      topBtnOnClick={() => setShowAlert(false)}
-      bottomBtnText="Skip all setup"
-      bottomBtnOnClick={handleSkip}
-    />
+      {showAlert && (<div className='fixed inset-0 flex items-center justify-center'>
+        <Onboarding_Action_Modal
+        isVisible={showAlert ? "visible" : "hidden"}
+        title="Close your workspace setup?"
+        message="You will skip all the set up and be taken to workspace dashboard."
+        topBtnText="Continue setup"
+        topBtnOnClick={() => setShowAlert(false)}
+        bottomBtnText="Skip all setup"
+        bottomBtnOnClick={handleSkip}
+        />
+      </div>
+      )}
+    </div>
+    )}
     </div>
   );
 }

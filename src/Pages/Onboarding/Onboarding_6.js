@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Dropdown from "../../Components/Onboarding/Onboarding_Dropdown/Onboarding_dropdown";
@@ -19,7 +18,7 @@ export default function Onboarding_6() {
   }
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
+      <Onboarding_nav/>
 
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_progress_bar active='page6' />
