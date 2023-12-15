@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
+import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 
 import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
@@ -39,9 +39,9 @@ export default function Onboarding_1() {
   ];
 
   return (
+    
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
-
+      <Onboarding_nav/>
       <div className='title-and-button-wrapper max-w-fit h-auto mt-[50px] flex flex-col justify-center items-center'>
         <div className='text-wrapper relative flex flex-col items-center w-[100%] h-auto gap-[16px] '>
           {/* //TODO: update margin once back and exit Btn's are built */}

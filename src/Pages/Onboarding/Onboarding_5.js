@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState } from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import shareLink from "../../Assets/Icons/Onboarding_Icons/link.svg";
@@ -21,7 +20,6 @@ export default function Onboarding_5() {
   }
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
       <Onboarding_nav />
       <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto mb-[48px] flex flex-col justify-start items-center'>

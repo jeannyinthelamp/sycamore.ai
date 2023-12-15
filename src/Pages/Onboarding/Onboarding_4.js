@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState } from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 
 import Onboarding_Nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
@@ -68,7 +67,6 @@ export default function Onboarding_4() {
 
   return (
     <div className='relative flex flex-col justify-start items-center w-screen h-screen'>
-      <Onboarding_header />
       <Onboarding_Nav />
       <div className='title-and-form-wrapper max-w-[730px] mt-[20px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
