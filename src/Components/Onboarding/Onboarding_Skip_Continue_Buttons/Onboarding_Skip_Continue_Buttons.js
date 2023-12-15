@@ -37,7 +37,7 @@ export default function Onboarding_Skip_Continue_Btns(props) {
           e.preventDefault();
           setShowAlert(true);
         }}
-        className='text-[#0A70E8] underline my-[24px]'
+        className='text-[#0A70E8] hover:underline my-[24px]'
       >
         {props.skipMessage ? props.skipMessage : "Skip"}
       </button>
