@@ -113,16 +113,18 @@ export default function Onboarding_Nav(props) {
                  
       </div>
     </button>
-    <Onboarding_Action_Modal
-      isVisible={showAlert ? "visible" : "hidden"}
-      modalPosition=''
-      title="Close your workspace setup?"
-      message="You will skip all the set up and be taken to workspace dashboard."
-      topBtnText="Continue setup"
-      topBtnOnClick={() => setShowAlert(false)}
-      bottomBtnText="Skip all setup"
-      bottomBtnOnClick={handleSkip}
-    />
+      {showAlert && (<div className='fixed inset-0 flex items-center justify-center'>
+        <Onboarding_Action_Modal
+        isVisible={showAlert ? "visible" : "hidden"}
+        title="Close your workspace setup?"
+        message="You will skip all the set up and be taken to workspace dashboard."
+        topBtnText="Continue setup"
+        topBtnOnClick={() => setShowAlert(false)}
+        bottomBtnText="Skip all setup"
+        bottomBtnOnClick={handleSkip}
+        />
+      </div>
+      )}
     </div>
     )}
     </div>
