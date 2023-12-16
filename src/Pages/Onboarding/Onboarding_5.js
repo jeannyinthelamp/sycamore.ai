@@ -40,9 +40,11 @@ export default function Onboarding_5() {
           action=''
           className='w-full max-w-[420px] h-auto flex flex-col gap-[24px] justify-center items-start gap-y-[24px]'
         >
-          <label hidden="hidden" for="emails">Emails:</label>
+          <label hidden='hidden' for='emails'>Emails:</label>
           <ReactMultiEmail
-            placeholder="johndoe@gmail.com, janedoe@gmail.com, ..."
+            name='emails'
+            placeholder='johndoe@gmail.com, janedoe@gmail.com, ...'
+            className={`${detectBrowser()}`}
             emails={emails}
             onChange={(_emails) => {
               setEmails(_emails);
