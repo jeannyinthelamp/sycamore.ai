@@ -8,7 +8,7 @@ export default function Onboarding_Alert_Modal(props) {
     >
       <div className='alert-modal-left flex flex-row justify-center items-center gap-4 w-fit h-8'>
         <img src={props.iconLeft} alt={props.iconLeftAlt} />
-        <p className=' min-w-fit font-Poppins font-normal text-[16px] text-[#000] leading-normal select-none'>
+        <p className=' min-w-auto font-Poppins font-normal text-[16px] text-[#000] leading-normal select-none'>
           {props.message}
         </p>
       </div>

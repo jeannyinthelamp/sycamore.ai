@@ -1,20 +1,17 @@
 /* eslint-disable react/jsx-pascal-case */
 import React from "react";
-import Onboarding_header from "../../Components/Onboarding/Onboarding_header/Onboarding_header";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
-import Onboarding_skip_continue from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons"
+import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 
 export default function Onboarding_2() {
   return (
     <div className='flex flex-col justify-center items-center'>
-      <Onboarding_header />
-
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_nav />
 
-      <div className='title-and-button-wrapper max-w-[714px] h-auto flex flex-col justify-center items-center'>
+      <div className='title-and-button-wrapper max-w-[714px] h-aut mt-[30px] flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
             How would you like to use Syne?
@@ -25,7 +22,7 @@ export default function Onboarding_2() {
         </div>
         {/* //^ add form action */}
         <form action=''>
-        <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
+          <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
             <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
@@ -33,7 +30,7 @@ export default function Onboarding_2() {
                   id='Productivity'
                   for='Productivity'
                   className=''
-                  />
+                />
                 <Onboarding_Checkbox
                   title='Administration'
                   id='Administration'
@@ -59,48 +56,54 @@ export default function Onboarding_2() {
                   className=''
                 />
                 <Onboarding_Checkbox
-                title='Organization'
-                id='Organization'
-                for='Organization'
-                className=''
+                  title='Organization'
+                  id='Organization'
+                  for='Organization'
+                  className=''
                 />
                 <Onboarding_Checkbox
-                title='Sales Pipeline'
-                id='Sales Pipeline'
-                for='Sales Pipeline'
-                className=''
+                  title='Sales Pipeline'
+                  id='Sales Pipeline'
+                  for='Sales Pipeline'
+                  className=''
                 />
                 <Onboarding_Checkbox
-                title='Freelancing'
-                id='Freelancing'
-                for='Freelancing'
-                className=''
+                  title='Freelancing'
+                  id='Freelancing'
+                  for='Freelancing'
+                  className=''
                 />
                 <Onboarding_Checkbox
-                title='Project Management'
-                id='Project Management'
-                for='Project Management'
-                className=''
+                  title='Project Management'
+                  id='Project Management'
+                  for='Project Management'
+                  className=''
                 />
                 <Onboarding_Checkbox
-                title='Product Management'
-                id='Product Management'
-                for='Product Management'
-                className=''
+                  title='Product Management'
+                  id='Product Management'
+                  for='Product Management'
+                  className=''
                 />
                 <Onboarding_Checkbox
-                title='Development Pipeline'
-                id='Development Pipeline'
-                for='Development Pipeline'
-                className=''
+                  title='Development Pipeline'
+                  id='Development Pipeline'
+                  for='Development Pipeline'
+                  className=''
                 />
               </div>
             </label>
           </div>
           {/* Go Back and Continue Buttons */}
-          <Onboarding_skip_continue
+
+          <Onboarding_Skip_Continue_Btns
             btnText='Continue'
+            message='Are you sure you want to skip?'
+            modalPosition='top-[180px]'
             skipToPage='/onboarding_3'
+            continueOnClick={(e) => {
+              // continue logic
+            }}
           />
         </form>
         <Onboarding_progress_bar active='page2' />
