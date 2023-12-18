@@ -49,9 +49,9 @@ export default function Onboarding_Nav(props) {
   return (
     //* Back and Exit buttons
     <div className=' w-[100%] self-stretch'>
-      <div className='header-inner-wrapper w-[1440px] h-[72px] mx-[24px] pt-[16px] pb-[16px] flex justify-start items-center pr-'>
+      <div className='header-inner-wrapper w-full h-[72px] pt-[16px] pb-[16px] flex justify-start items-center pr-'>
         <img
-          className='w-[30px] h-[30px] mr-[14px]'
+          className='w-[30px] h-[30px] mr-[14px] ml-[24px]'
           src={syne_logo}
           alt='Syne Logo'
         />
