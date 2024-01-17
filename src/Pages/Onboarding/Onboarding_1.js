@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useState } from "react";
 import Onboarding_Checkbox_Large from "../../Components/Onboarding/Onboarding_Large_Checkbox/Onboarding_large_checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
@@ -9,11 +9,26 @@ import Person from "../../Assets/Icons/Onboarding_Icons/person.svg";
 import Team from "../../Assets/Icons/Onboarding_Icons/team.svg";
 import School from "../../Assets/Icons/Onboarding_Icons/school.svg";
 import Work from "../../Assets/Icons/Onboarding_Icons/work.svg";
-import warning from "../../Assets/Icons/Onboarding_Icons/warning.svg";
-import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg";
 
 export default function Onboarding_1() {
   //Press Skip btn at bottom of page to open modal
+  // const [isContinueDisabled, setContinueDisabled] = useState(true);
+  const [checkboxes, setCheckboxes] = useState([]);
+  const isContinueDisabled = checkboxes.length === 0;
+
+  const handleCheckboxChange = (value) => {
+    const updatedCheckboxes = [...checkboxes];
+    const index = updatedCheckboxes.indexOf(value);
+
+    if (index === -1) {
+      updatedCheckboxes.push(value);
+    } else {
+      updatedCheckboxes.splice(index, 1);
+    }
+
+    setCheckboxes(updatedCheckboxes);
+    console.log(updatedCheckboxes)
+  };
 
   const workplaceOptions = [
     {
@@ -66,7 +81,11 @@ export default function Onboarding_1() {
                     for={data.type}
                     img={data.img}
                     alt={data.alt}
-                  />
+                    value={data}
+                    checked={checkboxes.includes(data)}
+                    onChange={() => handleCheckboxChange(data)}
+                    // onClick={() => setContinueEnabled(false)}
+                    />
                 ))}
               </div>
             </label>
@@ -78,9 +97,8 @@ export default function Onboarding_1() {
             message='Are you sure you want to skip?'
             modalPosition='top-[100px]'
             skipToPage='/onboarding_2'
-            continueOnClick={(e) => {
-              // continue logic
-            }}
+            continueToPage='/onboarding_2'
+            disabledState={isContinueDisabled}
           />
         </form>
       </div>

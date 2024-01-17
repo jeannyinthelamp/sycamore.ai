@@ -95,7 +95,6 @@ export default function Onboarding_6() {
           </button>
 
           {/* //* Navigation Button and form Submit Input */}
-          <Onboarding_nav />
         </form>
         <Link
           to=''
