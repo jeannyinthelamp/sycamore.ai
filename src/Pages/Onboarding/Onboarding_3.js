@@ -101,9 +101,7 @@ export default function Onboarding_3() {
             message='Are you sure you want to skip?'
             modalPosition='top-[170px]'
             skipToPage='/onboarding_4'
-            continueOnClick={(e) => {
-              // continue logic
-            }}
+            continueToPage='/onboarding_4'
           />
         </form>
         <Onboarding_progress_bar active='page3' />

@@ -12,9 +12,8 @@ export default function Onboarding_Checkbox(props) {
         type='checkbox'
         id={props.id}
         className='peer hidden'
-        onClick={(e) => {
-          console.log(e.target.id + " checkbox pressed");
-        }}
+        onClick={props.onClick}
+        onChange={props.onChange}
       />
       <label
         htmlFor={props.for}

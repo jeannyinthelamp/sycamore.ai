@@ -59,15 +59,13 @@ export default function Onboarding_5() {
             Share Link
           </button>
           <Onboarding_Skip_Continue_Btns
-            skipToPage=''
             formId=''
             btnText='Invite and take me to Syne'
             disabled={false}
             modalPosition='top-[160px]'
             message='Are you sure you want to skip?'
-            continueOnClick={(e) => {
-              // continue logic
-            }}
+            skipToPage='/onboarding_7'
+            continueToPage='/onboarding_7'
           />
         </form>
         {/* //* Navigation Button and form Submit Input */}

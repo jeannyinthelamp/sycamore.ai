@@ -22,6 +22,12 @@ export default function Onboarding_Skip_Continue_Btns(props) {
     navigate(props.skipToPage);
   };
 
+  const handleContinue = (e) => {
+    e.preventDefault();
+    navigate(props.continueToPage);
+  };
+
+
   return (
     <div className='w-[100%] flex flex-col justify-center items-center'>
       <OnboardingButton
@@ -30,7 +36,7 @@ export default function Onboarding_Skip_Continue_Btns(props) {
         btnText={props.btnText}
         disabled={props.disabledState}
         className='w-[100%]'
-        onClick={props.continueOnClick}
+        onClick={handleContinue}
       />
       <button
         onClick={(e) => {

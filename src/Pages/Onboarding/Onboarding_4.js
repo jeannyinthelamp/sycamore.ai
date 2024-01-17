@@ -23,9 +23,10 @@ export default function Onboarding_4() {
   const [companyNameExists, setCompanyNameExists] = useState(false);
 
   const navigate = useNavigate();
-
+  const [text, setText] = useState("");
+  
   const getFirstLetter = (companyName) => {
-    return companyName.trim().charAt(0).toUpperCase();
+    return companyName.trim().charAt(0).toUpperCase();   
   };
 
   const toggleIconPicker = () => {
@@ -131,7 +132,7 @@ export default function Onboarding_4() {
               name='company-name'
               placeholder='Group / Organization / Company Name'
               value={companyName}
-              onChange={(e) => setCompanyName(e.target.value)}
+              onChange={(e) => {setCompanyName(e.target.value);}}
               className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#495057] ${
                 companyNameError || companyNameExists
                   ? "outline-[#D82D07]"
@@ -171,7 +172,10 @@ export default function Onboarding_4() {
             continueOnClick={(e) => {
               processCompanyName(e);
             }}
+            continueToPage='/onboarding_5'
+            disabledState={text.value} // fix later
           />
+
         </form>
       </div>
 
