@@ -21,6 +21,7 @@ export default function Onboarding_4() {
   const [companyName, setCompanyName] = useState("");
   const [companyNameError, setCompanyNameError] = useState(false);
   const [companyNameExists, setCompanyNameExists] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const navigate = useNavigate();
   const [text, setText] = useState("");
@@ -31,6 +32,14 @@ export default function Onboarding_4() {
 
   const toggleIconPicker = () => {
     setIconModalVisible(!iconModalVisible);
+  };
+
+  const handleCompanyNameChange = (e) => {
+    const newCompanyName = e.target.value;
+        // Check the rules
+    setCompanyName(newCompanyName);
+    
+    setDisabled(newCompanyName.trim() === '');
   };
 
   const handelIcon = (e) => {
@@ -132,7 +141,7 @@ export default function Onboarding_4() {
               name='company-name'
               placeholder='Group / Organization / Company Name'
               value={companyName}
-              onChange={(e) => {setCompanyName(e.target.value);}}
+              onChange={handleCompanyNameChange}
               className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#495057] ${
                 companyNameError || companyNameExists
                   ? "outline-[#D82D07]"
@@ -173,7 +182,7 @@ export default function Onboarding_4() {
               processCompanyName(e);
             }}
             continueToPage='/onboarding_5'
-            disabledState={text.value} // fix later
+            disabledState={disabled} // fix later
           />
 
         </form>
