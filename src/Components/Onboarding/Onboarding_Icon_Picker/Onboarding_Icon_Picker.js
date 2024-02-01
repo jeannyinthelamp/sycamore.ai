@@ -10,13 +10,19 @@ export default function Onboarding_Icon_Picker(props) {
     const searchbox = document.getElementById("search-box");
 
     function fetchEmojiData() {
-      fetch(
-        process.env.REACT_APP_EMOJI_API_URL +
-          process.env.REACT_APP_EMOJI_API_KEY
-      )
-        .then((res) => res.json())
-        .then((data) => loadEmoji(data));
+      const apiUrl = `${process.env.REACT_APP_EMOJI_API_URL}${process.env.REACT_APP_EMOJI_API_KEY}`;
+    
+      fetch(apiUrl)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(`API request failed with status: ${res.status}`);
+          }
+          return res.json();
+        })
+        .then((data) => loadEmoji(data))
+        .catch((error) => console.error('Error fetching emoji data:', error.message));
     }
+    
 
     //! Known Bug: When fetching emoji data and populating them in the DOM, sometimes 2 emojis are fetched together and appear to be 'stuck together' in the modal.
     // The error may be with the API since nothing was changed on our end to cause this

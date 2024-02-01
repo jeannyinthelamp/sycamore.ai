@@ -113,7 +113,7 @@ export default function Onboarding_Nav(props) {
                  
       </div>
     </button>
-      {showAlert && (<div className='fixed inset-0 flex items-center justify-center'>
+      {showAlert && (<div className='fixed inset-0 z-[100] flex items-center justify-center'>
         <Onboarding_Action_Modal
         isVisible={showAlert ? "visible" : "hidden"}
         title="Close your workspace setup?"

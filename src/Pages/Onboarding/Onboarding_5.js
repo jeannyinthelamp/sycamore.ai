@@ -15,8 +15,16 @@ import exit from "../../Assets/Icons/Onboarding_Icons/exit.svg"
 export default function Onboarding_5() {
   const [emails, setEmails] = useState([]);
   const [focused, setFocused] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const [showLinkAlert, setShowLinkAlert] = useState(false); 
   
+  const handleEmailChange = (_emails) => {
+    setEmails(_emails);
+
+    // Check if emails array is not empty
+    setDisabled(_emails.length === 0);
+  };
+
   // Safari has an issue where its difficult to change input border-radius. This function detects a users browser, then injects classNames into create an outline
   function detectBrowser() {
     if (navigator.userAgent.includes("Safari")) {
@@ -46,9 +54,7 @@ export default function Onboarding_5() {
             placeholder='johndoe@gmail.com, janedoe@gmail.com, ...'
             className={`${detectBrowser()}`}
             emails={emails}
-            onChange={(_emails) => {
-              setEmails(_emails);
-            }}
+            onChange={handleEmailChange}
             autoFocus={true}
             onFocus={() => setFocused(true)}
             onBlur={() => setFocused(false)}
@@ -81,7 +87,7 @@ export default function Onboarding_5() {
           <Onboarding_Skip_Continue_Btns
             formId=''
             btnText='Invite and take me to Syne'
-            disabled={false}
+            disabledState={disabled} // Set the disabled prop based on the state
             modalPosition='top-[160px]'
             message='Are you sure you want to skip?'
             skipToPage='/onboarding_7'
