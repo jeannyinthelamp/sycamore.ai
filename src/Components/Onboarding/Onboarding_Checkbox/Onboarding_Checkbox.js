@@ -6,12 +6,13 @@ import check from "../../../Assets/Icons/Onboarding_Icons/check.svg";
 //Checkbox component that visually resembles a button
 
 export default function Onboarding_Checkbox(props) {
-
   const [isSelected, setIsSelected] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  
   const toggleCheckbox = () => {
     setIsSelected((prevValue) => !prevValue);
+    props.handleCheckboxChange(props.id, !isSelected); // Pass id and updated state
   };
 
   return (
