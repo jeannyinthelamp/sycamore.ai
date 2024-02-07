@@ -108,7 +108,7 @@ export default function Onboarding_4() {
           >
             <h1
               className={`text-6xl pt-5 text-white font-extrabold ${
-                iconSelected ? "font-NotoEmoji" : "font-Poppins"
+                iconSelected ? "font-AppleColorEmoji" : "font-Poppins"
               }`}
             >
               {/* {companyName !== "" ? getFirstLetter(companyName) : "U"}
