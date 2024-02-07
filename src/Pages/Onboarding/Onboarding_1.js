@@ -12,22 +12,21 @@ import Work from "../../Assets/Icons/Onboarding_Icons/work.svg";
 
 export default function Onboarding_1() {
   //Press Skip btn at bottom of page to open modal
-  // const [isContinueDisabled, setContinueDisabled] = useState(true);
-  const [checkboxes, setCheckboxes] = useState([]);
-  const isContinueDisabled = checkboxes.length === 0;
+  const [checkboxStates, setCheckboxStates] = useState({});
 
-  const handleCheckboxChange = (value) => {
-    const updatedCheckboxes = [...checkboxes];
-    const index = updatedCheckboxes.indexOf(value);
+  const handleCheckboxChange = (id, isChecked) => {
+    setCheckboxStates(prevStates => ({
+        ...prevStates,
+        [id]: isChecked
+    }));
+  };
 
-    if (index === -1) {
-      updatedCheckboxes.push(value);
-    } else {
-      updatedCheckboxes.splice(index, 1);
-    }
+  const countSelectedCheckboxes = () => {
+    return Object.values(checkboxStates).filter(state => state).length; // count of items
+  };
 
-    setCheckboxes(updatedCheckboxes);
-    console.log(updatedCheckboxes)
+  const isAnyCheckboxSelected = () => {
+    return countSelectedCheckboxes() > 0;
   };
 
   const workplaceOptions = [
@@ -82,9 +81,7 @@ export default function Onboarding_1() {
                     img={data.img}
                     alt={data.alt}
                     value={data}
-                    checked={checkboxes.includes(data)}
-                    onChange={() => handleCheckboxChange(data)}
-                    // onClick={() => setContinueEnabled(false)}
+                    handleCheckboxChange={handleCheckboxChange}
                     />
                 ))}
               </div>
@@ -98,7 +95,7 @@ export default function Onboarding_1() {
             modalPosition='top-[100px]'
             skipToPage='/onboarding_2'
             continueToPage='/onboarding_2'
-            disabledState={isContinueDisabled}
+            disabledState={!isAnyCheckboxSelected()}
           />
         </form>
       </div>
