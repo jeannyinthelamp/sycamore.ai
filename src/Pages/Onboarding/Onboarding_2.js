@@ -1,11 +1,29 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useState } from "react";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 
 export default function Onboarding_2() {
+  const [checkboxStates, setCheckboxStates] = useState({});
+
+  const handleCheckboxChange = (id, isChecked) => {
+    setCheckboxStates(prevStates => ({
+        ...prevStates,
+        [id]: isChecked
+    }));
+  };
+
+  const countSelectedCheckboxes = () => {
+    return Object.values(checkboxStates).filter(state => state).length; // count of items
+  };
+
+  const isAnyCheckboxSelected = () => {
+    return countSelectedCheckboxes() > 0;
+  };
+
+
   return (
     <div className='flex flex-col justify-center items-center'>
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
@@ -30,66 +48,77 @@ export default function Onboarding_2() {
                   id='Productivity'
                   for='Productivity'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Administration'
                   id='Administration'
                   for='Administration'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Finance Tracking'
                   id='Finance Tracking'
                   for='Finance Tracking'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Time Tracking'
                   id='Time Tracking'
                   for='Time Tracking'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Marketing Pipeline'
                   id='Marketing Pipeline'
                   for='Marketing Pipeline'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Organization'
                   id='Organization'
                   for='Organization'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Sales Pipeline'
                   id='Sales Pipeline'
                   for='Sales Pipeline'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Freelancing'
                   id='Freelancing'
                   for='Freelancing'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Project Management'
                   id='Project Management'
                   for='Project Management'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Product Management'
                   id='Product Management'
                   for='Product Management'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Development Pipeline'
                   id='Development Pipeline'
                   for='Development Pipeline'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
               </div>
             </label>
@@ -102,6 +131,7 @@ export default function Onboarding_2() {
             modalPosition='top-[180px]'
             skipToPage='/onboarding_3'
             continueToPage='/onboarding_3'
+        disabledState={!isAnyCheckboxSelected()}
           />
         </form>
         <Onboarding_progress_bar active='page2' />

@@ -1,11 +1,28 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from "react";
+import React, { useState } from "react";
 import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_progress_bar/Onboarding_progress_bar";
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import Onboarding_Checkbox from "../../Components/Onboarding/Onboarding_Checkbox/Onboarding_Checkbox";
 import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
 
 export default function Onboarding_3() {
+  const [checkboxStates, setCheckboxStates] = useState({});
+
+  const handleCheckboxChange = (id, isChecked) => {
+    setCheckboxStates(prevStates => ({
+        ...prevStates,
+        [id]: isChecked
+    }));
+  };
+
+  const countSelectedCheckboxes = () => {
+    return Object.values(checkboxStates).filter(state => state).length; // count of items
+  };
+
+  const isAnyCheckboxSelected = () => {
+    return countSelectedCheckboxes() > 0;
+  };
+
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_nav />
@@ -30,66 +47,77 @@ export default function Onboarding_3() {
                   id='Product Manager'
                   for='Product Manager'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Writer'
                   id='Writer'
                   for='Writer'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Designer'
                   id='Designer'
                   for='Designer'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Project Manager'
                   id='Project Manager'
                   for='Project Manager'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='HR Coordinator'
                   id='HR Coordinator'
                   for='HR Coordinator'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Developer'
                   id='Developer'
                   for='Developer'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Software Engineer'
                   id='Software Engineer'
                   for='Software Engineer'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Freelancer'
                   id='Freelancer'
                   for='Freelancer'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Side Gig Starter'
                   id='Side Gig Starter'
                   for='Side Gig Starter'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Student'
                   id='Student'
                   for='Student'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
                   title='Business Owner'
                   id='Business Owner'
                   for='Business Owner'
                   className=''
+                  handleCheckboxChange={handleCheckboxChange}
                 />
               </div>
             </label>
@@ -102,6 +130,7 @@ export default function Onboarding_3() {
             modalPosition='top-[170px]'
             skipToPage='/onboarding_4'
             continueToPage='/onboarding_4'
+            disabledState={!isAnyCheckboxSelected()}
           />
         </form>
         <Onboarding_progress_bar active='page3' />
