@@ -86,7 +86,7 @@ export default function Onboarding_5() {
           </button>
           <Onboarding_Skip_Continue_Btns
             formId=''
-            btnText='Invite and take me to Syne'
+            btnText='Invite and take me to Sycamore'
             disabledState={disabled} // Set the disabled prop based on the state
             modalPosition='top-[160px]'
             message='Are you sure you want to skip?'

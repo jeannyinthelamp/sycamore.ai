@@ -60,7 +60,7 @@ export default function Onboarding_1() {
         <div className='text-wrapper relative flex flex-col items-center w-[100%] h-auto gap-[16px] '>
           {/* //TODO: update margin once back and exit Btn's are built */}
           <h1 className='w-[100%] min-h-[54px] mt-[75px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
-            How are you planning to use Syne?
+            How are you planning to use Sycamore?
           </h1>
           <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             You can choose multiple options. We will tailor your workspace
