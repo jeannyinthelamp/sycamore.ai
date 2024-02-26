@@ -35,10 +35,11 @@ export default function Onboarding_4() {
   };
 
   const handleCompanyNameChange = (e) => {
+
     const newCompanyName = e.target.value;
         // Check the rules
     setCompanyName(newCompanyName);
-    
+
     setDisabled(newCompanyName.trim() === '');
   };
 
@@ -139,7 +140,7 @@ export default function Onboarding_4() {
               //
               type='text'
               name='company-name'
-              placeholder='Group / Organization / Company Name'
+              placeholder='Example: Syne Studio'
               value={companyName}
               onChange={handleCompanyNameChange}
               className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#495057] ${

@@ -14,6 +14,7 @@ export const validateCompanyName = (
     //remove any leading/trailing white space or double spacing
     companyName = companyName.trim();
     companyName = companyName.replace(/\s+/g, " ");
+    console.log("Company name is valid:", companyName);
 
     // TODO: make sure name is unique
     // send name to firebase store and check if it is unique
