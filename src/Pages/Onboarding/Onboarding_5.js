@@ -34,25 +34,25 @@ export default function Onboarding_5() {
   return (
     <div className='flex flex-col justify-center items-center'>
       <Onboarding_nav />
-      <div className='title-and-form-wrapper max-w-[730px] mx-[20px] h-auto flex flex-col justify-center items-center'>
+      <div className='title-and-form-wrapper max-w-[700px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto mb-[48px] flex flex-col justify-start items-center'>
           <h1 className='mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
             Invite your team members
           </h1>
-          <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
+          <p className='font-Roboto-Flex text-[18px] font-medium leading-[28px] text-center'>
             Add members to collaborate within a workspace. Type or paste in one
             or multiple emails separated by commas.
           </p>
         </div>
         <form
           action=''
-          className='w-full max-w-[420px] h-auto flex flex-col gap-[24px] justify-center items-start gap-y-[24px]'
+          className='w-full max-w-[420px] h-auto flex flex-col gap-[24px] font-Roboto-Flex justify-center items-start gap-y-[24px]'
         >
           <label hidden='hidden' for='emails'>Emails:</label>
           <ReactMultiEmail
             name='emails'
             placeholder='johndoe@gmail.com, janedoe@gmail.com, ...'
-            className={`${detectBrowser()}`}
+            className={`${detectBrowser()} font-Roboto-Flex`}
             emails={emails}
             onChange={handleEmailChange}
             autoFocus={true}

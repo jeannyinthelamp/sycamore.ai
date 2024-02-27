@@ -79,12 +79,12 @@ export default function Onboarding_4() {
   return (
     <div className='relative flex flex-col justify-start items-center w-screen h-screen'>
       <Onboarding_Nav />
-      <div className='title-and-form-wrapper max-w-[730px] mt-[20px] mx-[20px] h-auto flex flex-col justify-center items-center'>
+      <div className='title-and-form-wrapper max-w-[700px] mt-[20px] mx-[20px] h-auto flex flex-col justify-center items-center'>
         <div className='text-wrapper max-w-[730px] h-auto flex flex-col justify-start items-center'>
           <h1 className='w-[100%] mb-[24px] mx-[22px] font-Poppins text-[40px] font-semibold text-black text-center leading-[54px]'>
             Let's get your workspace ready
           </h1>
-          <p className='font-Poppins text-[18px] font-medium leading-[28px] text-center'>
+          <p className='font-Roboto-Flex text-[18px] font-medium leading-[28px] text-center'>
             Choose an icon and name your workspace (ex. company name). You can
             always change them later.
           </p>
@@ -122,7 +122,7 @@ export default function Onboarding_4() {
             </h1>
           </div>
           <p
-            className='w-auto mt-[8px] py-1 px-3 text-[14px] font-medium text-white font-Poppins text-center leading-6 bg-[#556AEB] rounded-lg cursor-pointer hover:bg-[#1D2E99]'
+            className='w-auto mt-[8px] py-1 px-3 text-[14px] font-medium text-white font-Roboto-Flex text-center leading-6 bg-[#556AEB] rounded-lg cursor-pointer hover:bg-[#1D2E99]'
             onClick={toggleIconPicker}
           >
             Choose an icon
@@ -133,7 +133,7 @@ export default function Onboarding_4() {
           className='w-[79.8%] max-w-[420px] h-auto flex flex-col gap-[24px] justify-center items-center'
         >
           <label
-            className='w-[100%] flex flex-col gap-[5px] font-Poppins text-[#00000080] text-[16px] font-normal leading-[24px] 
+            className='w-[100%] flex flex-col gap-[5px] font-Roboto-Flex text-[#00000080] text-[16px] font-normal leading-[24px] 
                 '
           >
             <input
@@ -143,11 +143,12 @@ export default function Onboarding_4() {
               placeholder='Example: Syne Studio'
               value={companyName}
               onChange={handleCompanyNameChange}
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Poppins font-normal text-[#212529] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#495057] ${
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Roboto-Flex font-normal text-[#212529] bg-[#F8F9FA] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#ADB5BD] ${
                 companyNameError || companyNameExists
                   ? "outline-[#D82D07]"
                   : "outline-[#CED4DA]"
-              }`}
+              }   } focus:bg-white
+              `}
             />
             <p
               className={` mt-[5px] font-Poppins font-normal text-[14px] text-[#D82D07] leading-[21px] ${
