@@ -85,7 +85,7 @@ export default function Onboarding_4() {
             Let's get your workspace ready
           </h1>
           <p className='font-Roboto-Flex text-[18px] font-medium leading-[28px] text-center'>
-            Choose an icon and name your workspace (ex. company name). You can
+            Choose an icon and name your workspace. You can
             always change them later.
           </p>
         </div>
@@ -140,10 +140,10 @@ export default function Onboarding_4() {
               //
               type='text'
               name='company-name'
-              placeholder='Example: Syne Studio'
+              placeholder='Acme Studio'
               value={companyName}
               onChange={handleCompanyNameChange}
-              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Roboto-Flex font-normal text-[#212529] bg-[#F8F9FA] leading-[24px]  outline outline-1 rounded-lg placeholder:text-[#ADB5BD] ${
+              className={`${detectBrowser()} w-[100%] h-auto py-[10px] px-[16px] font-Roboto-Flex font-normal text-[#212529] leading-[24px] border-[#6C757D] outline outline-1 rounded-lg placeholder:text-[#ADB5BD] ${
                 companyNameError || companyNameExists
                   ? "outline-[#D82D07]"
                   : "outline-[#CED4DA]"
