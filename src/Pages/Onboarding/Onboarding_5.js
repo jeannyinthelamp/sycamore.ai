@@ -86,9 +86,10 @@ export default function Onboarding_5() {
           </button>
           <Onboarding_Skip_Continue_Btns
             formId=''
-            btnText='Invite and take me to Sycamore'
+            btnText='Invite and take me to Sycamore.ai'
             disabledState={disabled} // Set the disabled prop based on the state
             modalPosition='top-[160px]'
+            skipMessage='Skip and take me to Sycamore.ai'
             message='Are you sure you want to skip?'
             skipToPage='/onboarding_7'
             continueToPage='/onboarding_7'
