@@ -29,19 +29,19 @@ export default function Onboarding_2() {
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_nav />
 
-      <div className='title-and-button-wrapper max-w-[714px] h-aut mt-[30px] flex flex-col justify-center items-center'>
+      <div className='title-and-button-wrapper max-w-[814px] h-aut mt-[30px] flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
-            How would you like to use Syne?
+            How would you like to use Sycamore?
           </h1>
-          <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
+          <p className='min-h-[28px] font-Roboto-Flex font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             Choose 1 or more.
           </p>
         </div>
         {/* //^ add form action */}
         <form action=''>
-          <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
-            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
+          <div className='mx-auto mt-[50px] mb-[48px] w-[50%]'>
+            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Roboto-Flex font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
                   title='Productivity'

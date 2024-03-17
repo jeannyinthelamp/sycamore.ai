@@ -33,14 +33,14 @@ export default function Onboarding_3() {
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
             What's your role?
           </h1>
-          <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
+          <p className='min-h-[28px] font-Roboto-Flex font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             Choose 1 or more.
           </p>
         </div>
         {/* //^ add form action */}
         <form action=''>
           <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
-            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
+            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Roboto-Flex font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
                   title='Product Manager'

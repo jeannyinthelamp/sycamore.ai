@@ -17,7 +17,7 @@ export default function Onboarding_Checkbox(props) {
       />
       <label
         htmlFor={props.for}
-        className={`option-wrapper flex items-center w-full h-auto p-[14px] font-Poppins font-medium text-[16+8px] text-center leading-[28px] text-[#212529] select-none cursor-pointer rounded-[8px]  border  transition-colors duration-200 ease-in-out ${
+        className={`option-wrapper flex items-center w-full h-auto p-[14px] font-Roboto-Flex font-medium text-[16+8px] text-center leading-[28px] text-[#212529] select-none cursor-pointer rounded-[8px]  border  transition-colors duration-200 ease-in-out ${
           hover ? " border-[#556AEB] " : " border-[#6C757D] "
         } ${isSelected ? " bg-[#EBEFFF] " : " bg-white "}`}
         onMouseOver={() => {

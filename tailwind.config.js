@@ -15,6 +15,7 @@ module.exports = withMT({
         Poppins: ["Poppins", "sans-serif"],
         Inter: ["Inter", "sans-serif"],
         NotoEmoji: ["Noto Color Emoji", "sans-serif"],
+        RobotoFlex: ["Roboto Flex", "sans-serif"],
       },
       colors: {
         "base-black": "#424242",

@@ -60,9 +60,9 @@ export default function Onboarding_1() {
         <div className='text-wrapper relative flex flex-col items-center w-[100%] h-auto gap-[16px] '>
           {/* //TODO: update margin once back and exit Btn's are built */}
           <h1 className='w-[100%] min-h-[54px] mt-[75px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px] '>
-            How are you planning to use Syne?
+            How are you planning to use Sycamore?
           </h1>
-          <p className='min-h-[28px] font-Poppins font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
+          <p className='min-h-[28px] font-Roboto-Flex font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             You can choose multiple options. We will tailor your workspace
             accordingly.
           </p>
@@ -70,7 +70,7 @@ export default function Onboarding_1() {
         {/* //^ add form action */}
         <form action='' className='w-auto'>
           <div className='first-selection-wrapper max-w-[420px] h-auto mt-[48px]  flex flex-col justify-start items-start '>
-            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Poppins font-medium text-[16px] text-center text-[212529] leading-[24px]'>
+            <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Roboto-Flex font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[24px]'>
                 {/* //* Generate options */}
                 {workplaceOptions.map((data) => (

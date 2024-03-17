@@ -34,7 +34,7 @@ export default function Onboarding_Icon_Picker(props) {
         p.setAttribute("group", emoji.group);
         p.setAttribute("sub-group", emoji.subGroup);
         p.className =
-          "flex justify-center items-center font-NotoEmoji text-[19.7px] p-1 cursor-pointer";
+          "flex justify-center items-center font-AppleColorEmoji text-[19.7px] p-1 cursor-pointer";
         p.textContent = emoji.character;
         p.onclick = function (e) {
           //set emoji as icon

@@ -4,7 +4,7 @@ import back from "../../../Assets/Icons/Onboarding_Icons/back.svg"
 import back_selected from "../../../Assets/Icons/Onboarding_Icons/back_selected.svg"
 import exit from "../../../Assets/Icons/Onboarding_Icons/exit.svg"
 import Onboarding_Action_Modal from "../Onboarding_Action_Modal/Onboarding_Action_Modal"
-import syne_logo from "../../../Assets/Icons/syne-logo.svg";
+import sycamore_logo from "../../../Assets/Icons/Logo_Blue.svg"
 
 export default function Onboarding_Nav(props) {
   const currentLocation = useLocation();
@@ -51,13 +51,10 @@ export default function Onboarding_Nav(props) {
     <div className=' w-[100%] self-stretch'>
       <div className='header-inner-wrapper w-full h-[72px] pt-[16px] pb-[16px] flex justify-start items-center pr-'>
         <img
-          className='w-[30px] h-[30px] mr-[14px] ml-[24px]'
-          src={syne_logo}
+          className='h-[72px] pt-[16px] pb-[16px] mr-[14px] ml-[24px]'
+          src={sycamore_logo}
           alt='Syne Logo'
         />
-        <p className='font-Poppins text-[20px] font-normal leading-[30px] tracking-[-0.266px]'>
-          Syne
-        </p>
       </div>
       {renderNavBar && (
         <div className="flex p-16 px-74 h-[64px] pt-[16px] pb-[136px] justify-between items-center self-stretch">
