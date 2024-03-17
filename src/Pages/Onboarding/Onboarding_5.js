@@ -4,7 +4,7 @@ import Onboarding_progress_bar from "../../Components/Onboarding/Onboarding_prog
 import Onboarding_nav from "../../Components/Onboarding/Onboarding_nav/Onboarding_nav";
 import shareLink from "../../Assets/Icons/Onboarding_Icons/link.svg";
 import info from "../../Assets/Icons/Onboarding_Icons/info.svg";
-import Onboarding_Skip_Continue_Btns from "../../Components/Onboarding/Onboarding_Skip_Continue_Buttons/Onboarding_Skip_Continue_Buttons";
+import Onboarding_Invite_Button from "../../Components/Onboarding/Onboarding_Invite_Button/Onboarding_Invite_Button";
 import Onboarding_Alert_Modal from "../../Components/Onboarding/Onboarding_Alert_Modal/Onboarding_Alert_Modal";
 import { safari_input_styling } from "../../Components/Styles/Safari_Input_Styling";
 import { ReactMultiEmail } from "react-multi-email";
@@ -84,7 +84,7 @@ export default function Onboarding_5() {
             <img src={shareLink} alt='Share Link Icon' className='mr-[4px]' />
             Share Link
           </button>
-          <Onboarding_Skip_Continue_Btns
+          <Onboarding_Invite_Button
             formId=''
             btnText='Invite and take me to Sycamore.ai'
             disabledState={disabled} // Set the disabled prop based on the state
@@ -92,7 +92,7 @@ export default function Onboarding_5() {
             skipMessage='Skip and take me to Sycamore.ai'
             message='Are you sure you want to skip?'
             skipToPage='/onboarding_7'
-            continueToPage='/onboarding_7'
+            // continueToPage='/onboarding_7' ; Disabling for loading
           />
         </form>
         {/* //* Navigation Button and form Submit Input */}
