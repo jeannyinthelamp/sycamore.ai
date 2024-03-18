@@ -31,7 +31,7 @@ export default function Onboarding_3() {
       <div className='title-and-button-wrapper max-w-[714px] h-auto mt-[20px] flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
-            What's your role?
+            Which best describes your role?
           </h1>
           <p className='min-h-[28px] font-Roboto-Flex font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             Choose 1 or more.
