@@ -39,41 +39,27 @@ export default function Onboarding_3() {
         </div>
         {/* //^ add form action */}
         <form action=''>
-          <div className='mx-auto mt-[50px] mb-[48px] w-[60%]'>
+          <div className='mx-auto mt-[50px] mb-[48px] w-[730px]'>
             <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Roboto-Flex font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
-                  title='Product Manager'
-                  id='Product Manager'
-                  for='Product Manager'
+                  title='Freelancer'
+                  id='Freelancer'
+                  for='Freelancer'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Writer'
-                  id='Writer'
-                  for='Writer'
+                  title='Student / Intern'
+                  id='Student / Intern'
+                  for='Student / Intern'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Designer'
-                  id='Designer'
-                  for='Designer'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='Project Manager'
-                  id='Project Manager'
-                  for='Project Manager'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='HR Coordinator'
-                  id='HR Coordinator'
-                  for='HR Coordinator'
+                  title='Sales Coordinator'
+                  id='Sales Coordinator'
+                  for='Sales Coordinator'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
@@ -85,37 +71,37 @@ export default function Onboarding_3() {
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Software Engineer'
-                  id='Software Engineer'
-                  for='Software Engineer'
+                  title='Executive Team'
+                  id='Executive Team'
+                  for='Executive Team'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Freelancer'
-                  id='Freelancer'
-                  for='Freelancer'
+                  title='HR Coordinator'
+                  id='HR Coordinator'
+                  for='HR Coordinator'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Side Gig Starter'
-                  id='Side Gig Starter'
-                  for='Side Gig Starter'
+                  title='Designer'
+                  id='Designer'
+                  for='Designer'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Student'
-                  id='Student'
-                  for='Student'
+                  title='Owner'
+                  id='Owner'
+                  for='Owner'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Business Owner'
-                  id='Business Owner'
-                  for='Business Owner'
+                  title='Manager'
+                  id='Manager'
+                  for='Manager'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />

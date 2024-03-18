@@ -29,10 +29,10 @@ export default function Onboarding_2() {
       {/* Change the active prop to page2, page3 etc to change the color of the corresponding bar */}
       <Onboarding_nav />
 
-      <div className='title-and-button-wrapper max-w-[814px] h-aut mt-[30px] flex flex-col justify-center items-center'>
+      <div className='title-and-button-wrapper max-w-[730px] h-aut mt-[30px] flex flex-col justify-center items-center'>
         <div className='text-wrapper h-auto flex flex-col gap-[24px]'>
           <h1 className='w-[100%] min-h-[54px] font-Poppins text-[40px] font-semibold text-[#212529] text-center leading-[54px]'>
-            How would you like to use Sycamore?
+            How would you like to use Sycamore.ai?
           </h1>
           <p className='min-h-[28px] font-Roboto-Flex font-medium text-[18px] text-center text-[#212529] leading-[28px]'>
             Choose 1 or more.
@@ -40,13 +40,13 @@ export default function Onboarding_2() {
         </div>
         {/* //^ add form action */}
         <form action=''>
-          <div className='mx-auto mt-[50px] mb-[48px] w-[50%]'>
+          <div className='mx-auto mt-[50px] mb-[48px] w-[730px]'>
             <label className='mb-[24px] flex flex-col items-start gap-[24px] font-Roboto-Flex font-medium text-[16px] text-center text-[212529] leading-[24px]'>
               <div className='checkbox-wrapper flex flex-row flex-wrap gap-[12px] justify-center items-center'>
                 <Onboarding_Checkbox
-                  title='Productivity'
-                  id='Productivity'
-                  for='Productivity'
+                  title='Sales / Marketing'
+                  id='Sales / Marketing'
+                  for='Sales / Marketing'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
@@ -58,9 +58,23 @@ export default function Onboarding_2() {
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Finance Tracking'
-                  id='Finance Tracking'
-                  for='Finance Tracking'
+                  title='Freelancing'
+                  id='Freelancing'
+                  for='Freelancing'
+                  className=''
+                  handleCheckboxChange={handleCheckboxChange}
+                />
+                <Onboarding_Checkbox
+                  title='CRM'
+                  id='CRM'
+                  for='CRM'
+                  className=''
+                  handleCheckboxChange={handleCheckboxChange}
+                />
+                <Onboarding_Checkbox
+                  title='Book Keeping'
+                  id='Book Keeping'
+                  for='Book Keeping'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
@@ -72,30 +86,16 @@ export default function Onboarding_2() {
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Marketing Pipeline'
-                  id='Marketing Pipeline'
-                  for='Marketing Pipeline'
+                  title='Development'
+                  id='Development'
+                  for='Development'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
                 <Onboarding_Checkbox
-                  title='Organization'
-                  id='Organization'
-                  for='Organization'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='Sales Pipeline'
-                  id='Sales Pipeline'
-                  for='Sales Pipeline'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='Freelancing'
-                  id='Freelancing'
-                  for='Freelancing'
+                  title='Wiki'
+                  id='Wiki'
+                  for='Wiki'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
@@ -103,20 +103,6 @@ export default function Onboarding_2() {
                   title='Project Management'
                   id='Project Management'
                   for='Project Management'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='Product Management'
-                  id='Product Management'
-                  for='Product Management'
-                  className=''
-                  handleCheckboxChange={handleCheckboxChange}
-                />
-                <Onboarding_Checkbox
-                  title='Development Pipeline'
-                  id='Development Pipeline'
-                  for='Development Pipeline'
                   className=''
                   handleCheckboxChange={handleCheckboxChange}
                 />
@@ -129,9 +115,9 @@ export default function Onboarding_2() {
             btnText='Continue'
             message='Are you sure you want to skip?'
             modalPosition='top-[180px]'
-            skipToPage='/onboarding_3'
             continueToPage='/onboarding_3'
-        disabledState={!isAnyCheckboxSelected()}
+            skipBtnVisible={false}
+            disabledState={!isAnyCheckboxSelected()}
           />
         </form>
         <Onboarding_progress_bar active='page2' />
