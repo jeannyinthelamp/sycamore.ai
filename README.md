@@ -1,4 +1,4 @@
-# Sycamore AI
+# Sycamore AI [being updated]
 
 > 💡 A productivity platform to streamline your workflow by rooting your tools in one place! Sycamore AI uses a combination of ChatGPT, Prezi, and Notion elements to create your ultimate digital workflow dashboard
 
@@ -11,7 +11,7 @@ https://camo.githubusercontent.com/e4fd898b98a495e5447770ca04a6d212abfd078e9145d
 
 - [Features](https://github.com/NotionX/react-notion-x#features)
 - [Usage](https://github.com/NotionX/react-notion-x#usage)
-- Set Up
+- Set Up [being updated]
 - [Contributing](https://github.com/NotionX/react-notion-x#contributing)
 - [License](https://github.com/NotionX/react-notion-x#license)
 - [Sponsor](https://github.com/NotionX/react-notion-x#sponsor)
