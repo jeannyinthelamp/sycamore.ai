@@ -65,7 +65,15 @@ yarn dev
 
 **👥 Contributing**
 
-👋 Interested in contributing? We welcome contributions of all kind, and are happy to hear new ideas! Check out our [contribution guide](https://github.com/NotionX/react-notion-x/blob/master/contributing.md)  and join our list of [contributors](https://github.com/transitive-bullshit/nextjs-notion-starter-kit/graphs/contributors). Feel free to reach out to [hello.sycamore.ai@gmail.com](mailto:hello.sycamore.ai@gmail.com) if you have any questions. 
+👋 Interested in contributing? Join us on our Discord community @https://discord.gg/RAryBywm
+
+We welcome contributions of all kind, and are happy to hear new ideas! 
+
+Get update on our current changelog live: [in progress]
+
+Check out our [contribution guide](https://github.com/NotionX/react-notion-x/blob/master/contributing.md)  and join our list of [contributors](https://github.com/transitive-bullshit/nextjs-notion-starter-kit/graphs/contributors). 
+
+Feel free to reach out to [hello.sycamore.ai@gmail.com](mailto:hello.sycamore.ai@gmail.com) if you have any questions. 
 
 **📇 License**
 
